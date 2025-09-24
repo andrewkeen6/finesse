@@ -1,0 +1,411 @@
+---
+---
+
+<section class="gallery section">
+  <div class="container">
+    <div class="gallery-header">
+      <h2 class="section-title">Our Work Gallery</h2>
+      <p class="section-subtitle">
+        See the transformation magic in action. Follow us on Instagram for daily updates!
+      </p>
+      <div class="instagram-link">
+        <a href="https://instagram.com/finessedetailing" target="_blank" class="instagram-btn">
+          <span class="instagram-icon">📷</span>
+          Follow @finessedetailing
+        </a>
+      </div>
+    </div>
+
+    <div class="gallery-grid" id="gallery-grid">
+      <!-- Placeholder images - replace with Instagram feed -->
+      <div class="gallery-item">
+        <div class="gallery-image">
+          <div class="image-placeholder before-after">
+            <div class="before-section">
+              <span class="label">BEFORE</span>
+            </div>
+            <div class="after-section">
+              <span class="label">AFTER</span>
+            </div>
+          </div>
+          <div class="gallery-overlay">
+            <div class="overlay-content">
+              <h4>Paint Correction & Ceramic Coating</h4>
+              <p>2023 BMW M3 - Complete transformation</p>
+              <div class="social-stats">
+                <span>❤️ 234</span>
+                <span>💬 18</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-image">
+          <div class="image-placeholder interior">
+            <span class="work-type">INTERIOR DETAIL</span>
+          </div>
+          <div class="gallery-overlay">
+            <div class="overlay-content">
+              <h4>Interior Deep Clean</h4>
+              <p>2022 Mercedes GLS - Leather restoration</p>
+              <div class="social-stats">
+                <span>❤️ 156</span>
+                <span>💬 12</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-image">
+          <div class="image-placeholder exterior">
+            <span class="work-type">EXTERIOR DETAIL</span>
+          </div>
+          <div class="gallery-overlay">
+            <div class="overlay-content">
+              <h4>Full Exterior Detail</h4>
+              <p>2021 Porsche 911 - Paint enhancement</p>
+              <div class="social-stats">
+                <span>❤️ 312</span>
+                <span>💬 25</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item featured">
+        <div class="gallery-image">
+          <div class="image-placeholder premium">
+            <div class="premium-badge">✨ PREMIUM</div>
+            <span class="work-type">CERAMIC COATING</span>
+          </div>
+          <div class="gallery-overlay">
+            <div class="overlay-content">
+              <h4>Premium Ceramic Coating</h4>
+              <p>2024 Lamborghini Huracán - Full protection package</p>
+              <div class="social-stats">
+                <span>❤️ 567</span>
+                <span>💬 43</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-image">
+          <div class="image-placeholder wheels">
+            <span class="work-type">WHEEL DETAIL</span>
+          </div>
+          <div class="gallery-overlay">
+            <div class="overlay-content">
+              <h4>Wheel Restoration</h4>
+              <p>2020 Audi RS6 - Deep cleaning & protection</p>
+              <div class="social-stats">
+                <span>❤️ 189</span>
+                <span>💬 14</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-image">
+          <div class="image-placeholder process">
+            <span class="work-type">PROCESS VIDEO</span>
+          </div>
+          <div class="gallery-overlay">
+            <div class="overlay-content">
+              <h4>Behind the Scenes</h4>
+              <p>Watch our meticulous process in action</p>
+              <div class="social-stats">
+                <span>❤️ 423</span>
+                <span>💬 67</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-footer">
+      <div class="load-more">
+        <button class="btn btn-outline" id="load-more-btn">Load More Photos</button>
+      </div>
+      <div class="gallery-cta">
+        <h3>Want your car featured?</h3>
+        <p>Book a service and tag us @finessedetailing for a chance to be featured!</p>
+        <a href="/book" class="btn btn-primary">Book Your Detail</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .gallery {
+    background: var(--white);
+  }
+
+  .gallery-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .instagram-link {
+    margin-top: 1.5rem;
+  }
+
+  .instagram-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #FFDC80);
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(131, 58, 180, 0.3);
+  }
+
+  .instagram-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(131, 58, 180, 0.4);
+  }
+
+  .instagram-icon {
+    font-size: 1.2rem;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .gallery-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .gallery-item.featured {
+    grid-column: span 2;
+  }
+
+  .gallery-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+  }
+
+  .featured .gallery-image {
+    height: 350px;
+  }
+
+  .image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .before-after {
+    background: linear-gradient(90deg,
+      var(--accent-gray) 0%,
+      var(--accent-gray) 50%,
+      var(--primary-red) 50%,
+      var(--primary-red) 100%);
+    display: flex;
+  }
+
+  .before-section, .after-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .label {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+
+  .interior {
+    background: linear-gradient(135deg, var(--dark-gray), var(--black));
+  }
+
+  .exterior {
+    background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+  }
+
+  .premium {
+    background: linear-gradient(135deg, var(--black), var(--primary-red), #FFD700);
+  }
+
+  .wheels {
+    background: linear-gradient(135deg, #2D2D2D, #666666);
+  }
+
+  .process {
+    background: linear-gradient(135deg, var(--primary-red), var(--black));
+  }
+
+  .work-type {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 0.7rem 1.2rem;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .premium-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 215, 0, 0.9);
+    color: var(--black);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    font-weight: 700;
+  }
+
+  .gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg,
+      transparent 0%,
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.8) 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .gallery-item:hover .gallery-overlay {
+    opacity: 1;
+  }
+
+  .overlay-content {
+    color: var(--white);
+  }
+
+  .overlay-content h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+
+  .overlay-content p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 0.8rem;
+  }
+
+  .social-stats {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.8rem;
+  }
+
+  .social-stats span {
+    opacity: 0.8;
+  }
+
+  .gallery-footer {
+    text-align: center;
+  }
+
+  .load-more {
+    margin-bottom: 3rem;
+  }
+
+  .gallery-cta {
+    background: var(--light-gray);
+    padding: 2rem;
+    border-radius: 15px;
+  }
+
+  .gallery-cta h3 {
+    color: var(--black);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .gallery-cta p {
+    color: var(--accent-gray);
+    margin-bottom: 1.5rem;
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .gallery-item.featured {
+      grid-column: span 1;
+    }
+
+    .gallery-image,
+    .featured .gallery-image {
+      height: 200px;
+    }
+
+    .overlay-content h4 {
+      font-size: 1rem;
+    }
+
+    .overlay-content p {
+      font-size: 0.8rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const loadMoreBtn = document.getElementById('load-more-btn');
+
+    loadMoreBtn?.addEventListener('click', () => {
+      // In a real implementation, this would load more Instagram posts
+      loadMoreBtn.textContent = 'Loading...';
+      loadMoreBtn.disabled = true;
+
+      setTimeout(() => {
+        loadMoreBtn.textContent = 'View More on Instagram';
+        loadMoreBtn.onclick = () => {
+          window.open('https://instagram.com/finessedetailing', '_blank');
+        };
+      }, 1000);
+    });
+  });
+</script>

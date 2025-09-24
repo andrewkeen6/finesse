@@ -1,0 +1,169 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Contact from '../components/Contact.astro';
+---
+
+<Layout title="Contact Us - Finésse Detailing" description="Get in touch with Finésse Detailing in Port Washington, NY. Book your service, ask questions, or schedule a consultation. Mobile service available throughout our service area.">
+  <div class="contact-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Contact Finésse Detailing</h1>
+        <p>Ready to transform your vehicle? Get in touch with us today for a consultation or to book your detailing service.</p>
+        <div class="quick-contact">
+          <a href="tel:+15167673637" class="quick-btn">
+            <span class="btn-icon">📞</span>
+            Call or Text
+          </a>
+          <a href="/book" class="quick-btn">
+            <span class="btn-icon">📅</span>
+            Book Online
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <Contact />
+
+  <section class="faq-section section">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>How long does a complete detail take?</h3>
+          <p>A complete detail typically takes 4-6 hours depending on your vehicle's size and condition. We never rush our work to ensure the best results.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do you offer mobile service?</h3>
+          <p>Yes! We bring our professional equipment to your location within a 20-mile radius of our shop. A small travel fee may apply.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How often should I detail my car?</h3>
+          <p>We recommend a complete detail every 3-4 months, with maintenance washes in between. Ceramic coated vehicles can go longer between details.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What's included in ceramic coating?</h3>
+          <p>Our ceramic coating service includes paint correction, multi-stage polishing, professional coating application, and a 2-year protection warranty.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do you work on all vehicle types?</h3>
+          <p>Yes, we detail cars, trucks, SUVs, motorcycles, and specialty vehicles. Each service is customized to your vehicle's specific needs.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What if I'm not satisfied?</h3>
+          <p>We offer a 100% satisfaction guarantee. If you're not completely happy with our service, we'll make it right or provide a full refund.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .contact-hero {
+    background: linear-gradient(135deg, var(--primary-red) 0%, var(--black) 100%);
+    color: var(--white);
+    padding: 8rem 0 4rem;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--white) 0%, var(--light-gray) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
+
+  .quick-contact {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .quick-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  .quick-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--white);
+    transform: translateY(-2px);
+  }
+
+  .btn-icon {
+    font-size: 1.2rem;
+  }
+
+  .faq-section {
+    background: var(--light-gray);
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  .faq-item {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .faq-item h3 {
+    color: var(--black);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item p {
+    color: var(--accent-gray);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+
+    .contact-hero {
+      padding: 6rem 0 3rem;
+    }
+
+    .quick-contact {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .quick-btn {
+      width: 200px;
+      justify-content: center;
+    }
+
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

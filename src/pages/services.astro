@@ -1,0 +1,122 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Services from '../components/Services.astro';
+---
+
+<Layout title="Our Services - Finésse Detailing" description="Comprehensive motorcar & marine detailing services including exterior, interior, ceramic coating, and paint protection. Professional quality with mobile service available in Port Washington, NY.">
+  <div class="services-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Professional Motorcar & Marine Detailing Services</h1>
+        <p>From basic wash and wax to premium ceramic coating - we have the perfect package for your vehicle or boat.</p>
+      </div>
+    </div>
+  </div>
+
+  <Services />
+
+  <section class="service-process section">
+    <div class="container">
+      <h2 class="section-title">Our Process</h2>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <h3>Inspection</h3>
+          <p>Thorough assessment of your vehicle's condition and specific needs</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <h3>Preparation</h3>
+          <p>Safe wash and decontamination to prepare surfaces for treatment</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <h3>Treatment</h3>
+          <p>Professional application of cleaning, polishing, and protection products</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <h3>Quality Check</h3>
+          <p>Final inspection to ensure our high standards are met</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .services-hero {
+    background: linear-gradient(135deg, var(--black) 0%, var(--dark-gray) 100%);
+    color: var(--white);
+    padding: 8rem 0 4rem;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--white) 0%, var(--primary-red) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .service-process {
+    background: var(--light-gray);
+  }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .process-step {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .step-number {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-red);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1rem;
+  }
+
+  .process-step h3 {
+    color: var(--black);
+    margin-bottom: 1rem;
+  }
+
+  .process-step p {
+    color: var(--accent-gray);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+
+    .services-hero {
+      padding: 6rem 0 3rem;
+    }
+  }
+</style>

@@ -1,0 +1,296 @@
+---
+import Navigation from '../components/Navigation.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Premium car detailing services that restore your vehicle's shine and protect its value." } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content={description} />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="generator" content={Astro.generator} />
+  <title>{title}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <Navigation />
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-brand">
+            <h3 class="footer-logo">
+              <span class="logo-text">Finésse</span>
+              <span class="logo-subtitle">Fine Motorcar & Marine Detailing</span>
+            </h3>
+            <p class="footer-description">
+              Fine motorcar & marine detailing services that restore your vehicle's shine and protect its value.
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services#exterior">Exterior Detailing</a></li>
+            <li><a href="/services#interior">Interior Detailing</a></li>
+            <li><a href="/services#protection">Paint Protection</a></li>
+            <li><a href="/services#ceramic">Ceramic Coating</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/book">Book Now</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contact Info</h4>
+          <div class="contact-info">
+            <p>📞 (516) 767-3637</p>
+            <p>📧 info@finessedetailing.com</p>
+            <p>📍 439B Main Street, Port Washington, NY 11050</p>
+          </div>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="Google Reviews">⭐</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Finésse Detailing. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
+<style is:global>
+  :root {
+    --primary-red: #DC143C;
+    --dark-red: #B71C1C;
+    --black: #1A1A1A;
+    --dark-gray: #2D2D2D;
+    --light-gray: #F5F5F5;
+    --white: #FFFFFF;
+    --accent-gray: #666666;
+    --success-green: #10B981;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    line-height: 1.6;
+    color: var(--black);
+    background: var(--white);
+  }
+
+  main {
+    margin-top: 70px;
+    min-height: calc(100vh - 70px);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--black);
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+    text-align: center;
+    color: var(--accent-gray);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .btn-primary {
+    background: var(--primary-red);
+    color: var(--white);
+    border-color: var(--primary-red);
+  }
+
+  .btn-primary:hover {
+    background: var(--dark-red);
+    border-color: var(--dark-red);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--black);
+    border-color: var(--black);
+  }
+
+  .btn-outline:hover {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  /* Footer Styles */
+  .footer {
+    background: var(--black);
+    color: var(--white);
+    padding: 3rem 0 1rem;
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-brand .footer-logo {
+    margin-bottom: 1rem;
+  }
+
+  .footer-brand .logo-text {
+    color: var(--primary-red);
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: block;
+    line-height: 1;
+  }
+
+  .footer-brand .logo-subtitle {
+    color: var(--white);
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .footer-description {
+    color: var(--accent-gray);
+    line-height: 1.6;
+  }
+
+  .footer-section h4 {
+    color: var(--white);
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .footer-section ul {
+    list-style: none;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-section a {
+    color: var(--accent-gray);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-section a:hover {
+    color: var(--primary-red);
+  }
+
+  .contact-info p {
+    margin-bottom: 0.5rem;
+    color: var(--accent-gray);
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .social-links a {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+
+  .social-links a:hover {
+    transform: scale(1.2);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid var(--dark-gray);
+    padding-top: 1rem;
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    color: var(--accent-gray);
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>
