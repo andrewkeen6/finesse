@@ -1,4 +1,5 @@
 ---
+const currentPath = Astro.url.pathname;
 ---
 
 <nav class="navbar">
@@ -11,9 +12,9 @@
     </div>
 
     <div class="nav-menu" id="nav-menu">
-      <a href="/services" class="nav-link">Services</a>
-      <a href="/gallery" class="nav-link">Gallery</a>
-      <a href="/contact" class="nav-link">Contact</a>
+      <a href="/services" class={`nav-link ${currentPath === '/services' ? 'active' : ''}`}>Services</a>
+      <a href="/gallery" class={`nav-link ${currentPath === '/gallery' ? 'active' : ''}`}>Gallery</a>
+      <a href="/contact" class={`nav-link ${currentPath === '/contact' ? 'active' : ''}`}>Contact</a>
       <a href="/book" class="nav-cta">Book Now</a>
     </div>
 
@@ -40,8 +41,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(26, 26, 26, 0.95);
-    backdrop-filter: blur(10px);
+    background: var(--black);
     border-bottom: 1px solid rgba(220, 20, 60, 0.2);
     z-index: 1000;
     transition: all 0.3s ease;
@@ -110,8 +110,13 @@
     transition: width 0.3s ease;
   }
 
-  .nav-link:hover::after {
+  .nav-link:hover::after,
+  .nav-link.active::after {
     width: 100%;
+  }
+
+  .nav-link.active {
+    color: var(--primary-red);
   }
 
   .nav-cta {

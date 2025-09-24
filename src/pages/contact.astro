@@ -9,16 +9,6 @@ import Contact from '../components/Contact.astro';
       <div class="hero-content">
         <h1>Contact Finésse Detailing</h1>
         <p>Ready to transform your vehicle? Get in touch with us today for a consultation or to book your detailing service.</p>
-        <div class="quick-contact">
-          <a href="tel:+15167673637" class="quick-btn">
-            <span class="btn-icon">📞</span>
-            Call or Text
-          </a>
-          <a href="/book" class="quick-btn">
-            <span class="btn-icon">📅</span>
-            Book Online
-          </a>
-        </div>
       </div>
     </div>
   </div>
@@ -60,58 +50,23 @@ import Contact from '../components/Contact.astro';
 
 <style>
   .contact-hero {
-    background: linear-gradient(135deg, var(--primary-red) 0%, var(--black) 100%);
+    background: var(--dark-gray);
     color: var(--white);
-    padding: 8rem 0 4rem;
+    padding: 4rem 0 2rem;
     text-align: center;
   }
 
   .hero-content h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--white) 0%, var(--light-gray) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--primary-red);
   }
 
   .hero-content p {
     font-size: 1.2rem;
-    opacity: 0.9;
+    color: rgba(255, 255, 255, 0.8);
     max-width: 600px;
-    margin: 0 auto 2rem;
-  }
-
-  .quick-contact {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-  }
-
-  .quick-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--white);
-    padding: 1rem 2rem;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-  }
-
-  .quick-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: var(--white);
-    transform: translateY(-2px);
-  }
-
-  .btn-icon {
-    font-size: 1.2rem;
+    margin: 0 auto;
   }
 
   .faq-section {
@@ -149,7 +104,7 @@ import Contact from '../components/Contact.astro';
     }
 
     .contact-hero {
-      padding: 6rem 0 3rem;
+      padding: 3rem 0 1.5rem;
     }
 
     .quick-contact {

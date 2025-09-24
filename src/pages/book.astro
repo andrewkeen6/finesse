@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Book Service - Finésse Detailing" description="Book your premium motorcar or marine detailing service online. Choose from complete detail, exterior, interior, or ceramic coating packages. Mobile service available in Port Washington, NY.">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" slot="head"></script>
   <div class="booking-hero">
     <div class="container">
       <div class="hero-content">
@@ -234,8 +235,8 @@ import Layout from '../layouts/Layout.astro';
           <div class="contact-card">
             <h4>Need Help?</h4>
             <p>Questions about our services?</p>
-            <a href="tel:+15167673637" class="contact-btn">
-              📞 Call or Text (516) 767-3637
+            <a href="tel:+15163149524" class="contact-btn">
+              📞 Call or Text (516) 314-9524
             </a>
           </div>
         </div>
@@ -573,6 +574,9 @@ import Layout from '../layouts/Layout.astro';
   }
 
   document.addEventListener('DOMContentLoaded', () => {
+    // Initialize EmailJS
+    emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your actual EmailJS public key
+
     // Handle mobile service address field
     const locationRadios = document.querySelectorAll('input[name="location"]');
     const mobileAddressField = document.querySelector('.mobile-address');
@@ -607,16 +611,54 @@ import Layout from '../layouts/Layout.astro';
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn.textContent;
 
-      submitBtn.textContent = 'Processing...';
+      submitBtn.textContent = 'Sending...';
       submitBtn.disabled = true;
 
-      setTimeout(() => {
-        alert('Booking request submitted! We\'ll call you within 2 hours to confirm your appointment.');
-        form.reset();
-        showStep(1);
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-      }, 2000);
+      // Format the booking data for email
+      const emailData = {
+        to_email: 'andrew.keen6@gmail.com',
+        customer_name: data.name,
+        customer_email: data.email,
+        customer_phone: data.phone,
+        service_type: getServiceName(data.service),
+        vehicle_info: `${data.year} ${data.make} ${data.model} ${data.color || ''}`.trim(),
+        preferred_date: data.date,
+        preferred_time: data.time,
+        service_location: data.location === 'mobile' ? `Mobile Service - ${data.address}` : 'At Shop - 439B Main Street, Port Washington, NY 11050',
+        mobile_service: data.mobile_service ? 'Yes' : 'No',
+        newsletter: data.newsletter ? 'Yes' : 'No',
+        special_notes: data.notes || 'None',
+        booking_date: new Date().toLocaleDateString(),
+        booking_time: new Date().toLocaleTimeString()
+      };
+
+      // Send email using EmailJS
+      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', emailData)
+        .then(() => {
+          // Success
+          alert('Booking request submitted successfully! We\'ll call you within 2 hours to confirm your appointment.');
+          form.reset();
+          showStep(1);
+        })
+        .catch((error) => {
+          // Error
+          console.error('EmailJS Error:', error);
+          alert('There was an error submitting your booking. Please try again or call us directly at (516) 314-9524.');
+        })
+        .finally(() => {
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        });
     });
+
+    function getServiceName(serviceValue) {
+      const serviceNames = {
+        'complete': 'Complete Detail',
+        'exterior': 'Exterior Detail',
+        'interior': 'Interior Detail',
+        'ceramic': 'Ceramic Coating'
+      };
+      return serviceNames[serviceValue] || serviceValue;
+    }
   });
 </script>

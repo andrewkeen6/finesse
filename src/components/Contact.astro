@@ -3,12 +3,6 @@
 
 <section class="contact section">
   <div class="container">
-    <div class="contact-header">
-      <h2 class="section-title">Get In Touch</h2>
-      <p class="section-subtitle">
-        Ready to give your car the premium treatment it deserves? Contact us today!
-      </p>
-    </div>
 
     <div class="contact-content">
       <div class="contact-info">
@@ -19,7 +13,7 @@
               <div class="detail-icon">📞</div>
               <div class="detail-content">
                 <h4>Phone</h4>
-                <p><a href="tel:+15167673637">(516) 767-3637</a></p>
+                <p><a href="tel:+15163149524">(516) 314-9524</a></p>
               </div>
             </div>
 
@@ -35,7 +29,7 @@
               <div class="detail-icon">📍</div>
               <div class="detail-content">
                 <h4>Address</h4>
-                <p>439B Main Street<br>Port Washington, NY 11050</p>
+                <p><a href="https://www.google.com/maps/dir/?api=1&destination=439B+Main+Street,+Port+Washington,+NY+11050" target="_blank">439B Main Street<br>Port Washington, NY 11050</a></p>
               </div>
             </div>
 
@@ -60,7 +54,7 @@
 
         <div class="quick-actions">
           <a href="/book" class="btn btn-primary large">Book Service Online</a>
-          <a href="tel:+15167673637" class="btn btn-outline large">Call or Text</a>
+          <a href="tel:+15163149524" class="btn btn-outline large">Call or Text</a>
         </div>
       </div>
 
@@ -112,11 +106,6 @@
                 <span class="checkmark"></span>
                 I'm interested in mobile service
               </label>
-              <label class="checkbox-label">
-                <input type="checkbox" name="newsletter" id="newsletter">
-                <span class="checkmark"></span>
-                Subscribe to our newsletter for tips and special offers
-              </label>
             </div>
 
             <button type="submit" class="btn btn-primary large">Send Message</button>
@@ -127,26 +116,15 @@
 
     <div class="map-section">
       <div class="map-header">
-        <h3>Visit Our Location</h3>
-        <p>Located in the heart of the automotive district with easy parking</p>
+        <h3>Drop Off & Explore</h3>
+        <p>Drop off your vehicle and enjoy Main Street's restaurants and shops while we work our magic</p>
       </div>
 
       <div class="map-container">
         <div class="map-placeholder" id="google-map">
-          <div class="map-overlay">
-            <div class="location-marker">📍</div>
-            <div class="location-info">
-              <h4>Finésse Detailing</h4>
-              <p>439B Main Street<br>Port Washington, NY 11050</p>
-              <div class="map-actions">
-                <button class="map-btn" onclick="openDirections()">Get Directions</button>
-                <button class="map-btn" onclick="viewLargerMap()">View Larger Map</button>
-              </div>
-            </div>
-          </div>
           <!-- Google Maps embed will be loaded here -->
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.123456789!2d-74.006!3d40.7128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQyJzQ2LjEiTiA3NMKwMDAnMjEuNiJX!5e0!3m2!1sen!2sus!4v1234567890"
+            src="https://maps.google.com/maps?q=439B%20Main%20Street,%20Port%20Washington,%20NY%2011050&output=embed"
             width="100%"
             height="400"
             style="border:0;"
@@ -165,10 +143,6 @@
     background: var(--white);
   }
 
-  .contact-header {
-    text-align: center;
-    margin-bottom: 4rem;
-  }
 
   .contact-content {
     display: grid;
@@ -368,69 +342,6 @@
     background: var(--dark-gray);
   }
 
-  .map-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(26, 26, 26, 0.7);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    z-index: 2;
-    opacity: 1;
-    transition: opacity 0.3s ease;
-  }
-
-  .map-placeholder:hover .map-overlay {
-    opacity: 0;
-  }
-
-  .location-marker {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: var(--primary-red);
-  }
-
-  .location-info {
-    text-align: center;
-  }
-
-  .location-info h4 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-
-  .location-info p {
-    margin-bottom: 1.5rem;
-    opacity: 0.9;
-  }
-
-  .map-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .map-btn {
-    background: var(--primary-red);
-    color: var(--white);
-    border: none;
-    padding: 0.7rem 1.2rem;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: background 0.3s ease;
-  }
-
-  .map-btn:hover {
-    background: var(--dark-red);
-  }
 
   .map-placeholder iframe {
     position: absolute;
@@ -473,6 +384,11 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    // Initialize EmailJS
+    if (typeof emailjs !== 'undefined') {
+      emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your actual EmailJS public key
+    }
+
     const form = document.getElementById('contact-form');
 
     form?.addEventListener('submit', (e) => {
@@ -481,19 +397,53 @@
       const formData = new FormData(form);
       const data = Object.fromEntries(formData);
 
-      // Simulate form submission
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn.textContent;
 
       submitBtn.textContent = 'Sending...';
       submitBtn.disabled = true;
 
-      setTimeout(() => {
-        alert('Thank you! Your message has been sent. We\'ll get back to you within 24 hours.');
-        form.reset();
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-      }, 1500);
+      // Check if EmailJS is available
+      if (typeof emailjs === 'undefined') {
+        // Fallback to simple alert if EmailJS is not loaded
+        setTimeout(() => {
+          alert('Thank you! Your message has been received. We\'ll get back to you within 24 hours.');
+          form.reset();
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        }, 1500);
+        return;
+      }
+
+      // Format the contact data for email
+      const emailData = {
+        to_email: 'andrew.keen6@gmail.com',
+        customer_name: data.name,
+        customer_email: data.email,
+        customer_phone: data.phone,
+        service_interest: data.service || 'General Inquiry',
+        vehicle_info: data.vehicle || 'Not specified',
+        mobile_service: data.mobile_service ? 'Yes' : 'No',
+        newsletter: data.newsletter ? 'Yes' : 'No',
+        message: data.message || 'No additional message',
+        contact_date: new Date().toLocaleDateString(),
+        contact_time: new Date().toLocaleTimeString()
+      };
+
+      // Send email using EmailJS
+      emailjs.send('YOUR_SERVICE_ID', 'YOUR_CONTACT_TEMPLATE_ID', emailData)
+        .then(() => {
+          alert('Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.');
+          form.reset();
+        })
+        .catch((error) => {
+          console.error('EmailJS Error:', error);
+          alert('There was an error sending your message. Please try again or call us directly at (516) 314-9524.');
+        })
+        .finally(() => {
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        });
     });
   });
 

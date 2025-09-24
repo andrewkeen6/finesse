@@ -9,77 +9,33 @@ import Gallery from '../components/Gallery.astro';
       <div class="hero-content">
         <h1>Our Work Gallery</h1>
         <p>Witness the transformation magic. Every vehicle tells a story of restoration, protection, and finesse.</p>
-        <div class="stats">
-          <div class="stat">
-            <span class="stat-number">500+</span>
-            <span class="stat-label">Cars Detailed</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">4.9</span>
-            <span class="stat-label">Google Rating</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">100%</span>
-            <span class="stat-label">Satisfaction</span>
-          </div>
-        </div>
       </div>
     </div>
   </div>
 
   <Gallery />
 
-  <section class="gallery-categories section">
-    <div class="container">
-      <h2 class="section-title">Browse by Category</h2>
-      <div class="categories-grid">
-        <div class="category-card">
-          <div class="category-icon">🚗</div>
-          <h3>Exterior Details</h3>
-          <p>Paint correction, polishing, and protection services</p>
-        </div>
-        <div class="category-card">
-          <div class="category-icon">🪑</div>
-          <h3>Interior Details</h3>
-          <p>Deep cleaning, leather care, and restoration</p>
-        </div>
-        <div class="category-card">
-          <div class="category-icon">✨</div>
-          <h3>Ceramic Coatings</h3>
-          <p>Ultimate protection with professional application</p>
-        </div>
-        <div class="category-card">
-          <div class="category-icon">🔄</div>
-          <h3>Before & After</h3>
-          <p>Dramatic transformations that speak for themselves</p>
-        </div>
-      </div>
-    </div>
-  </section>
 </Layout>
 
 <style>
   .gallery-hero {
-    background: linear-gradient(135deg, var(--black) 0%, var(--primary-red) 100%);
+    background: var(--dark-gray);
     color: var(--white);
-    padding: 8rem 0 4rem;
+    padding: 4rem 0 2rem;
     text-align: center;
   }
 
   .hero-content h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--white) 0%, var(--light-gray) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--primary-red);
   }
 
   .hero-content p {
     font-size: 1.2rem;
-    opacity: 0.9;
+    color: rgba(255, 255, 255, 0.8);
     max-width: 600px;
-    margin: 0 auto 3rem;
+    margin: 0 auto;
   }
 
   .stats {
@@ -151,7 +107,7 @@ import Gallery from '../components/Gallery.astro';
     }
 
     .gallery-hero {
-      padding: 6rem 0 3rem;
+      padding: 3rem 0 1.5rem;
     }
 
     .stats {

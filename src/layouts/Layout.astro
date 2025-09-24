@@ -20,7 +20,8 @@ const { title, description = "Premium car detailing services that restore your v
   <title>{title}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
   <Navigation />
@@ -32,55 +33,18 @@ const { title, description = "Premium car detailing services that restore your v
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-content">
-        <div class="footer-section">
-          <div class="footer-brand">
-            <h3 class="footer-logo">
-              <span class="logo-text">Finésse</span>
-              <span class="logo-subtitle">Fine Motorcar & Marine Detailing</span>
-            </h3>
-            <p class="footer-description">
-              Fine motorcar & marine detailing services that restore your vehicle's shine and protect its value.
-            </p>
-          </div>
-        </div>
-
-        <div class="footer-section">
-          <h4>Services</h4>
-          <ul>
-            <li><a href="/services#exterior">Exterior Detailing</a></li>
-            <li><a href="/services#interior">Interior Detailing</a></li>
-            <li><a href="/services#protection">Paint Protection</a></li>
-            <li><a href="/services#ceramic">Ceramic Coating</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="/gallery">Gallery</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/book">Book Now</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h4>Contact Info</h4>
-          <div class="contact-info">
-            <p>📞 (516) 767-3637</p>
-            <p>📧 info@finessedetailing.com</p>
-            <p>📍 439B Main Street, Port Washington, NY 11050</p>
-          </div>
+        <div class="footer-contact">
+          <p><a href="tel:+15163149524">📞  (516) 314-9524</a></p>
+          <p><a href="mailto:info@finessedetailing.com">📧  info@finessedetailing.com</a></p>
+          <p><a href="https://www.google.com/maps/dir/?api=1&destination=439B+Main+Street,+Port+Washington,+NY+11050" target="_blank">📍  439B Main Street, Port Washington, NY 11050</a></p>
           <div class="social-links">
-            <a href="#" aria-label="Instagram">📷</a>
-            <a href="#" aria-label="Facebook">📘</a>
-            <a href="#" aria-label="Google Reviews">⭐</a>
+            <a href="https://instagram.com/finessedetail" aria-label="Instagram" target="_blank">📷  Instagram</a>
+            <a href="#" aria-label="Facebook" target="_blank">📘  Facebook</a>
+            <a href="https://maps.app.goo.gl/m5mYEiUAyYerEKba9" aria-label="Google Reviews" target="_blank">⭐  Google Reviews</a>
           </div>
         </div>
       </div>
 
-      <div class="footer-bottom">
-        <p>&copy; 2025 Finésse Detailing. All rights reserved.</p>
-      </div>
     </div>
   </footer>
 </body>
@@ -105,7 +69,7 @@ const { title, description = "Premium car detailing services that restore your v
   }
 
   html {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
   }
 
@@ -187,7 +151,7 @@ const { title, description = "Premium car detailing services that restore your v
   .footer {
     background: var(--black);
     color: var(--white);
-    padding: 3rem 0 1rem;
+    padding: 2rem 0 1rem;
   }
 
   .footer-container {
@@ -197,79 +161,48 @@ const { title, description = "Premium car detailing services that restore your v
   }
 
   .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    text-align: center;
     margin-bottom: 2rem;
   }
 
-  .footer-brand .footer-logo {
-    margin-bottom: 1rem;
+  .footer-contact {
+    text-align: center;
   }
 
-  .footer-brand .logo-text {
-    color: var(--primary-red);
-    font-size: 1.5rem;
-    font-weight: 700;
-    display: block;
-    line-height: 1;
+  .footer-contact p {
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
   }
 
-  .footer-brand .logo-subtitle {
-    color: var(--white);
-    font-size: 0.8rem;
-    font-weight: 300;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-
-  .footer-description {
-    color: var(--accent-gray);
-    line-height: 1.6;
-  }
-
-  .footer-section h4 {
-    color: var(--white);
-    margin-bottom: 1rem;
-    font-weight: 600;
-  }
-
-  .footer-section ul {
-    list-style: none;
-  }
-
-  .footer-section ul li {
-    margin-bottom: 0.5rem;
-  }
-
-  .footer-section a {
+  .footer-contact a {
     color: var(--accent-gray);
     text-decoration: none;
     transition: color 0.3s ease;
   }
 
-  .footer-section a:hover {
+  .footer-contact a:hover {
     color: var(--primary-red);
-  }
-
-  .contact-info p {
-    margin-bottom: 0.5rem;
-    color: var(--accent-gray);
   }
 
   .social-links {
     display: flex;
     gap: 1rem;
-    margin-top: 1rem;
+    justify-content: center;
+    margin-top: 0.5rem;
   }
 
   .social-links a {
-    font-size: 1.5rem;
-    transition: transform 0.3s ease;
+    color: var(--accent-gray);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
   }
 
   .social-links a:hover {
-    transform: scale(1.2);
+    color: var(--primary-red);
+    transform: translateY(-2px);
   }
 
   .footer-bottom {
@@ -280,7 +213,7 @@ const { title, description = "Premium car detailing services that restore your v
 
   .footer-bottom p {
     color: var(--accent-gray);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
   @media (max-width: 768px) {
@@ -290,7 +223,21 @@ const { title, description = "Premium car detailing services that restore your v
 
     .footer-content {
       grid-template-columns: 1fr;
+      text-align: center;
       gap: 1.5rem;
+    }
+
+    .footer-links {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-contact {
+      text-align: center;
+    }
+
+    .social-links {
+      justify-content: center;
     }
   }
 </style>
