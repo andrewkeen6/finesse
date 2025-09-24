@@ -11,11 +11,15 @@ const currentPath = Astro.url.pathname;
       </a>
     </div>
 
-    <div class="nav-menu" id="nav-menu">
-      <a href="/services" class={`nav-link ${currentPath === '/services' ? 'active' : ''}`}>Services</a>
-      <a href="/gallery" class={`nav-link ${currentPath === '/gallery' ? 'active' : ''}`}>Gallery</a>
-      <a href="/contact" class={`nav-link ${currentPath === '/contact' ? 'active' : ''}`}>Contact</a>
-      <a href="/book" class="nav-cta">Book Now</a>
+    <div class="nav-right">
+      <div class="nav-menu" id="nav-menu">
+        <a href="/services" class={`nav-link ${currentPath === '/services' ? 'active' : ''}`}>Services</a>
+        <a href="/gallery" class={`nav-link ${currentPath === '/gallery' ? 'active' : ''}`}>Gallery</a>
+        <a href="/faq" class={`nav-link ${currentPath === '/faq' ? 'active' : ''}`}>FAQ</a>
+        <a href="/contact" class={`nav-link ${currentPath === '/contact' ? 'active' : ''}`}>Contact</a>
+      </div>
+
+      <a href="tel:+15163149524" class="nav-cta">Call Now</a>
     </div>
 
     <div class="nav-toggle" id="nav-toggle">
@@ -55,6 +59,12 @@ const currentPath = Astro.url.pathname;
     justify-content: space-between;
     align-items: center;
     height: 70px;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
   }
 
   .nav-brand .nav-logo {
@@ -154,6 +164,10 @@ const currentPath = Astro.url.pathname;
 
   /* Mobile Styles */
   @media (max-width: 768px) {
+    .nav-right {
+      position: relative;
+    }
+
     .nav-menu {
       position: fixed;
       left: -100%;
@@ -170,6 +184,11 @@ const currentPath = Astro.url.pathname;
 
     .nav-menu.active {
       left: 0;
+    }
+
+    .nav-cta {
+      position: relative;
+      z-index: 1001;
     }
 
     .nav-toggle {

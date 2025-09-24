@@ -1,0 +1,126 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="FAQ - Finésse Detailing" description="Frequently asked questions about our motorcar & marine detailing services, pricing, scheduling, and processes. Get answers to common questions about ceramic coating, mobile service, and more.">
+  <div class="faq-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Frequently Asked Questions</h1>
+        <p>Get answers to common questions about our detailing services, processes, and policies.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="faq-section section">
+    <div class="container">
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>How long does a complete detail take?</h3>
+          <p>A complete detail typically takes 4-6 hours depending on your vehicle's size and condition. We never rush our work to ensure the best results.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do you offer mobile service?</h3>
+          <p>Yes! We bring our professional equipment to your location within a 20-mile radius of our shop. A small travel fee may apply.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How often should I detail my car?</h3>
+          <p>We recommend a complete detail every 3-4 months, with maintenance washes in between. Ceramic coated vehicles can go longer between details.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What's included in ceramic coating?</h3>
+          <p>Our ceramic coating service includes paint correction, multi-stage polishing, professional coating application, and a 2-year protection warranty.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do you work on all vehicle types?</h3>
+          <p>Yes, we detail cars, trucks, SUVs, motorcycles, and specialty vehicles. Each service is customized to your vehicle's specific needs.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What if I'm not satisfied?</h3>
+          <p>We offer a 100% satisfaction guarantee. If you're not completely happy with our service, we'll make it right or provide a full refund.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How do I schedule a service?</h3>
+          <p>Simply call us at (516) 314-9524 or use our contact form. We'll discuss your needs and find a convenient time for your detailing service.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do you detail boats and marine vessels?</h3>
+          <p>Absolutely! We specialize in both motorcar and marine detailing, with expertise in boat cleaning, polishing, and protection.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What payment methods do you accept?</h3>
+          <p>We accept cash, credit cards, and most major payment apps. Payment is due upon completion of service.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Can I wait while my vehicle is detailed?</h3>
+          <p>Of course! Our Main Street location is walking distance to great restaurants and shops, perfect for spending time while we work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .faq-hero {
+    background: var(--dark-gray);
+    color: var(--white);
+    padding: 4rem 0 2rem;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-red);
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .faq-section {
+    background: var(--white);
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  .faq-item {
+    background: var(--light-gray);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .faq-item h3 {
+    color: var(--black);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item p {
+    color: var(--accent-gray);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+
+    .faq-hero {
+      padding: 3rem 0 1.5rem;
+    }
+
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

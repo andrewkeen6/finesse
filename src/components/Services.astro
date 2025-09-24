@@ -9,10 +9,6 @@
         <div class="service-badge">Most Popular</div>
         <div class="service-header">
           <h3 class="service-title">Complete Detail</h3>
-          <div class="service-price">
-            <span class="price">$299</span>
-            <span class="period">Starting at</span>
-          </div>
         </div>
         <div class="service-content">
           <p class="service-description">
@@ -31,18 +27,15 @@
             <span>4-6 hours</span>
           </div>
         </div>
-        <div class="service-action">
-          <a href="/book?service=complete" class="btn btn-primary">Book Now</a>
+        <div class="service-price">
+          <span class="period">Starting at</span>
+          <span class="price">$299</span>
         </div>
       </div>
 
       <div class="service-card">
         <div class="service-header">
           <h3 class="service-title">Exterior Detail</h3>
-          <div class="service-price">
-            <span class="price">$179</span>
-            <span class="period">Starting at</span>
-          </div>
         </div>
         <div class="service-content">
           <p class="service-description">
@@ -60,18 +53,15 @@
             <span>2-3 hours</span>
           </div>
         </div>
-        <div class="service-action">
-          <a href="/book?service=exterior" class="btn btn-outline">Book Now</a>
+        <div class="service-price">
+          <span class="period">Starting at</span>
+          <span class="price">$179</span>
         </div>
       </div>
 
       <div class="service-card">
         <div class="service-header">
           <h3 class="service-title">Interior Detail</h3>
-          <div class="service-price">
-            <span class="price">$149</span>
-            <span class="period">Starting at</span>
-          </div>
         </div>
         <div class="service-content">
           <p class="service-description">
@@ -89,8 +79,9 @@
             <span>2-3 hours</span>
           </div>
         </div>
-        <div class="service-action">
-          <a href="/book?service=interior" class="btn btn-outline">Book Now</a>
+        <div class="service-price">
+          <span class="period">Starting at</span>
+          <span class="price">$149</span>
         </div>
       </div>
 
@@ -98,10 +89,6 @@
         <div class="service-badge premium-badge">Premium</div>
         <div class="service-header">
           <h3 class="service-title">Ceramic Coating</h3>
-          <div class="service-price">
-            <span class="price">$799</span>
-            <span class="period">Starting at</span>
-          </div>
         </div>
         <div class="service-content">
           <p class="service-description">
@@ -120,8 +107,9 @@
             <span>Full day</span>
           </div>
         </div>
-        <div class="service-action">
-          <a href="/book?service=ceramic" class="btn btn-primary">Book Now</a>
+        <div class="service-price">
+          <span class="period">Starting at</span>
+          <span class="price">$799</span>
         </div>
       </div>
     </div>
@@ -166,6 +154,8 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
 
   .service-card:hover {
@@ -185,14 +175,16 @@
 
   .service-badge {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     background: var(--primary-red);
     color: var(--white);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
+    padding: 0.5rem 1.2rem;
+    border-radius: 0 0 15px 15px;
     font-size: 0.8rem;
     font-weight: 600;
+    text-align: center;
   }
 
   .premium-badge {
@@ -201,6 +193,12 @@
 
   .service-header {
     margin-bottom: 1.5rem;
+    padding-top: 2.5rem;
+  }
+
+  .service-card.featured .service-header,
+  .service-card.premium .service-header {
+    padding-top: 3rem;
   }
 
   .service-title {
@@ -212,8 +210,12 @@
 
   .service-price {
     display: flex;
-    align-items: baseline;
-    gap: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: auto;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(220, 20, 60, 0.1);
   }
 
   .price {
@@ -231,7 +233,11 @@
 
   .period {
     color: var(--accent-gray);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.2rem;
   }
 
   .premium .period {
@@ -239,7 +245,7 @@
   }
 
   .service-content {
-    margin-bottom: 2rem;
+    flex: 1;
   }
 
   .service-description {
@@ -283,9 +289,6 @@
     font-size: 1.2rem;
   }
 
-  .service-action {
-    margin-top: auto;
-  }
 
   .services-footer {
     display: grid;
