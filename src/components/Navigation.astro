@@ -6,8 +6,7 @@ const currentPath = Astro.url.pathname;
   <div class="nav-container">
     <div class="nav-brand">
       <a href="/" class="nav-logo">
-        <span class="logo-text">Finésse</span>
-        <span class="logo-subtitle">Fine Motorcar & Marine Detailing</span>
+        <img src="/logo.png" alt="Finésse Detailing Logo" class="logo-image" />
       </a>
     </div>
 
@@ -69,6 +68,18 @@ const currentPath = Astro.url.pathname;
 
   .nav-brand .nav-logo {
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .logo-image {
+    height: 70px;
+    width: auto;
+    display: block;
+  }
+
+  .logo-content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -164,6 +175,15 @@ const currentPath = Astro.url.pathname;
 
   /* Mobile Styles */
   @media (max-width: 768px) {
+    .logo-image {
+      height: 40px;
+    }
+
+    .logo-subtitle {
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+    }
+
     .nav-right {
       position: relative;
     }
