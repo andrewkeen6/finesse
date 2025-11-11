@@ -5,8 +5,7 @@
   <div class="container">
 
     <div class="services-grid">
-      <div class="service-card featured">
-        <div class="service-badge">Most Popular</div>
+      <div class="service-card">
         <div class="service-header">
           <h3 class="service-title">Complete Detail</h3>
         </div>
@@ -22,14 +21,6 @@
             <li>✓ Tire & rim cleaning</li>
             <li>✓ Protective wax application</li>
           </ul>
-          <div class="service-duration">
-            <span class="duration-icon">⏱</span>
-            <span>4-6 hours</span>
-          </div>
-        </div>
-        <div class="service-price">
-          <span class="period">Starting at</span>
-          <span class="price">$299</span>
         </div>
       </div>
 
@@ -48,14 +39,6 @@
             <li>✓ Tire shine application</li>
             <li>✓ Window cleaning</li>
           </ul>
-          <div class="service-duration">
-            <span class="duration-icon">⏱</span>
-            <span>2-3 hours</span>
-          </div>
-        </div>
-        <div class="service-price">
-          <span class="period">Starting at</span>
-          <span class="price">$179</span>
         </div>
       </div>
 
@@ -74,19 +57,10 @@
             <li>✓ Dashboard & trim care</li>
             <li>✓ Air freshening</li>
           </ul>
-          <div class="service-duration">
-            <span class="duration-icon">⏱</span>
-            <span>2-3 hours</span>
-          </div>
-        </div>
-        <div class="service-price">
-          <span class="period">Starting at</span>
-          <span class="price">$149</span>
         </div>
       </div>
 
-      <div class="service-card premium">
-        <div class="service-badge premium-badge">Premium</div>
+      <div class="service-card">
         <div class="service-header">
           <h3 class="service-title">Ceramic Coating</h3>
         </div>
@@ -102,31 +76,24 @@
             <li>✓ Hydrophobic properties</li>
             <li>✓ UV protection</li>
           </ul>
-          <div class="service-duration">
-            <span class="duration-icon">⏱</span>
-            <span>Full day</span>
-          </div>
-        </div>
-        <div class="service-price">
-          <span class="period">Starting at</span>
-          <span class="price">$799</span>
         </div>
       </div>
-    </div>
 
-    <div class="services-footer">
-      <div class="guarantee">
-        <div class="guarantee-icon">🛡️</div>
-        <div class="guarantee-text">
-          <h4>100% Satisfaction Guarantee</h4>
-          <p>Not happy with our service? We'll make it right or refund your money.</p>
+      <div class="service-card">
+        <div class="service-header">
+          <h3 class="service-title">Custom Package</h3>
         </div>
-      </div>
-      <div class="mobile-service">
-        <div class="mobile-icon">🚗</div>
-        <div class="mobile-text">
-          <h4>Mobile Service Available</h4>
-          <p>We come to you! Available at your home or office within our service area.</p>
+        <div class="service-content">
+          <p class="service-description">
+            Build your own custom detailing package tailored to your specific needs and preferences.
+          </p>
+          <ul class="service-features">
+            <li>✓ Choose your services</li>
+            <li>✓ Flexible options</li>
+            <li>✓ Personalized care</li>
+            <li>✓ Professional consultation</li>
+            <li>✓ Tailored to your budget</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -141,107 +108,31 @@
 
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-bottom: 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
   }
 
   .service-card {
     background: var(--white);
-    border-radius: 15px;
-    padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
   }
 
-  .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  }
-
-  .service-card.featured {
-    border: 2px solid var(--primary-red);
-    transform: scale(1.05);
-  }
-
-  .service-card.premium {
-    background: linear-gradient(135deg, var(--black) 0%, var(--dark-gray) 100%);
-    color: var(--white);
-  }
-
-  .service-badge {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--primary-red);
-    color: var(--white);
-    padding: 0.5rem 1.2rem;
-    border-radius: 0 0 15px 15px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-align: center;
-  }
-
-  .premium-badge {
-    background: linear-gradient(135deg, var(--primary-red), #FFD700);
-  }
-
   .service-header {
-    margin-bottom: 1.5rem;
-    padding-top: 2.5rem;
-  }
-
-  .service-card.featured .service-header,
-  .service-card.premium .service-header {
-    padding-top: 3rem;
+    margin-bottom: 1rem;
   }
 
   .service-title {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.2rem;
+    font-weight: 600;
     margin-bottom: 0.5rem;
-    color: inherit;
-  }
-
-  .service-price {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: auto;
-    padding: 1.5rem 0;
-    border-top: 1px solid rgba(220, 20, 60, 0.1);
-  }
-
-  .price {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--primary-red);
-  }
-
-  .premium .price {
-    background: linear-gradient(135deg, var(--primary-red), #FFD700);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .period {
-    color: var(--accent-gray);
-    font-size: 0.8rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 0.2rem;
-  }
-
-  .premium .period {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--black);
   }
 
   .service-content {
@@ -249,79 +140,21 @@
   }
 
   .service-description {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     color: var(--accent-gray);
     line-height: 1.6;
-  }
-
-  .premium .service-description {
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
   }
 
   .service-features {
     list-style: none;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
   }
 
   .service-features li {
-    padding: 0.3rem 0;
+    padding: 0.25rem 0;
     color: var(--black);
-    font-weight: 500;
-  }
-
-  .premium .service-features li {
-    color: var(--white);
-  }
-
-  .service-duration {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--accent-gray);
-    font-weight: 500;
-  }
-
-  .premium .service-duration {
-    color: rgba(255, 255, 255, 0.8);
-  }
-
-  .duration-icon {
-    font-size: 1.2rem;
-  }
-
-
-  .services-footer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-    background: var(--white);
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  }
-
-  .guarantee,
-  .mobile-service {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .guarantee-icon,
-  .mobile-icon {
-    font-size: 2rem;
-  }
-
-  .guarantee-text h4,
-  .mobile-text h4 {
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-    color: var(--black);
-  }
-
-  .guarantee-text p,
-  .mobile-text p {
-    color: var(--accent-gray);
+    font-weight: 400;
     font-size: 0.9rem;
   }
 
@@ -330,25 +163,6 @@
     .services-grid {
       grid-template-columns: 1fr;
       gap: 1.5rem;
-    }
-
-    .service-card.featured {
-      transform: none;
-    }
-
-    .service-card:hover {
-      transform: translateY(-2px);
-    }
-
-    .services-footer {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    .guarantee,
-    .mobile-service {
-      flex-direction: column;
-      text-align: center;
     }
   }
 </style>

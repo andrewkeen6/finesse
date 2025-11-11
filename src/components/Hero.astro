@@ -26,10 +26,6 @@
             <span>Premium Quality</span>
           </div>
           <div class="feature">
-            <span class="feature-icon">🚗</span>
-            <span>Mobile Service</span>
-          </div>
-          <div class="feature">
             <span class="feature-icon">⭐</span>
             <span>5-Star Reviews</span>
           </div>
@@ -44,13 +40,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-
-  <div class="hero-scroll">
-    <div class="scroll-indicator">
-      <span>Scroll to explore</span>
-      <div class="scroll-arrow">↓</div>
     </div>
   </div>
 </section>
@@ -71,7 +60,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(220,20,60,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
     opacity: 0.3;
   }
 
@@ -83,7 +71,7 @@
     height: 100%;
     background: linear-gradient(45deg,
       rgba(26, 26, 26, 0.8) 0%,
-      rgba(220, 20, 60, 0.1) 50%,
+      rgba(var(--primary-red-rgb), 0.1) 50%,
       rgba(26, 26, 26, 0.9) 100%);
   }
 
@@ -185,7 +173,7 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
-    border: 2px solid rgba(220, 20, 60, 0.3);
+    border: 2px solid rgba(var(--primary-red-rgb), 0.3);
   }
 
   .placeholder-text {

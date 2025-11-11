@@ -17,7 +17,8 @@ Finesse Detailing is a professional car detailing website built with Astro v5.13
 ## Color Palette
 
 ```css
---primary-red: #DC143C
+--primary-red: #8c2b2b
+--primary-red-rgb: 140, 43, 43
 --dark-red: #B71C1C
 --black: #1A1A1A
 --dark-gray: #2D2D2D
