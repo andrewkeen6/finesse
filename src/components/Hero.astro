@@ -7,6 +7,10 @@
   </div>
 
   <div class="container">
+    <div class="hero-logo-top">
+      <img src="/logo_light.png" alt="Finésse Detailing Logo" class="logo-top" />
+    </div>
+
     <div class="hero-content">
       <div class="hero-text">
         <h1 class="hero-title">
@@ -34,10 +38,7 @@
 
       <div class="hero-image">
         <div class="car-showcase">
-          <div class="car-image-placeholder">
-            <div class="shine-effect"></div>
-            <span class="placeholder-text">Premium Car Detail</span>
-          </div>
+          <img src="/clean_car.jpeg" alt="Premium Car Detailing" class="car-photo" />
         </div>
       </div>
     </div>
@@ -73,6 +74,21 @@
       rgba(26, 26, 26, 0.8) 0%,
       rgba(var(--primary-red-rgb), 0.1) 50%,
       rgba(26, 26, 26, 0.9) 100%);
+  }
+
+  .hero-logo-top {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .logo-top {
+    max-width: 450px;
+    width: 100%;
+    height: auto;
   }
 
   .hero-content {
@@ -159,48 +175,16 @@
 
   .car-showcase {
     position: relative;
-    width: 400px;
-    height: 300px;
+    width: 100%;
+    max-width: 500px;
   }
 
-  .car-image-placeholder {
+  .car-photo {
     width: 100%;
-    height: 100%;
-    background: var(--dark-gray);
+    height: auto;
     border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    border: 2px solid rgba(var(--primary-red-rgb), 0.3);
-  }
-
-  .placeholder-text {
-    color: var(--white);
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-align: center;
-    z-index: 2;
-  }
-
-  .shine-effect {
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg,
-      transparent,
-      rgba(255, 255, 255, 0.2),
-      transparent);
-    animation: shine 3s infinite;
-  }
-
-  @keyframes shine {
-    0% { left: -100%; }
-    50% { left: 100%; }
-    100% { left: 100%; }
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    display: block;
   }
 
   .hero-scroll {
@@ -231,6 +215,14 @@
 
   /* Mobile Styles */
   @media (max-width: 768px) {
+    .logo-top {
+      max-width: 300px;
+    }
+
+    .hero-logo-top {
+      margin-bottom: 1.5rem;
+    }
+
     .hero-content {
       grid-template-columns: 1fr;
       gap: 2rem;
@@ -254,8 +246,7 @@
     }
 
     .car-showcase {
-      width: 300px;
-      height: 200px;
+      max-width: 400px;
     }
   }
 

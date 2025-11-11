@@ -60,30 +60,6 @@
     </div>
 
     <div class="testimonials-footer">
-      <div class="trust-indicators">
-        <div class="indicator">
-          <div class="indicator-icon">🏆</div>
-          <div class="indicator-text">
-            <h4>Top Rated</h4>
-            <p>Highest rated detailing service in the area</p>
-          </div>
-        </div>
-        <div class="indicator">
-          <div class="indicator-icon">🛡️</div>
-          <div class="indicator-text">
-            <h4>Insured & Bonded</h4>
-            <p>Your vehicle is protected with full coverage</p>
-          </div>
-        </div>
-        <div class="indicator">
-          <div class="indicator-icon">⭐</div>
-          <div class="indicator-text">
-            <h4>500+ Happy Customers</h4>
-            <p>Join our growing community of satisfied clients</p>
-          </div>
-        </div>
-      </div>
-
       <div class="review-cta">
         <h3>Love our service?</h3>
         <p>Help others discover us by leaving a review!</p>
@@ -218,41 +194,8 @@
   }
 
   .testimonials-footer {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 3rem;
-    align-items: center;
-  }
-
-  .trust-indicators {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-  }
-
-  .indicator {
     display: flex;
-    align-items: center;
-    gap: 1rem;
-    background: var(--white);
-    padding: 1.5rem;
-    border-radius: 10px;
-  }
-
-  .indicator-icon {
-    font-size: 2rem;
-  }
-
-  .indicator-text h4 {
-    color: var(--black);
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-    font-size: 0.9rem;
-  }
-
-  .indicator-text p {
-    color: var(--accent-gray);
-    font-size: 0.8rem;
+    justify-content: center;
   }
 
   .review-cta {
@@ -260,6 +203,7 @@
     background: var(--white);
     padding: 2rem;
     border-radius: 15px;
+    max-width: 600px;
   }
 
   .review-cta h3 {
@@ -290,20 +234,6 @@
 
     .quote-icon {
       font-size: 2.5rem;
-    }
-
-    .testimonials-footer {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    .trust-indicators {
-      grid-template-columns: 1fr;
-    }
-
-    .indicator {
-      flex-direction: column;
-      text-align: center;
     }
   }
 </style>
