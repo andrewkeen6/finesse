@@ -1,0 +1,243 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About - Finésse Detailing" description="Learn about the passion and expertise behind Finésse Detailing. Meet the owner and discover our commitment to premium motorcar and marine detailing.">
+  <div class="about-hero">
+    <div class="container">
+      <h1>About Finésse Detailing</h1>
+      <p>Passion, precision, and perfection in every detail</p>
+    </div>
+  </div>
+
+  <section class="about-content section">
+    <div class="container">
+      <div class="owner-section">
+        <div class="owner-image">
+          <div class="image-placeholder"></div>
+        </div>
+        <div class="owner-bio">
+          <h2>Meet the Owner</h2>
+          <h3>Scott Noble</h3>
+          <p class="title">Owner</p>
+
+          <p>With over 15 years of experience in automotive and marine detailing, I founded Finésse Detailing with a simple mission: to provide the highest quality care for your prized vehicles and vessels.</p>
+
+          <p>My journey began as a teenager, washing cars in my family's driveway. What started as a way to earn extra money quickly became a passion. I was fascinated by the transformation process—taking a weathered, neglected vehicle and restoring it to showroom condition.</p>
+
+          <p>After studying automotive technology and completing certifications in paint correction and ceramic coating application, I worked with some of the top detailing shops in New York. In 2018, I decided to bring my expertise to Port Washington, where I could offer personalized, premium service to discerning car and boat owners.</p>
+
+          <p>What sets Finésse apart is our attention to detail and our commitment to using only the best products and techniques. We treat every vehicle as if it were our own, taking the time to understand your specific needs and deliver results that exceed expectations.</p>
+
+          <p>When I'm not detailing, you'll find me at local car shows, staying current with the latest industry innovations, or out on the water—which is how I developed my expertise in marine detailing.</p>
+
+          <div class="credentials">
+            <h4>Certifications & Training</h4>
+            <ul>
+              <li>IDA Certified Detailer</li>
+              <li>Ceramic Pro Certified Installer</li>
+              <li>XPEL Paint Protection Film Certified</li>
+              <li>Marine Detailing Specialist</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="values-section">
+        <h2>Our Values</h2>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">🎯</div>
+            <h3>Precision</h3>
+            <p>Every detail matters. We take a meticulous approach to ensure no spot is missed and every surface receives proper care.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">⭐</div>
+            <h3>Quality</h3>
+            <p>We use only premium, professional-grade products and equipment to deliver results that last.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🤝</div>
+            <h3>Trust</h3>
+            <p>Your vehicle is a significant investment. We treat it with the respect and care it deserves.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">💡</div>
+            <h3>Innovation</h3>
+            <p>We stay current with the latest techniques and technologies to provide cutting-edge detailing services.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .about-hero {
+    background: var(--dark-gray);
+    color: var(--white);
+    padding: 4rem 0 3rem;
+    text-align: center;
+  }
+
+  .about-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-red);
+  }
+
+  .about-hero p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .about-content {
+    background: var(--white-transparent);
+  }
+
+  .owner-section {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+    align-items: start;
+  }
+
+  .owner-image .image-placeholder {
+    width: 100%;
+    height: 350px;
+    background: linear-gradient(135deg, var(--dark-gray) 0%, var(--accent-gray) 100%);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .owner-bio h2 {
+    font-size: 2rem;
+    color: var(--black);
+    margin-bottom: 0.5rem;
+  }
+
+  .owner-bio h3 {
+    font-size: 1.5rem;
+    color: var(--primary-red);
+    margin-bottom: 0.3rem;
+  }
+
+  .owner-bio .title {
+    font-size: 1rem;
+    color: var(--accent-gray);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+
+  .owner-bio p {
+    color: var(--black);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+
+  .credentials {
+    background: var(--light-gray);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+  }
+
+  .credentials h4 {
+    color: var(--black);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .credentials ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .credentials li {
+    color: var(--accent-gray);
+    padding: 0.3rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .credentials li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-red);
+    font-weight: 700;
+  }
+
+  .values-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--black);
+    margin-bottom: 2rem;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .value-card {
+    background: var(--light-gray);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .value-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .value-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .value-card h3 {
+    color: var(--black);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+  }
+
+  .value-card p {
+    color: var(--accent-gray);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .about-hero h1 {
+      font-size: 2rem;
+    }
+
+    .about-hero {
+      padding: 3rem 0 2rem;
+    }
+
+    .owner-section {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .owner-image .image-placeholder {
+      height: 250px;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    .owner-bio {
+      text-align: center;
+    }
+
+    .credentials {
+      text-align: left;
+    }
+  }
+</style>
