@@ -3,76 +3,112 @@
 
 <section class="gallery section">
   <div class="container">
-
-    <div class="image-carousel-section">
-      <div class="carousel-container">
-        <div class="carousel-track" id="carousel-track">
-          <div class="carousel-slide active">
-            <div class="car-image">
-              <div class="image-placeholder luxury-sedan">
-                <div class="image-overlay">
-                  <h4>Premium Sedan Detail</h4>
-                  <p>Complete exterior & interior transformation</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-slide">
-            <div class="car-image">
-              <div class="image-placeholder sports-car">
-                <div class="image-overlay">
-                  <h4>Sports Car Ceramic Coating</h4>
-                  <p>Ultimate paint protection & shine</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-slide">
-            <div class="car-image">
-              <div class="image-placeholder luxury-suv">
-                <div class="image-overlay">
-                  <h4>Luxury SUV Detail</h4>
-                  <p>Interior leather restoration & exterior polish</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-slide">
-            <div class="car-image">
-              <div class="image-placeholder boat-detail">
-                <div class="image-overlay">
-                  <h4>Marine Vessel Detail</h4>
-                  <p>Professional boat cleaning & protection</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-slide">
-            <div class="car-image">
-              <div class="image-placeholder classic-car">
-                <div class="image-overlay">
-                  <h4>Classic Car Restoration</h4>
-                  <p>Meticulous care for vintage automobiles</p>
-                </div>
-              </div>
-            </div>
+    <div class="mosaic-grid">
+      <div class="mosaic-item large">
+        <div class="image-placeholder luxury-sedan">
+          <div class="image-overlay">
+            <h4>Premium Sedan Detail</h4>
+            <p>Complete exterior & interior transformation</p>
           </div>
         </div>
+      </div>
 
-        <div class="carousel-navigation">
-          <button class="carousel-btn prev" id="carousel-prev" aria-label="Previous image">‹</button>
-          <div class="carousel-indicators" id="carousel-indicators">
-            <button class="indicator active" data-slide="0"></button>
-            <button class="indicator" data-slide="1"></button>
-            <button class="indicator" data-slide="2"></button>
-            <button class="indicator" data-slide="3"></button>
-            <button class="indicator" data-slide="4"></button>
+      <div class="mosaic-item">
+        <div class="image-placeholder sports-car">
+          <div class="image-overlay">
+            <h4>Sports Car Ceramic Coating</h4>
+            <p>Ultimate paint protection</p>
           </div>
-          <button class="carousel-btn next" id="carousel-next" aria-label="Next image">›</button>
+        </div>
+      </div>
+
+      <div class="mosaic-item">
+        <div class="image-placeholder luxury-suv">
+          <div class="image-overlay">
+            <h4>Luxury SUV Detail</h4>
+            <p>Interior leather restoration</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mosaic-item tall">
+        <div class="image-placeholder boat-detail">
+          <div class="image-overlay">
+            <h4>Marine Vessel Detail</h4>
+            <p>Professional boat cleaning & protection</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mosaic-item">
+        <div class="image-placeholder classic-car">
+          <div class="image-overlay">
+            <h4>Classic Car Restoration</h4>
+            <p>Meticulous vintage care</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mosaic-item">
+        <div class="image-placeholder interior-detail">
+          <div class="image-overlay">
+            <h4>Interior Deep Clean</h4>
+            <p>Thorough cabin refresh</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mosaic-item wide">
+        <div class="image-placeholder paint-correction">
+          <div class="image-overlay">
+            <h4>Paint Correction</h4>
+            <p>Swirl removal & gloss enhancement</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mosaic-item">
+        <div class="image-placeholder wheel-detail">
+          <div class="image-overlay">
+            <h4>Wheel Restoration</h4>
+            <p>Brake dust removal & shine</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mosaic-item">
+        <div class="image-placeholder engine-bay">
+          <div class="image-overlay">
+            <h4>Engine Bay Detail</h4>
+            <p>Under-hood perfection</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mosaic-item tall">
+        <div class="image-placeholder convertible">
+          <div class="image-overlay">
+            <h4>Convertible Detail</h4>
+            <p>Top-down ready finish</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mosaic-item">
+        <div class="image-placeholder headlight">
+          <div class="image-overlay">
+            <h4>Headlight Restoration</h4>
+            <p>Crystal clear visibility</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mosaic-item">
+        <div class="image-placeholder ceramic-coating">
+          <div class="image-overlay">
+            <h4>Ceramic Coating Application</h4>
+            <p>Long-term protection</p>
+          </div>
         </div>
       </div>
     </div>
@@ -88,53 +124,46 @@
         <script async src="//www.instagram.com/embed.js"></script>
       </div>
     </div>
-
-    <div class="gallery-footer">
-      <div class="gallery-cta">
-        <h3>Want your car featured?</h3>
-        <p>Book a service and tag us @finessedetail for a chance to be featured!</p>
-        <a href="/book" class="btn btn-primary">Book Your Detail</a>
-      </div>
-    </div>
   </div>
 </section>
 
 <style>
   .gallery {
     background: var(--white);
+    padding: 2rem 0 4rem;
   }
 
-  .image-carousel-section {
-    padding: 4rem 0;
-    background: var(--white);
+  .mosaic-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
+    gap: 1rem;
+    margin-bottom: 3rem;
   }
 
-  .carousel-container {
+  .mosaic-item {
     position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .carousel-track {
-    position: relative;
+    border-radius: 12px;
     overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .carousel-slide {
-    display: none;
-    width: 100%;
+  .mosaic-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
   }
 
-  .carousel-slide.active {
-    display: block;
+  .mosaic-item.large {
+    grid-column: span 2;
+    grid-row: span 2;
   }
 
-  .car-image {
-    position: relative;
-    height: 500px;
-    overflow: hidden;
+  .mosaic-item.tall {
+    grid-row: span 2;
+  }
+
+  .mosaic-item.wide {
+    grid-column: span 2;
   }
 
   .image-placeholder {
@@ -166,6 +195,34 @@
     background: linear-gradient(135deg, #8E44AD 0%, #9B59B6 50%, #E74C3C 100%);
   }
 
+  .interior-detail {
+    background: linear-gradient(135deg, #34495E 0%, #2C3E50 50%, #95A5A6 100%);
+  }
+
+  .paint-correction {
+    background: linear-gradient(135deg, #E74C3C 0%, var(--primary-red) 50%, #C0392B 100%);
+  }
+
+  .wheel-detail {
+    background: linear-gradient(135deg, #7F8C8D 0%, #95A5A6 50%, #BDC3C7 100%);
+  }
+
+  .engine-bay {
+    background: linear-gradient(135deg, #2C3E50 0%, #34495E 50%, #7F8C8D 100%);
+  }
+
+  .convertible {
+    background: linear-gradient(135deg, #F39C12 0%, #E67E22 50%, #D35400 100%);
+  }
+
+  .headlight {
+    background: linear-gradient(135deg, #F1C40F 0%, #F39C12 50%, #E67E22 100%);
+  }
+
+  .ceramic-coating {
+    background: linear-gradient(135deg, #1ABC9C 0%, #16A085 50%, #2C3E50 100%);
+  }
+
   .image-overlay {
     position: absolute;
     bottom: 0;
@@ -173,76 +230,25 @@
     right: 0;
     background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
     color: var(--white);
-    padding: 3rem 2rem 2rem;
+    padding: 2rem 1rem 1rem;
     text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .mosaic-item:hover .image-overlay {
+    opacity: 1;
   }
 
   .image-overlay h4 {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
   }
 
   .image-overlay p {
     opacity: 0.9;
-    font-size: 1rem;
-  }
-
-  .carousel-navigation {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 2rem;
-    padding: 0 1rem;
-  }
-
-  .carousel-btn {
-    background: var(--white);
-    border: 2px solid var(--primary-red);
-    color: var(--primary-red);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(var(--primary-red-rgb), 0.2);
-  }
-
-  .carousel-btn:hover {
-    background: var(--primary-red);
-    color: var(--white);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(var(--primary-red-rgb), 0.3);
-  }
-
-  .carousel-indicators {
-    display: flex;
-    gap: 0.5rem;
-  }
-
-  .indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: none;
-    background: rgba(var(--primary-red-rgb), 0.3);
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .indicator.active {
-    background: var(--primary-red);
-    transform: scale(1.2);
-  }
-
-  .indicator:hover {
-    background: var(--primary-red);
-    transform: scale(1.1);
+    font-size: 0.85rem;
   }
 
   .instagram-embed-section {
@@ -269,340 +275,55 @@
     margin: 0 auto;
   }
 
-  .gallery-header {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-
-  .instagram-link {
-    margin-top: 1.5rem;
-  }
-
-  .instagram-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: linear-gradient(135deg, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #FFDC80);
-    color: var(--white);
-    padding: 0.8rem 1.5rem;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 15px rgba(131, 58, 180, 0.3);
-  }
-
-  .instagram-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(131, 58, 180, 0.4);
-  }
-
-  .instagram-icon {
-    font-size: 1.2rem;
-  }
-
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-  }
-
-  .gallery-item {
-    position: relative;
-    border-radius: 15px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-  }
-
-  .gallery-item:hover {
-    transform: translateY(-5px);
-  }
-
-  .gallery-item.featured {
-    grid-column: span 2;
-  }
-
-  .gallery-image {
-    position: relative;
-    height: 250px;
-    overflow: hidden;
-  }
-
-  .featured .gallery-image {
-    height: 350px;
-  }
-
-  .image-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    font-weight: 600;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .before-after {
-    background: linear-gradient(90deg,
-      var(--accent-gray) 0%,
-      var(--accent-gray) 50%,
-      var(--primary-red) 50%,
-      var(--primary-red) 100%);
-    display: flex;
-  }
-
-  .before-section, .after-section {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-  }
-
-  .label {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 700;
-  }
-
-  .interior {
-    background: linear-gradient(135deg, var(--dark-gray), var(--black));
-  }
-
-  .exterior {
-    background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
-  }
-
-  .premium {
-    background: linear-gradient(135deg, var(--black), var(--primary-red), #FFD700);
-  }
-
-  .wheels {
-    background: linear-gradient(135deg, #2D2D2D, #666666);
-  }
-
-  .process {
-    background: linear-gradient(135deg, var(--primary-red), var(--black));
-  }
-
-  .work-type {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 0.7rem 1.2rem;
-    border-radius: 25px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-  }
-
-  .premium-badge {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: rgba(255, 215, 0, 0.9);
-    color: var(--black);
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    font-size: 0.7rem;
-    font-weight: 700;
-  }
-
-  .gallery-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(180deg,
-      transparent 0%,
-      rgba(0, 0, 0, 0.3) 50%,
-      rgba(0, 0, 0, 0.8) 100%);
-    display: flex;
-    align-items: flex-end;
-    padding: 1.5rem;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .gallery-item:hover .gallery-overlay {
-    opacity: 1;
-  }
-
-  .overlay-content {
-    color: var(--white);
-  }
-
-  .overlay-content h4 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.3rem;
-  }
-
-  .overlay-content p {
-    font-size: 0.9rem;
-    opacity: 0.9;
-    margin-bottom: 0.8rem;
-  }
-
-  .social-stats {
-    display: flex;
-    gap: 1rem;
-    font-size: 0.8rem;
-  }
-
-  .social-stats span {
-    opacity: 0.8;
-  }
-
-  .gallery-footer {
-    text-align: center;
-  }
-
-  .load-more {
-    margin-bottom: 3rem;
-  }
-
-  .gallery-cta {
-    background: var(--light-gray);
-    padding: 2rem;
-    border-radius: 15px;
-  }
-
-  .gallery-cta h3 {
-    color: var(--black);
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .gallery-cta p {
-    color: var(--accent-gray);
-    margin-bottom: 1.5rem;
-  }
-
-  /* Mobile Styles */
-  @media (max-width: 768px) {
-    .gallery-grid {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .gallery-item.featured {
-      grid-column: span 1;
-    }
-
-    .gallery-image,
-    .featured .gallery-image {
-      height: 200px;
-    }
-
-    .overlay-content h4 {
-      font-size: 1rem;
-    }
-
-    .overlay-content p {
-      font-size: 0.8rem;
+  @media (max-width: 1024px) {
+    .mosaic-grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 180px;
     }
   }
 
   @media (max-width: 768px) {
-    .image-carousel-section {
-      padding: 2rem 0;
+    .mosaic-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 150px;
+      gap: 0.75rem;
     }
 
-    .carousel-container {
-      margin: 0 1rem;
+    .mosaic-item.large {
+      grid-column: span 2;
+      grid-row: span 2;
     }
 
-    .car-image {
-      height: 250px;
-    }
-
-    .carousel-navigation {
-      margin-top: 1.5rem;
-      padding: 0;
-    }
-
-    .carousel-btn {
-      width: 40px;
-      height: 40px;
-      font-size: 1.2rem;
-    }
-
-    .carousel-indicators {
-      gap: 0.3rem;
-    }
-
-    .indicator {
-      width: 8px;
-      height: 8px;
+    .mosaic-item.wide {
+      grid-column: span 2;
     }
 
     .image-overlay {
-      padding: 2rem 1rem 1rem;
+      opacity: 1;
+      padding: 1.5rem 0.75rem 0.75rem;
     }
 
     .image-overlay h4 {
-      font-size: 1.2rem;
+      font-size: 0.9rem;
     }
 
     .image-overlay p {
-      font-size: 0.9rem;
+      font-size: 0.75rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .mosaic-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: 120px;
+    }
+
+    .gallery-cta {
+      padding: 1.5rem;
+    }
+
+    .gallery-cta h3 {
+      font-size: 1.2rem;
     }
   }
 </style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.carousel-slide');
-    const indicators = document.querySelectorAll('.indicator');
-    const prevBtn = document.getElementById('carousel-prev');
-    const nextBtn = document.getElementById('carousel-next');
-    const totalSlides = slides.length;
-
-    function showSlide(index) {
-      // Hide all slides
-      slides.forEach(slide => slide.classList.remove('active'));
-      indicators.forEach(indicator => indicator.classList.remove('active'));
-
-      // Show current slide
-      slides[index].classList.add('active');
-      indicators[index].classList.add('active');
-
-      currentSlide = index;
-    }
-
-    function nextSlide() {
-      const next = (currentSlide + 1) % totalSlides;
-      showSlide(next);
-    }
-
-    function prevSlide() {
-      const prev = currentSlide === 0 ? totalSlides - 1 : currentSlide - 1;
-      showSlide(prev);
-    }
-
-    // Navigation buttons
-    nextBtn?.addEventListener('click', nextSlide);
-    prevBtn?.addEventListener('click', prevSlide);
-
-    // Indicator buttons
-    indicators.forEach((indicator, index) => {
-      indicator.addEventListener('click', () => showSlide(index));
-    });
-
-    // Auto-advance carousel
-    setInterval(nextSlide, 5000);
-
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') prevSlide();
-      if (e.key === 'ArrowRight') nextSlide();
-    });
-  });
-</script>
-
