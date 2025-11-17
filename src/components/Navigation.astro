@@ -18,7 +18,7 @@ const currentPath = Astro.url.pathname;
         <a href="/contact" class={`nav-link ${currentPath === '/contact' ? 'active' : ''}`}>Contact</a>
       </div>
 
-      <a href="tel:+15163149524" class="nav-cta">Call Now</a>
+      <a href="tel:+15167673637" class="nav-cta">Call Now</a>
     </div>
 
     <div class="nav-toggle" id="nav-toggle">
@@ -47,8 +47,8 @@ const currentPath = Astro.url.pathname;
     position: fixed;
     top: 0;
     width: 100%;
-    background: var(--soft-black);
-    border-bottom: 1px solid rgba(var(--primary-red-rgb), 0.2);
+    background: var(--white);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     z-index: 1000;
     transition: all 0.3s ease;
   }
@@ -111,7 +111,7 @@ const currentPath = Astro.url.pathname;
   }
 
   .nav-link {
-    color: var(--white);
+    color: var(--black);
     text-decoration: none;
     font-weight: 500;
     padding: 0.5rem 0;
@@ -170,7 +170,7 @@ const currentPath = Astro.url.pathname;
   .bar {
     width: 25px;
     height: 3px;
-    background: var(--white);
+    background: var(--black);
     margin: 3px 0;
     transition: 0.3s;
     border-radius: 2px;
@@ -203,11 +203,11 @@ const currentPath = Astro.url.pathname;
       left: -100%;
       top: 70px;
       flex-direction: column;
-      background: var(--soft-black);
+      background: var(--white);
       width: 100%;
       text-align: center;
       transition: 0.3s;
-      box-shadow: 0 10px 27px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 27px rgba(0, 0, 0, 0.1);
       padding: 2rem 0;
       gap: 1.5rem;
     }
