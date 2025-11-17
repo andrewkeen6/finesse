@@ -58,7 +58,9 @@ const { title, description = "Premium car detailing services that restore your v
     --black: #1A1A1A;
     --dark-gray: #2D2D2D;
     --light-gray: #F5F5F5;
+    --light-gray-transparent: rgba(245, 245, 245, 0.85);
     --white: #FFFFFF;
+    --white-transparent: rgba(255, 255, 255, 0.85);
     --accent-gray: #666666;
     --success-green: #10B981;
   }
@@ -78,6 +80,23 @@ const { title, description = "Premium car detailing services that restore your v
     line-height: 1.6;
     color: var(--black);
     background: var(--light-gray);
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/car_and_boat.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: -1;
   }
 
   main {
