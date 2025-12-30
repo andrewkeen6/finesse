@@ -1,117 +1,55 @@
 ---
+// Dynamically load all media from /public/gallery as static files
+const allMedia = import.meta.glob('/public/gallery/**/*.{jpg,jpeg,png,webp,gif,heic,HEIC,mov,mp4}');
+
+// Process all media files
+const media = Object.keys(allMedia).map(path => {
+  const parts = path.split('/').filter(p => p);
+  const extension = path.split('.').pop()?.toLowerCase();
+  const publicPath = path.replace('/public', '');
+  const isVideo = ['mov', 'mp4'].includes(extension || '');
+
+  return {
+    path: publicPath,
+    category: parts[1] || 'misc',
+    subfolder: parts[2]?.replace(/\.[^/.]+$/, '') || null,
+    filename: parts[parts.length - 1],
+    isVideo,
+    extension
+  };
+}).sort((a, b) => a.filename.localeCompare(b.filename));
 ---
 
 <section class="gallery section">
   <div class="container">
-    <div class="mosaic-grid">
-      <div class="mosaic-item large">
-        <div class="image-placeholder luxury-sedan">
-          <div class="image-overlay">
-            <h4>Premium Sedan Detail</h4>
-            <p>Complete exterior & interior transformation</p>
+    {media.length > 0 ? (
+      <div class="masonry-grid">
+        {media.map((item, index) => (
+          <div class="masonry-item" data-src={item.path} data-is-video={item.isVideo}>
+            {item.isVideo ? (
+              <>
+                <video class="gallery-media gallery-video" muted playsinline preload="metadata">
+                  <source src={item.path} type={`video/${item.extension}`} />
+                </video>
+                <div class="video-indicator">▶</div>
+              </>
+            ) : (
+              <img
+                src={item.path}
+                alt={item.category}
+                class="gallery-media"
+                loading={index < 12 ? "eager" : "lazy"}
+                decoding="async"
+              />
+            )}
           </div>
-        </div>
+        ))}
       </div>
-
-      <div class="mosaic-item">
-        <div class="image-placeholder sports-car">
-          <div class="image-overlay">
-            <h4>Sports Car Ceramic Coating</h4>
-            <p>Ultimate paint protection</p>
-          </div>
-        </div>
+    ) : (
+      <div class="no-images">
+        <p>No gallery media found. Add images and videos to <code>/public/gallery/</code></p>
       </div>
-
-      <div class="mosaic-item">
-        <div class="image-placeholder luxury-suv">
-          <div class="image-overlay">
-            <h4>Luxury SUV Detail</h4>
-            <p>Interior leather restoration</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="mosaic-item tall">
-        <div class="image-placeholder boat-detail">
-          <div class="image-overlay">
-            <h4>Marine Vessel Detail</h4>
-            <p>Professional boat cleaning & protection</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="mosaic-item">
-        <div class="image-placeholder classic-car">
-          <div class="image-overlay">
-            <h4>Classic Car Restoration</h4>
-            <p>Meticulous vintage care</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="mosaic-item">
-        <div class="image-placeholder interior-detail">
-          <div class="image-overlay">
-            <h4>Interior Deep Clean</h4>
-            <p>Thorough cabin refresh</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="mosaic-item wide">
-        <div class="image-placeholder paint-correction">
-          <div class="image-overlay">
-            <h4>Paint Correction</h4>
-            <p>Swirl removal & gloss enhancement</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="mosaic-item">
-        <div class="image-placeholder wheel-detail">
-          <div class="image-overlay">
-            <h4>Wheel Restoration</h4>
-            <p>Brake dust removal & shine</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="mosaic-item">
-        <div class="image-placeholder engine-bay">
-          <div class="image-overlay">
-            <h4>Engine Bay Detail</h4>
-            <p>Under-hood perfection</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="mosaic-item tall">
-        <div class="image-placeholder convertible">
-          <div class="image-overlay">
-            <h4>Convertible Detail</h4>
-            <p>Top-down ready finish</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="mosaic-item">
-        <div class="image-placeholder headlight">
-          <div class="image-overlay">
-            <h4>Headlight Restoration</h4>
-            <p>Crystal clear visibility</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="mosaic-item">
-        <div class="image-placeholder ceramic-coating">
-          <div class="image-overlay">
-            <h4>Ceramic Coating Application</h4>
-            <p>Long-term protection</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    )}
 
     <div class="instagram-embed-section">
       <div class="instagram-embed-header">
@@ -125,6 +63,17 @@
       </div>
     </div>
   </div>
+
+  <!-- Lightbox for fullscreen viewing -->
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox-close">&times;</button>
+    <img src="" alt="Fullscreen image" class="lightbox-image" />
+    <video class="lightbox-video" controls loop>
+      <source src="" type="video/mp4" />
+    </video>
+    <button class="lightbox-prev">‹</button>
+    <button class="lightbox-next">›</button>
+  </div>
 </section>
 
 <style>
@@ -133,122 +82,137 @@
     padding: 2rem 0 4rem;
   }
 
-  .mosaic-grid {
+  /* Grid Layout - Left to Right */
+  .masonry-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 200px;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     margin-bottom: 3rem;
   }
 
-  .mosaic-item {
+  .masonry-item {
     position: relative;
     border-radius: 12px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    background: #E5E5E5;
+    aspect-ratio: 4 / 3;
   }
 
-  .mosaic-item:hover {
+  .masonry-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
   }
 
-  .mosaic-item.large {
-    grid-column: span 2;
-    grid-row: span 2;
+  .masonry-item:active {
+    transform: translateY(-3px);
   }
 
-  .mosaic-item.tall {
-    grid-row: span 2;
-  }
-
-  .mosaic-item.wide {
-    grid-column: span 2;
-  }
-
-  .image-placeholder {
+  .gallery-media {
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    object-fit: cover;
+    display: block;
+    /* Enable hardware acceleration for smoother rendering */
+    transform: translateZ(0);
+    will-change: transform;
   }
 
-  .luxury-sedan {
-    background: linear-gradient(135deg, #2C3E50 0%, #34495E 50%, #1ABC9C 100%);
-  }
-
-  .sports-car {
-    background: linear-gradient(135deg, var(--primary-red) 0%, #FF6B6B 50%, #FFE66D 100%);
-  }
-
-  .luxury-suv {
-    background: linear-gradient(135deg, #2C3E50 0%, #3498DB 50%, #9B59B6 100%);
-  }
-
-  .boat-detail {
-    background: linear-gradient(135deg, #3498DB 0%, #2980B9 50%, #1ABC9C 100%);
-  }
-
-  .classic-car {
-    background: linear-gradient(135deg, #8E44AD 0%, #9B59B6 50%, #E74C3C 100%);
-  }
-
-  .interior-detail {
-    background: linear-gradient(135deg, #34495E 0%, #2C3E50 50%, #95A5A6 100%);
-  }
-
-  .paint-correction {
-    background: linear-gradient(135deg, #E74C3C 0%, var(--primary-red) 50%, #C0392B 100%);
-  }
-
-  .wheel-detail {
-    background: linear-gradient(135deg, #7F8C8D 0%, #95A5A6 50%, #BDC3C7 100%);
-  }
-
-  .engine-bay {
-    background: linear-gradient(135deg, #2C3E50 0%, #34495E 50%, #7F8C8D 100%);
-  }
-
-  .convertible {
-    background: linear-gradient(135deg, #F39C12 0%, #E67E22 50%, #D35400 100%);
-  }
-
-  .headlight {
-    background: linear-gradient(135deg, #F1C40F 0%, #F39C12 50%, #E67E22 100%);
-  }
-
-  .ceramic-coating {
-    background: linear-gradient(135deg, #1ABC9C 0%, #16A085 50%, #2C3E50 100%);
-  }
-
-  .image-overlay {
+  .video-indicator {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-    color: var(--white);
-    padding: 2rem 1rem 1rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.9);
+    pointer-events: none;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .no-images {
     text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    padding: 4rem 2rem;
+    color: var(--accent-gray);
   }
 
-  .mosaic-item:hover .image-overlay {
-    opacity: 1;
+  .no-images code {
+    background: var(--light-gray);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-family: monospace;
   }
 
-  .image-overlay h4 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.3rem;
+  /* Lightbox Styles */
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
   }
 
-  .image-overlay p {
-    opacity: 0.9;
-    font-size: 0.85rem;
+  .lightbox.active {
+    display: flex;
+  }
+
+  .lightbox-image,
+  .lightbox-video {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+    display: none;
+  }
+
+  .lightbox-image.active,
+  .lightbox-video.active {
+    display: block;
+  }
+
+  .lightbox-close,
+  .lightbox-prev,
+  .lightbox-next {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--white);
+    font-size: 3rem;
+    cursor: pointer;
+    padding: 1rem 1.5rem;
+    transition: background 0.3s ease;
+    border-radius: 8px;
+  }
+
+  .lightbox-close:hover,
+  .lightbox-prev:hover,
+  .lightbox-next:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .lightbox-close {
+    top: 2rem;
+    right: 2rem;
+    font-size: 4rem;
+    line-height: 1;
+    padding: 0.5rem 1rem;
+  }
+
+  .lightbox-prev {
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .lightbox-next {
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .instagram-embed-section {
@@ -276,54 +240,150 @@
   }
 
   @media (max-width: 1024px) {
-    .mosaic-grid {
-      grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: 180px;
+    .masonry-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
   @media (max-width: 768px) {
-    .mosaic-grid {
+    .masonry-grid {
       grid-template-columns: repeat(2, 1fr);
-      grid-auto-rows: 150px;
       gap: 0.75rem;
     }
+  }
 
-    .mosaic-item.large {
-      grid-column: span 2;
-      grid-row: span 2;
+  @media (max-width: 768px) {
+    .lightbox-close {
+      top: 1rem;
+      right: 1rem;
+      font-size: 3rem;
     }
 
-    .mosaic-item.wide {
-      grid-column: span 2;
+    .lightbox-prev,
+    .lightbox-next {
+      font-size: 2rem;
+      padding: 0.5rem 1rem;
     }
 
-    .image-overlay {
-      opacity: 1;
-      padding: 1.5rem 0.75rem 0.75rem;
+    .lightbox-prev {
+      left: 0.5rem;
     }
 
-    .image-overlay h4 {
-      font-size: 0.9rem;
-    }
-
-    .image-overlay p {
-      font-size: 0.75rem;
+    .lightbox-next {
+      right: 0.5rem;
     }
   }
 
   @media (max-width: 480px) {
-    .mosaic-grid {
-      grid-template-columns: 1fr 1fr;
-      grid-auto-rows: 120px;
+    .masonry-grid {
+      grid-template-columns: 1fr;
     }
 
-    .gallery-cta {
-      padding: 1.5rem;
-    }
-
-    .gallery-cta h3 {
-      font-size: 1.2rem;
+    .lightbox-image,
+    .lightbox-video {
+      max-width: 95%;
     }
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = lightbox?.querySelector('.lightbox-image') as HTMLImageElement;
+    const lightboxVideo = lightbox?.querySelector('.lightbox-video') as HTMLVideoElement;
+    const closeBtn = lightbox?.querySelector('.lightbox-close');
+    const prevBtn = lightbox?.querySelector('.lightbox-prev');
+    const nextBtn = lightbox?.querySelector('.lightbox-next');
+    const masonryItems = document.querySelectorAll('.masonry-item');
+
+    let currentIndex = 0;
+    const mediaItems: Array<{src: string, isVideo: boolean}> = [];
+
+    // Collect all media sources
+    masonryItems.forEach((item, index) => {
+      const src = item.getAttribute('data-src');
+      const isVideo = item.getAttribute('data-is-video') === 'true';
+
+      if (src) {
+        mediaItems.push({ src, isVideo });
+
+        // Click handler to open lightbox
+        item.addEventListener('click', () => {
+          currentIndex = index;
+          openLightbox(src, isVideo);
+        });
+
+        // Video hover effects
+        if (isVideo) {
+          const video = item.querySelector('video') as HTMLVideoElement;
+          item.addEventListener('mouseenter', () => {
+            video?.play();
+          });
+          item.addEventListener('mouseleave', () => {
+            video?.pause();
+          });
+        }
+      }
+    });
+
+    function openLightbox(src: string, isVideo: boolean) {
+      if (lightbox) {
+        if (isVideo && lightboxVideo) {
+          lightboxImage?.classList.remove('active');
+          lightboxVideo.classList.add('active');
+          lightboxVideo.querySelector('source')?.setAttribute('src', src);
+          lightboxVideo.load();
+          lightboxVideo.play();
+        } else if (lightboxImage) {
+          lightboxVideo?.classList.remove('active');
+          lightboxVideo?.pause();
+          lightboxImage.classList.add('active');
+          lightboxImage.src = src;
+        }
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeLightbox() {
+      if (lightbox) {
+        lightbox.classList.remove('active');
+        lightboxVideo?.pause();
+        document.body.style.overflow = '';
+      }
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % mediaItems.length;
+      const item = mediaItems[currentIndex];
+      openLightbox(item.src, item.isVideo);
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + mediaItems.length) % mediaItems.length;
+      const item = mediaItems[currentIndex];
+      openLightbox(item.src, item.isVideo);
+    }
+
+    // Event listeners
+    closeBtn?.addEventListener('click', closeLightbox);
+    prevBtn?.addEventListener('click', showPrev);
+    nextBtn?.addEventListener('click', showNext);
+
+    // Close on background click
+    lightbox?.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox?.classList.contains('active')) return;
+
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
+    });
+  });
+</script>
