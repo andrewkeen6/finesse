@@ -15,11 +15,13 @@
           </p>
           <ul class="service-features">
             <li>✓ Full exterior wash & dry</li>
-            <li>✓ Paint decontamination</li>
-            <li>✓ Complete interior cleaning</li>
-            <li>✓ Leather conditioning</li>
-            <li>✓ Tire & rim cleaning</li>
+            <li>✓ Clay bar decontamination</li>
+            <li>✓ Multi-stage paint correction</li>
             <li>✓ Protective wax application</li>
+            <li>✓ Glass treatment</li>
+            <li>✓ Tire & wheel cleaning</li>
+            <li>✓ Complete interior cleaning</li>
+            <li>✓ Leather conditioning</li>         
           </ul>
         </div>
       </div>
@@ -33,11 +35,12 @@
             Focus on your vehicle's exterior with professional washing, decontamination, and protection.
           </p>
           <ul class="service-features">
-            <li>✓ Hand wash & dry</li>
-            <li>✓ Clay bar treatment</li>
-            <li>✓ Paint polish</li>
-            <li>✓ Tire shine application</li>
-            <li>✓ Window cleaning</li>
+            <li>✓ Full exterior wash & dry</li>
+            <li>✓ Clay bar decontamination</li>
+            <li>✓ Multi-stage paint correction</li>
+            <li>✓ Protective wax application</li>
+            <li>✓ Glass treatment</li>
+            <li>✓ Tire & wheel cleaning</li>
           </ul>
         </div>
       </div>
@@ -55,6 +58,9 @@
             <li>✓ Steam clean carpets</li>
             <li>✓ Leather cleaning & conditioning</li>
             <li>✓ Dashboard & trim care</li>
+            <li>✓ Vent cleaning & treatment</li>
+            <li>✓ Cabin air filter replacement</li>
+            <li>✓ Ozone treatment</li>
             <li>✓ Air freshening</li>
           </ul>
         </div>
@@ -79,6 +85,40 @@
       </div>
 
       <div class="service-card">
+        <div class="service-header">
+          <h3 class="service-title">Window Tinting</h3>
+        </div>
+        <div class="service-content">
+          <p class="service-description">
+            Professional window tint installation for UV protection, privacy, and enhanced appearance.
+          </p>
+          <ul class="service-features">
+            <li>✓ Premium tint films</li>
+            <li>✓ UV & heat rejection</li>
+            <li>✓ Professional installation</li>
+            <li>✓ Multiple shade options</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-header">
+          <h3 class="service-title">Brake Caliper Color Kit</h3>
+        </div>
+        <div class="service-content">
+          <p class="service-description">
+            Custom brake caliper painting to add a personalized touch and protect against corrosion.
+          </p>
+          <ul class="service-features">
+            <li>✓ High-temperature paint</li>
+            <li>✓ Custom color options</li>
+            <li>✓ Professional preparation</li>
+            <li>✓ Durable finish</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="service-card custom-package-card">
         <div class="service-header">
           <h3 class="service-title">Custom Package</h3>
         </div>
@@ -117,7 +157,7 @@
     background: var(--white);
     border-radius: 12px;
     padding: 1.5rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 25px rgba(140, 43, 43, 0.2);
     position: relative;
     overflow: hidden;
     display: flex;
@@ -126,6 +166,8 @@
     min-width: 280px;
     flex: 1 1 280px;
     max-width: 350px;
+    border: 1px solid var(--primary-red);
+    transform: scale(1.02);
   }
 
   .service-header {
@@ -136,7 +178,7 @@
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: var(--black);
+    color: var(--primary-red);
   }
 
   .service-content {
@@ -162,11 +204,34 @@
     font-size: 0.9rem;
   }
 
+  .custom-package-card {
+    background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+    border: 1px solid var(--dark-red);
+    box-shadow: 0 10px 35px rgba(140, 43, 43, 0.4);
+    transform: scale(1.05);
+  }
+
+  .custom-package-card .service-title {
+    color: var(--white);
+  }
+
+  .custom-package-card .service-description {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .custom-package-card .service-features li {
+    color: var(--white);
+  }
+
   /* Mobile Styles */
   @media (max-width: 768px) {
     .services-grid {
       grid-template-columns: 1fr;
       gap: 1.5rem;
+    }
+
+    .custom-package-card {
+      transform: scale(1);
     }
   }
 </style>
