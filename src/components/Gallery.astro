@@ -1,23 +1,37 @@
 ---
-// Dynamically load all media from /public/gallery as static files
-const allMedia = import.meta.glob('/public/gallery/**/*.{jpg,jpeg,png,webp,gif,heic,HEIC,mov,mp4}');
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import galleryManifest from '../data/gallery-manifest.json';
 
-// Process all media files
-const media = Object.keys(allMedia).map(path => {
-  const parts = path.split('/').filter(p => p);
-  const extension = path.split('.').pop()?.toLowerCase();
-  const publicPath = path.replace('/public', '');
-  const isVideo = ['mov', 'mp4'].includes(extension || '');
+// Import optimized thumbnails eagerly for build-time optimization
+const thumbnailImages = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/gallery/images/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG}',
+  { eager: true }
+);
+
+const videoThumbnails = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/gallery/video-thumbs/**/*.{jpg,jpeg,JPG,JPEG}',
+  { eager: true }
+);
+
+// Process media items
+const media = galleryManifest.media.map((item: any) => {
+  const thumbnailKey = item.type === 'image'
+    ? item.thumbnail
+    : item.thumbnail;
+
+  const thumbnailMap = item.type === 'image' ? thumbnailImages : videoThumbnails;
+  const thumbnail = thumbnailMap[thumbnailKey]?.default;
 
   return {
-    path: publicPath,
-    category: parts[1] || 'misc',
-    subfolder: parts[2]?.replace(/\.[^/.]+$/, '') || null,
-    filename: parts[parts.length - 1],
-    isVideo,
-    extension
+    id: item.id,
+    type: item.type,
+    thumbnail,
+    fullPath: item.full,
+    category: item.category,
+    date: item.date
   };
-}).sort((a, b) => a.filename.localeCompare(b.filename));
+}).filter((item: any) => item.thumbnail); // Filter out items without thumbnails
 ---
 
 <section class="gallery section">
@@ -25,22 +39,31 @@ const media = Object.keys(allMedia).map(path => {
     {media.length > 0 ? (
       <div class="masonry-grid">
         {media.map((item, index) => (
-          <div class="masonry-item" data-src={item.path} data-is-video={item.isVideo}>
-            {item.isVideo ? (
+          <div class="masonry-item" data-full-src={item.fullPath} data-is-video={item.type === 'video'}>
+            {item.type === 'video' ? (
               <>
-                <video class="gallery-media gallery-video" muted playsinline preload="auto">
-                  <source src={item.path} type={`video/${item.extension}`} />
-                </video>
-                <canvas class="video-thumbnail" style="display: none;"></canvas>
+                <Image
+                  src={item.thumbnail}
+                  alt={item.category}
+                  width={400}
+                  height={300}
+                  quality={70}
+                  format="webp"
+                  loading={index < 12 ? "eager" : "lazy"}
+                  class="gallery-media"
+                />
                 <div class="video-indicator">▶</div>
               </>
             ) : (
-              <img
-                src={item.path}
+              <Image
+                src={item.thumbnail}
                 alt={item.category}
-                class="gallery-media"
+                width={400}
+                height={300}
+                quality={70}
+                format="webp"
                 loading={index < 12 ? "eager" : "lazy"}
-                decoding="async"
+                class="gallery-media"
               />
             )}
           </div>
@@ -130,20 +153,6 @@ const media = Object.keys(allMedia).map(path => {
     pointer-events: none;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     z-index: 2;
-  }
-
-  .gallery-video {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-  }
-
-  .video-thumbnail {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
   }
 
   .no-images {
@@ -315,65 +324,19 @@ const media = Object.keys(allMedia).map(path => {
     let currentIndex = 0;
     const mediaItems: Array<{src: string, isVideo: boolean}> = [];
 
-    // Generate video thumbnails by capturing first frame to canvas
-    const videos = document.querySelectorAll('.gallery-video') as NodeListOf<HTMLVideoElement>;
-    videos.forEach(video => {
-      const container = video.closest('.masonry-item');
-      const canvas = container?.querySelector('.video-thumbnail') as HTMLCanvasElement;
-
-      video.addEventListener('loadeddata', () => {
-        if (canvas && video.videoWidth > 0) {
-          // Set canvas dimensions to match video
-          canvas.width = video.videoWidth;
-          canvas.height = video.videoHeight;
-
-          // Draw current frame to canvas
-          const ctx = canvas.getContext('2d');
-          ctx?.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-          // Show canvas, hide video initially
-          canvas.style.display = 'block';
-          video.style.opacity = '0';
-        }
-      });
-    });
-
     // Collect all media sources
     masonryItems.forEach((item, index) => {
-      const src = item.getAttribute('data-src');
+      const fullSrc = item.getAttribute('data-full-src');
       const isVideo = item.getAttribute('data-is-video') === 'true';
 
-      if (src) {
-        mediaItems.push({ src, isVideo });
+      if (fullSrc) {
+        mediaItems.push({ src: fullSrc, isVideo });
 
         // Click handler to open lightbox
         item.addEventListener('click', () => {
           currentIndex = index;
-          openLightbox(src, isVideo);
+          openLightbox(fullSrc, isVideo);
         });
-
-        // Video hover effects
-        if (isVideo) {
-          const video = item.querySelector('video') as HTMLVideoElement;
-          const canvas = item.querySelector('.video-thumbnail') as HTMLCanvasElement;
-
-          item.addEventListener('mouseenter', () => {
-            // Hide canvas, show and play video
-            if (canvas) canvas.style.display = 'none';
-            if (video) {
-              video.style.opacity = '1';
-              video.currentTime = 0;
-              video.play();
-            }
-          });
-
-          item.addEventListener('mouseleave', () => {
-            // Pause video, show canvas thumbnail
-            video?.pause();
-            if (video) video.style.opacity = '0';
-            if (canvas) canvas.style.display = 'block';
-          });
-        }
       }
     });
 

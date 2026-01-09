@@ -1,0 +1,917 @@
+{
+  "generatedAt": "2026-01-09T05:32:45.846Z",
+  "totalImages": 86,
+  "totalVideos": 17,
+  "media": [
+    {
+      "id": "2025-12-30_66795073197__A1442FCB-66EF-40E3-99AE-4F324EDD82A0",
+      "type": "video",
+      "thumbnail": "/src/assets/gallery/video-thumbs/2025-12-30_66795073197__A1442FCB-66EF-40E3-99AE-4F324EDD82A0.jpg",
+      "full": "/gallery/full/2025-12-30_66795073197__A1442FCB-66EF-40E3-99AE-4F324EDD82A0.mov",
+      "category": "gallery",
+      "date": "2025-12-30"
+    },
+    {
+      "id": "2025-12-18_BMW_IMG_9931.JPG",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2025-12-18_BMW_IMG_9931.JPG.jpg",
+      "full": "/gallery/full/2025-12-18_BMW_IMG_9931.JPG",
+      "category": "gallery",
+      "date": "2025-12-18",
+      "originalFormat": "jpg"
+    },
+    {
+      "id": "2025-12-18_547045ef91af4ca6adff88bb18fb9d05",
+      "type": "video",
+      "thumbnail": "/src/assets/gallery/video-thumbs/2025-12-18_547045ef91af4ca6adff88bb18fb9d05.jpg",
+      "full": "/gallery/full/2025-12-18_547045ef91af4ca6adff88bb18fb9d05.mov",
+      "category": "gallery",
+      "date": "2025-12-18"
+    },
+    {
+      "id": "2025-12-18_7276c61fa0ab4b82883252e5687d4bc6",
+      "type": "video",
+      "thumbnail": "/src/assets/gallery/video-thumbs/2025-12-18_7276c61fa0ab4b82883252e5687d4bc6.jpg",
+      "full": "/gallery/full/2025-12-18_7276c61fa0ab4b82883252e5687d4bc6.mov",
+      "category": "gallery",
+      "date": "2025-12-18"
+    },
+    {
+      "id": "2025-12-18_CADILLAC_IMG_7568",
+      "type": "video",
+      "thumbnail": "/src/assets/gallery/video-thumbs/2025-12-18_CADILLAC_IMG_7568.jpg",
+      "full": "/gallery/full/2025-12-18_CADILLAC_IMG_7568.mov",
+      "category": "vehicle",
+      "date": "2025-12-18"
+    },
+    {
+      "id": "2025-12-18_IMG_0939",
+      "type": "video",
+      "thumbnail": "/src/assets/gallery/video-thumbs/2025-12-18_IMG_0939.jpg",
+      "full": "/gallery/full/2025-12-18_IMG_0939.mov",
+      "category": "gallery",
+      "date": "2025-12-18"
+    },
+    {
+      "id": "2025-12-18_IMG_0950",
+      "type": "video",
+      "thumbnail": "/src/assets/gallery/video-thumbs/2025-12-18_IMG_0950.jpg",
+      "full": "/gallery/full/2025-12-18_IMG_0950.mov",
+      "category": "gallery",
+      "date": "2025-12-18"
+    },
+    {
+      "id": "2025-12-18_IMG_1087",
+      "type": "video",
+      "thumbnail": "/src/assets/gallery/video-thumbs/2025-12-18_IMG_1087.jpg",
+      "full": "/gallery/full/2025-12-18_IMG_1087.mov",
+      "category": "gallery",
+      "date": "2025-12-18"
+    },
+    {
+      "id": "2025-12-18_IMG_4462",
+      "type": "video",
+      "thumbnail": "/src/assets/gallery/video-thumbs/2025-12-18_IMG_4462.jpg",
+      "full": "/gallery/full/2025-12-18_IMG_4462.mov",
+      "category": "gallery",
+      "date": "2025-12-18"
+    },
+    {
+      "id": "2025-12-18_IMG_4774",
+      "type": "video",
+      "thumbnail": "/src/assets/gallery/video-thumbs/2025-12-18_IMG_4774.jpg",
+      "full": "/gallery/full/2025-12-18_IMG_4774.mov",
+      "category": "gallery",
+      "date": "2025-12-18"
+    },
+    {
+      "id": "2025-12-18_IMG_5646",
+      "type": "video",
+      "thumbnail": "/src/assets/gallery/video-thumbs/2025-12-18_IMG_5646.jpg",
+      "full": "/gallery/full/2025-12-18_IMG_5646.mov",
+      "category": "gallery",
+      "date": "2025-12-18"
+    },
+    {
+      "id": "2025-12-18_IMG_5906",
+      "type": "video",
+      "thumbnail": "/src/assets/gallery/video-thumbs/2025-12-18_IMG_5906.jpg",
+      "full": "/gallery/full/2025-12-18_IMG_5906.mov",
+      "category": "gallery",
+      "date": "2025-12-18"
+    },
+    {
+      "id": "2025-12-18_IMG_7136",
+      "type": "video",
+      "thumbnail": "/src/assets/gallery/video-thumbs/2025-12-18_IMG_7136.jpg",
+      "full": "/gallery/full/2025-12-18_IMG_7136.mov",
+      "category": "gallery",
+      "date": "2025-12-18"
+    },
+    {
+      "id": "2025-12-18_IMG_9292",
+      "type": "video",
+      "thumbnail": "/src/assets/gallery/video-thumbs/2025-12-18_IMG_9292.jpg",
+      "full": "/gallery/full/2025-12-18_IMG_9292.mov",
+      "category": "gallery",
+      "date": "2025-12-18"
+    },
+    {
+      "id": "2025-12-18_IMG_9695",
+      "type": "video",
+      "thumbnail": "/src/assets/gallery/video-thumbs/2025-12-18_IMG_9695.jpg",
+      "full": "/gallery/full/2025-12-18_IMG_9695.mov",
+      "category": "gallery",
+      "date": "2025-12-18"
+    },
+    {
+      "id": "2025-12-18_IMG_9703",
+      "type": "video",
+      "thumbnail": "/src/assets/gallery/video-thumbs/2025-12-18_IMG_9703.jpg",
+      "full": "/gallery/full/2025-12-18_IMG_9703.mov",
+      "category": "gallery",
+      "date": "2025-12-18"
+    },
+    {
+      "id": "2025-12-18_Mercedes_IMG_7752",
+      "type": "video",
+      "thumbnail": "/src/assets/gallery/video-thumbs/2025-12-18_Mercedes_IMG_7752.jpg",
+      "full": "/gallery/full/2025-12-18_Mercedes_IMG_7752.mov",
+      "category": "vehicle",
+      "date": "2025-12-18"
+    },
+    {
+      "id": "2025-12-18_Porsche_IMG_8981",
+      "type": "video",
+      "thumbnail": "/src/assets/gallery/video-thumbs/2025-12-18_Porsche_IMG_8981.jpg",
+      "full": "/gallery/full/2025-12-18_Porsche_IMG_8981.mov",
+      "category": "vehicle",
+      "date": "2025-12-18"
+    },
+    {
+      "id": "2025-10-22_IMG_3445",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2025-10-22_IMG_3445.jpeg",
+      "full": "/gallery/full/2025-10-22_IMG_3445.jpeg",
+      "category": "gallery",
+      "date": "2025-10-22",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2025-10-22_IMG_3446",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2025-10-22_IMG_3446.jpeg",
+      "full": "/gallery/full/2025-10-22_IMG_3446.jpeg",
+      "category": "gallery",
+      "date": "2025-10-22",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2025-10-22_IMG_3448",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2025-10-22_IMG_3448.jpeg",
+      "full": "/gallery/full/2025-10-22_IMG_3448.jpeg",
+      "category": "gallery",
+      "date": "2025-10-22",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2025-10-22_IMG_3449",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2025-10-22_IMG_3449.jpeg",
+      "full": "/gallery/full/2025-10-22_IMG_3449.jpeg",
+      "category": "gallery",
+      "date": "2025-10-22",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2025-07-04_IMG_1458",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2025-07-04_IMG_1458.jpeg",
+      "full": "/gallery/full/2025-07-04_IMG_1458.jpeg",
+      "category": "gallery",
+      "date": "2025-07-04",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2025-07-04_IMG_1459",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2025-07-04_IMG_1459.jpeg",
+      "full": "/gallery/full/2025-07-04_IMG_1459.jpeg",
+      "category": "gallery",
+      "date": "2025-07-04",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2025-07-04_IMG_1460",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2025-07-04_IMG_1460.jpeg",
+      "full": "/gallery/full/2025-07-04_IMG_1460.jpeg",
+      "category": "gallery",
+      "date": "2025-07-04",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2025-03-28_VAN_IMG_9871",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2025-03-28_VAN_IMG_9871.jpeg",
+      "full": "/gallery/full/2025-03-28_VAN_IMG_9871.jpeg",
+      "category": "vehicle",
+      "date": "2025-03-28",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2024-12-13_RangeRover_IMG_8171",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2024-12-13_RangeRover_IMG_8171.jpeg",
+      "full": "/gallery/full/2024-12-13_RangeRover_IMG_8171.jpeg",
+      "category": "vehicle",
+      "date": "2024-12-13",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2024-10-13_IMG_7130",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2024-10-13_IMG_7130.jpeg",
+      "full": "/gallery/full/2024-10-13_IMG_7130.jpeg",
+      "category": "gallery",
+      "date": "2024-10-13",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2024-10-13_IMG_7131",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2024-10-13_IMG_7131.jpeg",
+      "full": "/gallery/full/2024-10-13_IMG_7131.jpeg",
+      "category": "gallery",
+      "date": "2024-10-13",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2024-10-13_IMG_7132",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2024-10-13_IMG_7132.jpeg",
+      "full": "/gallery/full/2024-10-13_IMG_7132.jpeg",
+      "category": "gallery",
+      "date": "2024-10-13",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2024-10-13_IMG_7133",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2024-10-13_IMG_7133.jpeg",
+      "full": "/gallery/full/2024-10-13_IMG_7133.jpeg",
+      "category": "gallery",
+      "date": "2024-10-13",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2024-10-13_IMG_7134",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2024-10-13_IMG_7134.jpeg",
+      "full": "/gallery/full/2024-10-13_IMG_7134.jpeg",
+      "category": "gallery",
+      "date": "2024-10-13",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2024-10-13_IMG_7135",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2024-10-13_IMG_7135.jpeg",
+      "full": "/gallery/full/2024-10-13_IMG_7135.jpeg",
+      "category": "gallery",
+      "date": "2024-10-13",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2024-10-10_IMG_7096",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2024-10-10_IMG_7096.jpeg",
+      "full": "/gallery/full/2024-10-10_IMG_7096.jpeg",
+      "category": "gallery",
+      "date": "2024-10-10",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2024-10-10_IMG_7097",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2024-10-10_IMG_7097.jpeg",
+      "full": "/gallery/full/2024-10-10_IMG_7097.jpeg",
+      "category": "gallery",
+      "date": "2024-10-10",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2024-10-10_IMG_7098",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2024-10-10_IMG_7098.jpeg",
+      "full": "/gallery/full/2024-10-10_IMG_7098.jpeg",
+      "category": "gallery",
+      "date": "2024-10-10",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2024-10-10_IMG_7099",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2024-10-10_IMG_7099.jpeg",
+      "full": "/gallery/full/2024-10-10_IMG_7099.jpeg",
+      "category": "gallery",
+      "date": "2024-10-10",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2024-08-26_CADILLAC_IMG_8926",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2024-08-26_CADILLAC_IMG_8926.jpg",
+      "full": "/gallery/full/2024-08-26_CADILLAC_IMG_8926.heic",
+      "category": "vehicle",
+      "date": "2024-08-26",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2024-08-16_IMG_6339",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2024-08-16_IMG_6339.jpeg",
+      "full": "/gallery/full/2024-08-16_IMG_6339.jpeg",
+      "category": "gallery",
+      "date": "2024-08-16",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2024-07-06_IMG_5718",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2024-07-06_IMG_5718.jpeg",
+      "full": "/gallery/full/2024-07-06_IMG_5718.jpeg",
+      "category": "gallery",
+      "date": "2024-07-06",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2024-07-03_IMG_5661",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2024-07-03_IMG_5661.jpeg",
+      "full": "/gallery/full/2024-07-03_IMG_5661.jpeg",
+      "category": "gallery",
+      "date": "2024-07-03",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2024-05-07_IMG_4703",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2024-05-07_IMG_4703.jpeg",
+      "full": "/gallery/full/2024-05-07_IMG_4703.jpeg",
+      "category": "gallery",
+      "date": "2024-05-07",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2024-05-07_IMG_4713",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2024-05-07_IMG_4713.jpeg",
+      "full": "/gallery/full/2024-05-07_IMG_4713.jpeg",
+      "category": "gallery",
+      "date": "2024-05-07",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2024-04-28_IMG_4540",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2024-04-28_IMG_4540.jpeg",
+      "full": "/gallery/full/2024-04-28_IMG_4540.jpeg",
+      "category": "gallery",
+      "date": "2024-04-28",
+      "originalFormat": "jpeg"
+    },
+    {
+      "id": "2024-04-09_IMG_4170",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2024-04-09_IMG_4170.jpg",
+      "full": "/gallery/full/2024-04-09_IMG_4170.heic",
+      "category": "gallery",
+      "date": "2024-04-09",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2024-03-29_IMG_3919",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2024-03-29_IMG_3919.jpg",
+      "full": "/gallery/full/2024-03-29_IMG_3919.heic",
+      "category": "gallery",
+      "date": "2024-03-29",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2024-03-29_IMG_3920",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2024-03-29_IMG_3920.jpg",
+      "full": "/gallery/full/2024-03-29_IMG_3920.heic",
+      "category": "gallery",
+      "date": "2024-03-29",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-11-30_IMG_1136",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-11-30_IMG_1136.jpg",
+      "full": "/gallery/full/2023-11-30_IMG_1136.heic",
+      "category": "gallery",
+      "date": "2023-11-30",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-11-30_IMG_1137",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-11-30_IMG_1137.jpg",
+      "full": "/gallery/full/2023-11-30_IMG_1137.heic",
+      "category": "gallery",
+      "date": "2023-11-30",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-11-30_IMG_1138",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-11-30_IMG_1138.jpg",
+      "full": "/gallery/full/2023-11-30_IMG_1138.heic",
+      "category": "gallery",
+      "date": "2023-11-30",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-11-28_IMG_1116",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-11-28_IMG_1116.jpg",
+      "full": "/gallery/full/2023-11-28_IMG_1116.heic",
+      "category": "gallery",
+      "date": "2023-11-28",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-11-26_IMG_1089",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-11-26_IMG_1089.jpg",
+      "full": "/gallery/full/2023-11-26_IMG_1089.heic",
+      "category": "gallery",
+      "date": "2023-11-26",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-11-03_72073500776__53FBA2F3-5A31-4D2A-9587-738C183AE341",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-11-03_72073500776__53FBA2F3-5A31-4D2A-9587-738C183AE341.jpg",
+      "full": "/gallery/full/2023-11-03_72073500776__53FBA2F3-5A31-4D2A-9587-738C183AE341.heic",
+      "category": "gallery",
+      "date": "2023-11-03",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-10-28_72022860466__FDA6DA11-2781-4D92-925F-7587459F4DCB",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-10-28_72022860466__FDA6DA11-2781-4D92-925F-7587459F4DCB.jpg",
+      "full": "/gallery/full/2023-10-28_72022860466__FDA6DA11-2781-4D92-925F-7587459F4DCB.heic",
+      "category": "gallery",
+      "date": "2023-10-28",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-10-28_72022997706__60F7A003-93EA-411D-BFE1-89DB4BA1620B",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-10-28_72022997706__60F7A003-93EA-411D-BFE1-89DB4BA1620B.jpg",
+      "full": "/gallery/full/2023-10-28_72022997706__60F7A003-93EA-411D-BFE1-89DB4BA1620B.heic",
+      "category": "gallery",
+      "date": "2023-10-28",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-09-30_19939A3D-84FF-47E3-8F53-4B97CC8DD453.HEIC",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-09-30_19939A3D-84FF-47E3-8F53-4B97CC8DD453.HEIC.jpg",
+      "full": "/gallery/full/2023-09-30_19939A3D-84FF-47E3-8F53-4B97CC8DD453.HEIC",
+      "category": "gallery",
+      "date": "2023-09-30",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-08-29_71496715176__1170A0DC-C4E4-4FF5-BFA0-106429E2EE78",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-08-29_71496715176__1170A0DC-C4E4-4FF5-BFA0-106429E2EE78.jpg",
+      "full": "/gallery/full/2023-08-29_71496715176__1170A0DC-C4E4-4FF5-BFA0-106429E2EE78.heic",
+      "category": "gallery",
+      "date": "2023-08-29",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-08-28_71495844891__C46EC040-86EB-4A54-8506-C9A30AE9CC98",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-08-28_71495844891__C46EC040-86EB-4A54-8506-C9A30AE9CC98.jpg",
+      "full": "/gallery/full/2023-08-28_71495844891__C46EC040-86EB-4A54-8506-C9A30AE9CC98.heic",
+      "category": "gallery",
+      "date": "2023-08-28",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-08-18_IMG_9701",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-08-18_IMG_9701.jpg",
+      "full": "/gallery/full/2023-08-18_IMG_9701.heic",
+      "category": "gallery",
+      "date": "2023-08-18",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-08-18_IMG_9704",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-08-18_IMG_9704.jpg",
+      "full": "/gallery/full/2023-08-18_IMG_9704.heic",
+      "category": "gallery",
+      "date": "2023-08-18",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-08-02_1963BE29-5E39-4093-BF3E-0E67C0DC0ACE.HEIC",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-08-02_1963BE29-5E39-4093-BF3E-0E67C0DC0ACE.HEIC.jpg",
+      "full": "/gallery/full/2023-08-02_1963BE29-5E39-4093-BF3E-0E67C0DC0ACE.HEIC",
+      "category": "gallery",
+      "date": "2023-08-02",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-08-02_4AC3DDC8-A10D-4EF8-8D54-4575256CE60D.HEIC",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-08-02_4AC3DDC8-A10D-4EF8-8D54-4575256CE60D.HEIC.jpg",
+      "full": "/gallery/full/2023-08-02_4AC3DDC8-A10D-4EF8-8D54-4575256CE60D.HEIC",
+      "category": "gallery",
+      "date": "2023-08-02",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-08-02_CEC79E73-B196-485A-AF79-6C44E9679F18.HEIC",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-08-02_CEC79E73-B196-485A-AF79-6C44E9679F18.HEIC.jpg",
+      "full": "/gallery/full/2023-08-02_CEC79E73-B196-485A-AF79-6C44E9679F18.HEIC",
+      "category": "gallery",
+      "date": "2023-08-02",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-07-31_E883908C-1748-4DBB-824A-0A3A4E92410A.HEIC",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-07-31_E883908C-1748-4DBB-824A-0A3A4E92410A.HEIC.jpg",
+      "full": "/gallery/full/2023-07-31_E883908C-1748-4DBB-824A-0A3A4E92410A.HEIC",
+      "category": "gallery",
+      "date": "2023-07-31",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-07-31_IMG_9267",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-07-31_IMG_9267.jpg",
+      "full": "/gallery/full/2023-07-31_IMG_9267.heic",
+      "category": "gallery",
+      "date": "2023-07-31",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-07-31_IMG_9268",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-07-31_IMG_9268.jpg",
+      "full": "/gallery/full/2023-07-31_IMG_9268.heic",
+      "category": "gallery",
+      "date": "2023-07-31",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-07-31_IMG_9269",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-07-31_IMG_9269.jpg",
+      "full": "/gallery/full/2023-07-31_IMG_9269.heic",
+      "category": "gallery",
+      "date": "2023-07-31",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-07-31_IMG_9270",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-07-31_IMG_9270.jpg",
+      "full": "/gallery/full/2023-07-31_IMG_9270.heic",
+      "category": "gallery",
+      "date": "2023-07-31",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-07-11_3A21FDFD-E54E-413B-86E0-C0DA5998F04C.HEIC",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-07-11_3A21FDFD-E54E-413B-86E0-C0DA5998F04C.HEIC.jpg",
+      "full": "/gallery/full/2023-07-11_3A21FDFD-E54E-413B-86E0-C0DA5998F04C.HEIC",
+      "category": "gallery",
+      "date": "2023-07-11",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-07-11_E986B0E7-CAC3-4AB6-91F3-64CC7CE04C9E.HEIC",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-07-11_E986B0E7-CAC3-4AB6-91F3-64CC7CE04C9E.HEIC.jpg",
+      "full": "/gallery/full/2023-07-11_E986B0E7-CAC3-4AB6-91F3-64CC7CE04C9E.HEIC",
+      "category": "gallery",
+      "date": "2023-07-11",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-07-07_D0561AF6-B1DC-48FD-95EB-DF21E7E943F2.HEIC",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-07-07_D0561AF6-B1DC-48FD-95EB-DF21E7E943F2.HEIC.jpg",
+      "full": "/gallery/full/2023-07-07_D0561AF6-B1DC-48FD-95EB-DF21E7E943F2.HEIC",
+      "category": "gallery",
+      "date": "2023-07-07",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-07-02_6208CF63-E3B2-4AD2-8EC8-CF12E8D7430B.HEIC",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-07-02_6208CF63-E3B2-4AD2-8EC8-CF12E8D7430B.HEIC.jpg",
+      "full": "/gallery/full/2023-07-02_6208CF63-E3B2-4AD2-8EC8-CF12E8D7430B.HEIC",
+      "category": "gallery",
+      "date": "2023-07-02",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-07-02_662A7122-2A10-428B-8E3C-A82C9DA840F2.HEIC",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-07-02_662A7122-2A10-428B-8E3C-A82C9DA840F2.HEIC.jpg",
+      "full": "/gallery/full/2023-07-02_662A7122-2A10-428B-8E3C-A82C9DA840F2.HEIC",
+      "category": "gallery",
+      "date": "2023-07-02",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-05-16_B9755C62-8C51-4FDE-A9E9-EDFCB11CDB8D.HEIC",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-05-16_B9755C62-8C51-4FDE-A9E9-EDFCB11CDB8D.HEIC.jpg",
+      "full": "/gallery/full/2023-05-16_B9755C62-8C51-4FDE-A9E9-EDFCB11CDB8D.HEIC",
+      "category": "gallery",
+      "date": "2023-05-16",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-04-27_3B9307B8-1AC1-4694-9ACD-D842AA627358.HEIC",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-04-27_3B9307B8-1AC1-4694-9ACD-D842AA627358.HEIC.jpg",
+      "full": "/gallery/full/2023-04-27_3B9307B8-1AC1-4694-9ACD-D842AA627358.HEIC",
+      "category": "gallery",
+      "date": "2023-04-27",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-04-12_DC8C0327-87EB-4C69-ABD0-2B16B8CA5D52.HEIC",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-04-12_DC8C0327-87EB-4C69-ABD0-2B16B8CA5D52.HEIC.jpg",
+      "full": "/gallery/full/2023-04-12_DC8C0327-87EB-4C69-ABD0-2B16B8CA5D52.HEIC",
+      "category": "gallery",
+      "date": "2023-04-12",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-03-08_96C93A79-5965-41D5-A76E-478F5681C308.HEIC",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-03-08_96C93A79-5965-41D5-A76E-478F5681C308.HEIC.jpg",
+      "full": "/gallery/full/2023-03-08_96C93A79-5965-41D5-A76E-478F5681C308.HEIC",
+      "category": "gallery",
+      "date": "2023-03-08",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-01-27_69653819721__43494F16-B2EB-494C-BE82-3276C18E0565",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-01-27_69653819721__43494F16-B2EB-494C-BE82-3276C18E0565.jpg",
+      "full": "/gallery/full/2023-01-27_69653819721__43494F16-B2EB-494C-BE82-3276C18E0565.heic",
+      "category": "gallery",
+      "date": "2023-01-27",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-01-08_69483092369__0687BC5B-CEFC-461D-AECE-FA22870FC267",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-01-08_69483092369__0687BC5B-CEFC-461D-AECE-FA22870FC267.jpg",
+      "full": "/gallery/full/2023-01-08_69483092369__0687BC5B-CEFC-461D-AECE-FA22870FC267.heic",
+      "category": "gallery",
+      "date": "2023-01-08",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2023-01-07_69481336908__595A6BD4-AABC-4FFA-89B9-AAFBB19A57EF",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2023-01-07_69481336908__595A6BD4-AABC-4FFA-89B9-AAFBB19A57EF.jpg",
+      "full": "/gallery/full/2023-01-07_69481336908__595A6BD4-AABC-4FFA-89B9-AAFBB19A57EF.heic",
+      "category": "gallery",
+      "date": "2023-01-07",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2022-11-30_IMG_4768",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2022-11-30_IMG_4768.jpg",
+      "full": "/gallery/full/2022-11-30_IMG_4768.heic",
+      "category": "gallery",
+      "date": "2022-11-30",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2022-11-23_IMG_4455",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2022-11-23_IMG_4455.jpg",
+      "full": "/gallery/full/2022-11-23_IMG_4455.heic",
+      "category": "gallery",
+      "date": "2022-11-23",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2022-11-23_IMG_4456",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2022-11-23_IMG_4456.jpg",
+      "full": "/gallery/full/2022-11-23_IMG_4456.heic",
+      "category": "gallery",
+      "date": "2022-11-23",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2022-11-23_IMG_4458",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2022-11-23_IMG_4458.jpg",
+      "full": "/gallery/full/2022-11-23_IMG_4458.heic",
+      "category": "gallery",
+      "date": "2022-11-23",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2022-11-23_IMG_4459",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2022-11-23_IMG_4459.jpg",
+      "full": "/gallery/full/2022-11-23_IMG_4459.heic",
+      "category": "gallery",
+      "date": "2022-11-23",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2022-11-23_IMG_4565",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2022-11-23_IMG_4565.jpg",
+      "full": "/gallery/full/2022-11-23_IMG_4565.heic",
+      "category": "gallery",
+      "date": "2022-11-23",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2022-11-08_68962763889__11C65492-3AFF-40F3-9C39-22AFA2D95003",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2022-11-08_68962763889__11C65492-3AFF-40F3-9C39-22AFA2D95003.jpg",
+      "full": "/gallery/full/2022-11-08_68962763889__11C65492-3AFF-40F3-9C39-22AFA2D95003.heic",
+      "category": "gallery",
+      "date": "2022-11-08",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2022-10-30_IMG_4167",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2022-10-30_IMG_4167.png",
+      "full": "/gallery/full/2022-10-30_IMG_4167.png",
+      "category": "gallery",
+      "date": "2022-10-30",
+      "originalFormat": "png"
+    },
+    {
+      "id": "2022-08-11_IMG_2973",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2022-08-11_IMG_2973.jpg",
+      "full": "/gallery/full/2022-08-11_IMG_2973.heic",
+      "category": "gallery",
+      "date": "2022-08-11",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2022-08-11_IMG_2975",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2022-08-11_IMG_2975.jpg",
+      "full": "/gallery/full/2022-08-11_IMG_2975.heic",
+      "category": "gallery",
+      "date": "2022-08-11",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2022-08-11_IMG_2976",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2022-08-11_IMG_2976.jpg",
+      "full": "/gallery/full/2022-08-11_IMG_2976.heic",
+      "category": "gallery",
+      "date": "2022-08-11",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2022-08-08_IMG_2941",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2022-08-08_IMG_2941.jpg",
+      "full": "/gallery/full/2022-08-08_IMG_2941.heic",
+      "category": "gallery",
+      "date": "2022-08-08",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2022-08-08_IMG_2942",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2022-08-08_IMG_2942.jpg",
+      "full": "/gallery/full/2022-08-08_IMG_2942.heic",
+      "category": "gallery",
+      "date": "2022-08-08",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2022-08-08_IMG_2943",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2022-08-08_IMG_2943.jpg",
+      "full": "/gallery/full/2022-08-08_IMG_2943.heic",
+      "category": "gallery",
+      "date": "2022-08-08",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2022-07-26_68048919077__6719F075-332F-4713-A895-834C7E44488C",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2022-07-26_68048919077__6719F075-332F-4713-A895-834C7E44488C.jpg",
+      "full": "/gallery/full/2022-07-26_68048919077__6719F075-332F-4713-A895-834C7E44488C.heic",
+      "category": "gallery",
+      "date": "2022-07-26",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2022-07-15_IMG_2513",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2022-07-15_IMG_2513.jpg",
+      "full": "/gallery/full/2022-07-15_IMG_2513.heic",
+      "category": "gallery",
+      "date": "2022-07-15",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2022-07-09_67908641324__3F6D699C-DE20-41F7-B5C8-7E342F6C7BAC",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2022-07-09_67908641324__3F6D699C-DE20-41F7-B5C8-7E342F6C7BAC.jpg",
+      "full": "/gallery/full/2022-07-09_67908641324__3F6D699C-DE20-41F7-B5C8-7E342F6C7BAC.heic",
+      "category": "gallery",
+      "date": "2022-07-09",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2022-07-07_67891267745__40C10589-CD6F-4F1E-BAF7-FCB95C494A16",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2022-07-07_67891267745__40C10589-CD6F-4F1E-BAF7-FCB95C494A16.jpg",
+      "full": "/gallery/full/2022-07-07_67891267745__40C10589-CD6F-4F1E-BAF7-FCB95C494A16.heic",
+      "category": "gallery",
+      "date": "2022-07-07",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2022-07-07_67891275292__7F1AB9EE-87B9-47BB-B106-B367E6E2B373",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2022-07-07_67891275292__7F1AB9EE-87B9-47BB-B106-B367E6E2B373.jpg",
+      "full": "/gallery/full/2022-07-07_67891275292__7F1AB9EE-87B9-47BB-B106-B367E6E2B373.heic",
+      "category": "gallery",
+      "date": "2022-07-07",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2022-03-02_66795030278__103DC7C6-F2B6-46B3-9453-D118A2DE440D.fullsizerender",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2022-03-02_66795030278__103DC7C6-F2B6-46B3-9453-D118A2DE440D.fullsizerender.png",
+      "full": "/gallery/full/2022-03-02_66795030278__103DC7C6-F2B6-46B3-9453-D118A2DE440D.fullsizerender.png",
+      "category": "gallery",
+      "date": "2022-03-02",
+      "originalFormat": "png"
+    },
+    {
+      "id": "2022-03-02_66795032428__88AF4633-4F33-4FF3-A7BE-655C28138518.fullsizerender",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2022-03-02_66795032428__88AF4633-4F33-4FF3-A7BE-655C28138518.fullsizerender.png",
+      "full": "/gallery/full/2022-03-02_66795032428__88AF4633-4F33-4FF3-A7BE-655C28138518.fullsizerender.png",
+      "category": "gallery",
+      "date": "2022-03-02",
+      "originalFormat": "png"
+    },
+    {
+      "id": "2022-03-02_IMG_0391",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2022-03-02_IMG_0391.png",
+      "full": "/gallery/full/2022-03-02_IMG_0391.png",
+      "category": "gallery",
+      "date": "2022-03-02",
+      "originalFormat": "png"
+    },
+    {
+      "id": "2022-03-02_IMG_0392",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2022-03-02_IMG_0392.png",
+      "full": "/gallery/full/2022-03-02_IMG_0392.png",
+      "category": "gallery",
+      "date": "2022-03-02",
+      "originalFormat": "png"
+    }
+  ]
+}
