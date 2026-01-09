@@ -1,11 +1,11 @@
 {
   "reviews": [
     {
-      "author_name": "Alex Himel",
+      "author_name": "Gregory Miller",
       "rating": 5,
-      "text": "I’m a Certified Dog Trainer and I deal with various people in order to have them bring out the best in their dogs.  I’ve been doing this since 2005.  Therefore, it is a rarity nowadays to see someone like Scott at Finesse Detailing, who brings out the best in people’s cars, by being extremely knowledgeable, detail oriented, professional, and delivering customer service on a level that I’ve never seen before.",
-      "relative_time_description": "a year ago",
-      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocK5iC0NE8CevByqzlYStJMV9UEYILSWHI68EimthhDQO6CqQg=s128-c0x00000000-cc-rp-mo-ba3"
+      "text": "Scott keeps in touch throughout the job, so you're never left in the dark about progress or timelines. The engine? Immaculate—he dives in as detailed as they come, banishing every speck of grime like it personally offended him. And the paint job? Scott leaves a flawless finish, buffing and polishing until it gleams like it just rolled off the showroom floor. He doesn't stop at 'good enough'; he goes the extra mile, double-checking every curve and crevice to ensure your ride looks—and feels—brand new.\n\n-Gregory Miller",
+      "relative_time_description": "a month ago",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocI53TaMpQK6JjNJjNEnrjb-UphEc3YLAPURkwFsY6ipUKURaw=s128-c0x00000000-cc-rp-mo"
     },
     {
       "author_name": "Brooke Rahmanan",
@@ -13,6 +13,13 @@
       "text": "Favorite car spot! Have taken two cars here over the past 3 years and each experience is better than the next. Scott is also so great and accommodating and easy to get in touch with, he made the process a breeze.",
       "relative_time_description": "a year ago",
       "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocI7PepHe7c_3wjbRZ-ft97ETy1bPb8rXMX4jpXj8xKELBLfHA=s128-c0x00000000-cc-rp-mo-ba2"
+    },
+    {
+      "author_name": "Alex Himel",
+      "rating": 5,
+      "text": "I’m a Certified Dog Trainer and I deal with various people in order to have them bring out the best in their dogs.  I’ve been doing this since 2005.  Therefore, it is a rarity nowadays to see someone like Scott at Finesse Detailing, who brings out the best in people’s cars, by being extremely knowledgeable, detail oriented, professional, and delivering customer service on a level that I’ve never seen before.",
+      "relative_time_description": "a year ago",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocK5iC0NE8CevByqzlYStJMV9UEYILSWHI68EimthhDQO6CqQg=s128-c0x00000000-cc-rp-mo-ba3"
     },
     {
       "author_name": "K L",
@@ -27,16 +34,9 @@
       "text": "A mouse died somewhere in my old Ford sedan recently.  So, I called Scott at Finesse Detailing and he offered to help me that afternoon, immediately!  He was in the midst of other jobs, but he took a good 15 minutes to try to get the dead animal out of the car.  No luck with the \"Quickie Service,\" but when I gave him the car for the official appointment a few days later, everything was made perfect.   Outstanding results, kind, professional service.  I highly, highly recommend Finesse Detailing for any automotive or marine detailing needs.  You will be thrilled!",
       "relative_time_description": "3 years ago",
       "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjXPAwLira492vDYvfQE0IS6POI4KlYWhwNYNU7z15JjFF8xNmE=s128-c0x00000000-cc-rp-mo"
-    },
-    {
-      "author_name": "Dan Schure",
-      "rating": 5,
-      "text": "Finesse has been detailing my car for years. Every time the car comes out magnificently with a glow to it. No one does a better job. Highly recommend.",
-      "relative_time_description": "3 years ago",
-      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocJaQ9XrCTu4LxVubQi7Rh3XN86CEPpzZj5ZeAp7JEaqKn8iUg=s128-c0x00000000-cc-rp-mo"
     }
   ],
-  "rating": 4.8,
-  "totalReviews": 13,
-  "lastFetched": "2025-11-17T04:32:48.917Z"
+  "rating": 4.9,
+  "totalReviews": 14,
+  "lastFetched": "2026-01-09T05:24:15.561Z"
 }
