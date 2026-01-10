@@ -57,8 +57,21 @@ import GoogleReviews from '../components/GoogleReviews.tsx';
 <style>
   /* Why Choose Us */
   .why-choose {
-    background: var(--card-dark);
+    background: transparent;
     padding: 4rem 0;
+    border-top: 1px solid var(--dark-gray);
+    position: relative;
+  }
+
+  .why-choose::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: var(--primary-red);
   }
 
   .features-grid {
@@ -70,18 +83,12 @@ import GoogleReviews from '../components/GoogleReviews.tsx';
   }
 
   .feature-card {
-    background: var(--black);
+    background: var(--card-dark);
     padding: 2rem;
     border-radius: 15px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--dark-gray);
-  }
-
-  .feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(140, 43, 43, 0.2);
-    border-color: var(--primary-red);
+    border: 1px solid rgba(140, 43, 43, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(140, 43, 43, 0.1);
   }
 
   .feature-icon {
@@ -107,6 +114,8 @@ import GoogleReviews from '../components/GoogleReviews.tsx';
     background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
     padding: 5rem 0;
     text-align: center;
+    margin-top: 2rem;
+    border-top: 1px solid var(--dark-gray);
   }
 
   .cta-content h2 {

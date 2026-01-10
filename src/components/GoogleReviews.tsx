@@ -155,7 +155,8 @@ const styles: { [key: string]: React.CSSProperties } = {
     borderRadius: '15px',
     maxWidth: '700px',
     margin: '0 auto 1.5rem',
-    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
+    border: '1px solid rgba(140, 43, 43, 0.3)',
+    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(140, 43, 43, 0.1)',
     textAlign: 'left',
   },
   reviewHeader: {
