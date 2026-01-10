@@ -128,28 +128,28 @@ const stats: Stat[] = [
 
       statNumbers.forEach(stat => {
         const target = parseFloat(stat.getAttribute('data-target') || '0');
-        const suffix = stat.getAttribute('data-suffix') || '';
         const isDecimal = target % 1 !== 0;
-        const duration = 2000;
+        const duration = 1500;
         const startTime = performance.now();
 
         const updateNumber = (currentTime: number) => {
           const elapsed = currentTime - startTime;
           const progress = Math.min(elapsed / duration, 1);
 
-          // Easing function for smooth animation
-          const easeOut = 1 - Math.pow(1 - progress, 3);
+          // Smoother easing - less aggressive slowdown at end
+          const easeOut = 1 - Math.pow(1 - progress, 2);
           const current = target * easeOut;
 
           if (isDecimal) {
             stat.textContent = current.toFixed(1);
           } else {
-            stat.textContent = Math.floor(current).toString();
+            stat.textContent = Math.round(current).toString();
           }
 
           if (progress < 1) {
             requestAnimationFrame(updateNumber);
           } else {
+            // Ensure final value is exact
             stat.textContent = isDecimal ? target.toFixed(1) : target.toString();
           }
         };
