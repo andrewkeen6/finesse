@@ -90,6 +90,9 @@
         </div>
         <button class="carousel-arrow carousel-prev" aria-label="Previous">&#8249;</button>
         <button class="carousel-arrow carousel-next" aria-label="Next">&#8250;</button>
+        <div class="carousel-loader">
+          <div class="loader-spinner"></div>
+        </div>
         <div class="carousel-indicators">
           <button class="indicator active" data-index="0"></button>
           <button class="indicator" data-index="1"></button>
@@ -179,6 +182,35 @@
     opacity: 0.7;
     pointer-events: none;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .carousel-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    display: none;
+    pointer-events: none;
+  }
+
+  .hero-media-wrapper.loading .carousel-loader {
+    display: block;
+  }
+
+  .loader-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: var(--primary-red);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
   }
 
   .media-item {
@@ -577,8 +609,16 @@
           video.playbackRate = 0.75; // Slow down to 75% speed
           video.currentTime = 0;
 
+          // Show loading indicator if video not ready
+          if (video.readyState < 3) {
+            mediaWrapper?.classList.add('loading');
+          }
+
           // Wait for video to be ready to play
           const playVideo = () => {
+            // Hide loading indicator
+            mediaWrapper?.classList.remove('loading');
+
             // Only play if we're still on this item and not paused
             if (currentIndex === thisIndex && !isPaused) {
               video.play().catch(() => {
@@ -606,6 +646,9 @@
           };
         }
       } else if (mediaType === 'image') {
+        // Hide loading indicator for images
+        mediaWrapper?.classList.remove('loading');
+
         // For images, show for 4 seconds then advance
         const thisIndex = index;
         if (!isPaused) {
@@ -618,14 +661,16 @@
         }
       }
 
-      // Preload next item
-      const nextIndex = (index + 1) % mediaItems.length;
-      const nextItem = mediaItems[nextIndex];
-      if (nextItem.getAttribute('data-type') === 'video') {
-        const nextVideo = nextItem.querySelector('video') as HTMLVideoElement;
-        if (nextVideo && nextVideo.preload === 'none') {
-          nextVideo.preload = 'auto';
-          nextVideo.load();
+      // Preload next 2 items
+      for (let i = 1; i <= 2; i++) {
+        const preloadIndex = (index + i) % mediaItems.length;
+        const preloadItem = mediaItems[preloadIndex];
+        if (preloadItem?.getAttribute('data-type') === 'video') {
+          const preloadVideo = preloadItem.querySelector('video') as HTMLVideoElement;
+          if (preloadVideo && preloadVideo.preload === 'none') {
+            preloadVideo.preload = 'auto';
+            preloadVideo.load();
+          }
         }
       }
     }
