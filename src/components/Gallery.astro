@@ -89,13 +89,19 @@ const media = galleryManifest.media.map((item: any) => {
 
   <!-- Lightbox for fullscreen viewing -->
   <div id="lightbox" class="lightbox">
-    <button class="lightbox-close">&times;</button>
+    <button class="lightbox-close" aria-label="Close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
     <img src="" alt="Fullscreen image" class="lightbox-image" />
-    <video class="lightbox-video" controls loop>
+    <video class="lightbox-video" muted loop playsinline controls>
       <source src="" type="video/mp4" />
     </video>
-    <button class="lightbox-prev">‹</button>
-    <button class="lightbox-next">›</button>
+    <button class="lightbox-prev" aria-label="Previous">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <button class="lightbox-next" aria-label="Next">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
   </div>
 </section>
 
@@ -207,11 +213,21 @@ const media = galleryManifest.media.map((item: any) => {
     background: rgba(255, 255, 255, 0.1);
     border: none;
     color: var(--white);
-    font-size: 3rem;
     cursor: pointer;
-    padding: 1rem 1.5rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: background 0.3s ease;
-    border-radius: 8px;
+    border-radius: 50%;
+  }
+
+  .lightbox-close svg,
+  .lightbox-prev svg,
+  .lightbox-next svg {
+    width: 24px;
+    height: 24px;
   }
 
   .lightbox-close:hover,
@@ -221,21 +237,23 @@ const media = galleryManifest.media.map((item: any) => {
   }
 
   .lightbox-close {
-    top: 2rem;
-    right: 2rem;
-    font-size: 4rem;
-    line-height: 1;
-    padding: 0.5rem 1rem;
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .lightbox-close svg {
+    width: 28px;
+    height: 28px;
   }
 
   .lightbox-prev {
-    left: 2rem;
+    left: 1.5rem;
     top: 50%;
     transform: translateY(-50%);
   }
 
   .lightbox-next {
-    right: 2rem;
+    right: 1.5rem;
     top: 50%;
     transform: translateY(-50%);
   }
@@ -303,16 +321,28 @@ const media = galleryManifest.media.map((item: any) => {
   }
 
   @media (max-width: 768px) {
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      width: 44px;
+      height: 44px;
+    }
+
+    .lightbox-close svg,
+    .lightbox-prev svg,
+    .lightbox-next svg {
+      width: 20px;
+      height: 20px;
+    }
+
     .lightbox-close {
       top: 1rem;
       right: 1rem;
-      font-size: 3rem;
     }
 
-    .lightbox-prev,
-    .lightbox-next {
-      font-size: 2rem;
-      padding: 0.5rem 1rem;
+    .lightbox-close svg {
+      width: 24px;
+      height: 24px;
     }
 
     .lightbox-prev {
@@ -349,6 +379,15 @@ const media = galleryManifest.media.map((item: any) => {
     let currentIndex = 0;
     const mediaItems: Array<{src: string, isVideo: boolean}> = [];
 
+    // Force video to stay muted
+    if (lightboxVideo) {
+      lightboxVideo.addEventListener('volumechange', () => {
+        if (!lightboxVideo.muted) {
+          lightboxVideo.muted = true;
+        }
+      });
+    }
+
     // Collect all media sources
     masonryItems.forEach((item, index) => {
       const fullSrc = item.getAttribute('data-full-src');
@@ -372,6 +411,7 @@ const media = galleryManifest.media.map((item: any) => {
           lightboxVideo.classList.add('active');
           lightboxVideo.querySelector('source')?.setAttribute('src', src);
           lightboxVideo.load();
+          lightboxVideo.muted = true;
           lightboxVideo.play();
         } else if (lightboxImage) {
           lightboxVideo?.classList.remove('active');
