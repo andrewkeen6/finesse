@@ -165,6 +165,20 @@
     height: 350px;
     background: var(--dark-gray);
     display: block;
+    cursor: pointer;
+  }
+
+  .hero-media-wrapper.paused::after {
+    content: '❚❚';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: white;
+    opacity: 0.7;
+    pointer-events: none;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
   }
 
   .media-item {
@@ -485,6 +499,13 @@
       [mediaItemsArray[i], mediaItemsArray[j]] = [mediaItemsArray[j], mediaItemsArray[i]];
     }
 
+    // Ensure first item is always an image (faster to load)
+    const firstImageIndex = mediaItemsArray.findIndex(item => item.getAttribute('data-type') === 'image');
+    if (firstImageIndex > 0) {
+      // Swap first image with first item
+      [mediaItemsArray[0], mediaItemsArray[firstImageIndex]] = [mediaItemsArray[firstImageIndex], mediaItemsArray[0]];
+    }
+
     // Re-append shuffled items to the DOM
     mediaItemsArray.forEach((item, index) => {
       item.classList.remove('active');
@@ -500,6 +521,7 @@
     const indicators = document.querySelectorAll('.indicator') as NodeListOf<HTMLButtonElement>;
     let currentIndex = 0;
     let imageTimer: number | null = null;
+    let isPaused = false;
 
     function showMedia(index: number) {
       // Clear any existing image timer
@@ -508,11 +530,17 @@
         imageTimer = null;
       }
 
-      // Hide all media items and deactivate indicators
+      // Hide all media items, stop videos, and deactivate indicators
       mediaItems.forEach((item, i) => {
         item.classList.remove('active');
         if (indicators[i]) {
           indicators[i].classList.remove('active');
+        }
+        // Stop any playing videos
+        const video = item.querySelector('video') as HTMLVideoElement;
+        if (video) {
+          video.pause();
+          video.onended = null;
         }
       });
 
@@ -535,6 +563,11 @@
       if (mediaType === 'video') {
         const video = mediaItem.querySelector('video') as HTMLVideoElement;
         if (video) {
+          const thisIndex = index;
+
+          // Clear any previous event listeners
+          video.onended = null;
+
           // Load the video if not already loaded
           if (video.preload === 'none') {
             video.preload = 'auto';
@@ -546,7 +579,17 @@
 
           // Wait for video to be ready to play
           const playVideo = () => {
-            video.play().catch(() => {});
+            // Only play if we're still on this item and not paused
+            if (currentIndex === thisIndex && !isPaused) {
+              video.play().catch(() => {
+                // If video fails to play, advance after 4 seconds like an image
+                imageTimer = window.setTimeout(() => {
+                  if (currentIndex === thisIndex && !isPaused) {
+                    nextMedia();
+                  }
+                }, 4000);
+              });
+            }
           };
 
           if (video.readyState >= 3) {
@@ -557,14 +600,22 @@
 
           // Listen for video end to advance to next slide
           video.onended = () => {
-            nextMedia();
+            if (currentIndex === thisIndex && !isPaused) {
+              nextMedia();
+            }
           };
         }
       } else if (mediaType === 'image') {
         // For images, show for 4 seconds then advance
-        imageTimer = window.setTimeout(() => {
-          nextMedia();
-        }, 4000);
+        const thisIndex = index;
+        if (!isPaused) {
+          imageTimer = window.setTimeout(() => {
+            // Only advance if we're still on the same image and not paused
+            if (currentIndex === thisIndex && !isPaused) {
+              nextMedia();
+            }
+          }, 4000);
+        }
       }
 
       // Preload next item
@@ -607,6 +658,44 @@
 
     nextBtn?.addEventListener('click', () => {
       nextMedia();
+    });
+
+    // Pause/resume on click
+    mediaWrapper?.addEventListener('click', (e) => {
+      // Don't toggle if clicking on arrows or indicators
+      const target = e.target as HTMLElement;
+      if (target.closest('.carousel-arrow') || target.closest('.carousel-indicators')) {
+        return;
+      }
+
+      isPaused = !isPaused;
+      mediaWrapper?.classList.toggle('paused', isPaused);
+      const currentItem = mediaItems[currentIndex];
+      const video = currentItem?.querySelector('video') as HTMLVideoElement;
+
+      if (isPaused) {
+        // Pause
+        if (imageTimer) {
+          clearTimeout(imageTimer);
+          imageTimer = null;
+        }
+        if (video) {
+          video.pause();
+        }
+      } else {
+        // Resume
+        if (video) {
+          video.play().catch(() => {});
+        } else {
+          // It's an image, restart the timer
+          const thisIndex = currentIndex;
+          imageTimer = window.setTimeout(() => {
+            if (currentIndex === thisIndex && !isPaused) {
+              nextMedia();
+            }
+          }, 4000);
+        }
+      }
     });
 
     // Start the carousel
