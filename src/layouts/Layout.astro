@@ -68,7 +68,9 @@ const { title, description = "Premium car detailing services that restore your v
     --white: #FFFFFF;
     --white-transparent: rgba(255, 255, 255, 0.85);
     --accent-gray: #666666;
+    --accent-light: #CCCCCC;
     --success-green: #10B981;
+    --card-dark: #2A2A2A;
   }
 
   * {
@@ -84,8 +86,8 @@ const { title, description = "Premium car detailing services that restore your v
 
   body {
     line-height: 1.6;
-    color: var(--black);
-    background: var(--light-gray);
+    color: var(--white);
+    background: var(--black);
     position: relative;
   }
 
@@ -100,9 +102,10 @@ const { title, description = "Premium car detailing services that restore your v
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
-    opacity: 0.25;
+    opacity: 0.05;
     pointer-events: none;
     z-index: -1;
+    filter: invert(1);
   }
 
   main {
@@ -125,13 +128,13 @@ const { title, description = "Premium car detailing services that restore your v
     font-weight: 700;
     text-align: center;
     margin-bottom: 1rem;
-    color: var(--black);
+    color: var(--white);
   }
 
   .section-subtitle {
     font-size: 1.1rem;
     text-align: center;
-    color: var(--accent-gray);
+    color: var(--accent-light);
     margin-bottom: 3rem;
     max-width: 600px;
     margin-left: auto;
@@ -164,20 +167,21 @@ const { title, description = "Premium car detailing services that restore your v
 
   .btn-outline {
     background: transparent;
-    color: var(--black);
-    border-color: var(--black);
+    color: var(--white);
+    border-color: var(--white);
   }
 
   .btn-outline:hover {
-    background: var(--black);
-    color: var(--white);
+    background: var(--white);
+    color: var(--black);
   }
 
   /* Footer Styles */
   .footer {
-    background: var(--black);
+    background: var(--card-dark);
     color: var(--white);
     padding: 2rem 0 1rem;
+    border-top: 1px solid var(--dark-gray);
   }
 
   .footer-container {

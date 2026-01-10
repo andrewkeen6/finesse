@@ -102,7 +102,7 @@ const media = galleryManifest.media.map((item: any) => {
 
 <style>
   .gallery {
-    background: var(--white-transparent);
+    background: transparent;
     padding: 2rem 0 4rem;
   }
 
@@ -158,14 +158,15 @@ const media = galleryManifest.media.map((item: any) => {
   .no-images {
     text-align: center;
     padding: 4rem 2rem;
-    color: var(--accent-gray);
+    color: #CCCCCC;
   }
 
   .no-images code {
-    background: var(--light-gray);
+    background: var(--card-dark);
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
     font-family: monospace;
+    color: var(--white);
   }
 
   /* Lightbox Styles */
@@ -241,19 +242,19 @@ const media = galleryManifest.media.map((item: any) => {
   }
 
   .instagram-embed-section {
-    background: var(--light-gray-transparent);
+    background: transparent;
     padding: 3rem 0;
     text-align: center;
   }
 
   .instagram-embed-header h3 {
-    color: var(--black);
+    color: var(--white);
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
   }
 
   .instagram-embed-header p {
-    color: var(--accent-gray);
+    color: #CCCCCC;
     margin-bottom: 2rem;
   }
 

@@ -108,7 +108,7 @@ export default function GoogleReviews() {
 
 const styles: { [key: string]: React.CSSProperties } = {
   container: {
-    background: 'rgba(245, 245, 245, 0.85)',
+    background: 'transparent',
     padding: '3rem 2rem',
     textAlign: 'center',
   },
@@ -117,16 +117,16 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
   title: {
     fontSize: '2rem',
-    color: '#1A1A1A',
+    color: '#FFFFFF',
     marginBottom: '1rem',
     fontWeight: '700',
   },
   subtitle: {
-    color: '#666666',
+    color: '#CCCCCC',
     fontSize: '1rem',
   },
   headerSubtitle: {
-    color: '#666666',
+    color: '#CCCCCC',
     fontSize: '1.1rem',
     marginBottom: '1.5rem',
   },
@@ -139,23 +139,23 @@ const styles: { [key: string]: React.CSSProperties } = {
   ratingNumber: {
     fontSize: '2rem',
     fontWeight: '700',
-    color: '#1A1A1A',
+    color: '#FFFFFF',
   },
   stars: {
     color: '#F59E0B',
     fontSize: '1.5rem',
   },
   totalReviews: {
-    color: '#666666',
+    color: '#CCCCCC',
     fontSize: '1rem',
   },
   reviewCard: {
-    background: '#FFFFFF',
+    background: '#2A2A2A',
     padding: '2rem',
     borderRadius: '15px',
     maxWidth: '700px',
     margin: '0 auto 1.5rem',
-    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
+    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
     textAlign: 'left',
   },
   reviewHeader: {
@@ -177,11 +177,11 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
   authorName: {
     fontWeight: '600',
-    color: '#1A1A1A',
+    color: '#FFFFFF',
     fontSize: '1rem',
   },
   reviewTime: {
-    color: '#666666',
+    color: '#CCCCCC',
     fontSize: '0.85rem',
   },
   reviewStars: {
@@ -189,7 +189,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     fontSize: '1.2rem',
   },
   reviewText: {
-    color: '#1A1A1A',
+    color: '#CCCCCC',
     lineHeight: '1.7',
     fontSize: '1rem',
     fontStyle: 'italic',

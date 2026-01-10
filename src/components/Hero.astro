@@ -7,10 +7,6 @@
   </div>
 
   <div class="container">
-    <div class="hero-logo-top">
-      <img src="/logo_dark.png" alt="Finésse Detailing Logo" class="logo-top" />
-    </div>
-
     <div class="hero-content">
       <div class="hero-text">
         <h1 class="hero-title">
@@ -52,7 +48,7 @@
     display: flex;
     align-items: center;
     overflow: hidden;
-    background: var(--light-gray-transparent);
+    background: transparent;
   }
 
   .hero-background {
@@ -76,21 +72,6 @@
       rgba(26, 26, 26, 0.9) 100%);
   }
 
-  .hero-logo-top {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    padding-top: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .logo-top {
-    max-width: 450px;
-    width: 100%;
-    height: auto;
-  }
-
   .hero-content {
     position: relative;
     z-index: 2;
@@ -102,7 +83,7 @@
   }
 
   .hero-text {
-    color: var(--black);
+    color: var(--white);
   }
 
   .hero-title {
@@ -110,7 +91,7 @@
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 1.5rem;
-    color: var(--black);
+    color: var(--white);
   }
 
   .highlight {
@@ -124,7 +105,7 @@
 
   .hero-subtitle {
     font-size: 1.25rem;
-    color: var(--accent-gray);
+    color: #CCCCCC;
     margin-bottom: 2rem;
     max-width: 500px;
     line-height: 1.6;
@@ -139,13 +120,13 @@
 
   .btn-outline-white {
     background: transparent;
-    color: var(--black);
-    border: 2px solid var(--black);
+    color: var(--white);
+    border: 2px solid var(--white);
   }
 
   .btn-outline-white:hover {
-    background: var(--black);
-    color: var(--white);
+    background: var(--white);
+    color: var(--black);
     transform: translateY(-2px);
   }
 
@@ -159,7 +140,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--black);
+    color: var(--white);
     font-weight: 500;
   }
 
@@ -215,14 +196,6 @@
 
   /* Mobile Styles */
   @media (max-width: 768px) {
-    .logo-top {
-      max-width: 300px;
-    }
-
-    .hero-logo-top {
-      margin-bottom: 1.5rem;
-    }
-
     .hero-content {
       grid-template-columns: 1fr;
       gap: 2rem;
