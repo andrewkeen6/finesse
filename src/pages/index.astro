@@ -1,12 +1,186 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
-import Services from '../components/Services.astro';
-import Gallery from '../components/Gallery.astro';
 import GoogleReviews from '../components/GoogleReviews.tsx';
 ---
 
 <Layout title="Finésse Detailing - Fine Motorcar & Marine Detailing Services" description="Fine motorcar & marine detailing services in Port Washington, NY. Exterior, interior, ceramic coating, and paint protection. Professional results with 5-star reviews.">
   <Hero />
+
+  <!-- Why Choose Us Section -->
+  <section class="why-choose section">
+    <div class="container">
+      <h2 class="section-title">Why Choose Finésse Detailing</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🔧</div>
+          <h3>Professional Equipment</h3>
+          <p>We use only professional-grade products and cutting-edge equipment to ensure the best results for your vehicle.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>Attention to Detail</h3>
+          <p>Every inch of your vehicle receives meticulous care. We don't cut corners - we perfect them.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h3>Paint Protection</h3>
+          <p>Long-lasting ceramic coatings and paint protection that keeps your vehicle looking new for years.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🚤</div>
+          <h3>Marine Specialists</h3>
+          <p>Not just cars - we're experts in boat detailing too. Your marine vessel deserves the same finesse.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
   <GoogleReviews client:load />
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Transform Your Vehicle?</h2>
+        <p>Experience the difference that professional detailing makes. Book your appointment today.</p>
+        <div class="cta-buttons">
+          <a href="tel:+15167673637" class="btn btn-outline large">Call or Text Now</a>
+          <a href="/contact" class="btn btn-outline large">Get a Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
+
+<style>
+  /* Why Choose Us */
+  .why-choose {
+    background: var(--card-dark);
+    padding: 4rem 0;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .feature-card {
+    background: var(--black);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--dark-gray);
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(140, 43, 43, 0.2);
+    border-color: var(--primary-red);
+  }
+
+  .feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-card h3 {
+    color: var(--white);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .feature-card p {
+    color: #CCCCCC;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+    padding: 5rem 0;
+    text-align: center;
+  }
+
+  .cta-content h2 {
+    font-size: 2.5rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+
+  .cta-content p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn.large {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+  }
+
+  .cta-section .btn-outline {
+    background: transparent;
+    color: var(--white);
+    border-color: var(--white);
+  }
+
+  .cta-section .btn-outline:hover {
+    background: var(--white);
+    color: var(--primary-red);
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      padding: 1.5rem;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+
+    .cta-content p {
+      font-size: 1rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn.large {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 900px) {
+    .features-grid {
+      max-width: 800px;
+    }
+  }
+</style>
