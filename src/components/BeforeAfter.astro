@@ -1,0 +1,233 @@
+---
+interface Props {
+  beforeImage: string;
+  afterImage: string;
+  beforeLabel?: string;
+  afterLabel?: string;
+}
+
+const { beforeImage, afterImage, beforeLabel = 'Before', afterLabel = 'After' } = Astro.props;
+---
+
+<div class="before-after-slider">
+  <div class="slider-container">
+    <div class="after-image">
+      <img src={afterImage} alt={afterLabel} loading="lazy" />
+      <span class="label after-label">{afterLabel}</span>
+    </div>
+    <div class="before-image">
+      <img src={beforeImage} alt={beforeLabel} loading="lazy" />
+      <span class="label before-label">{beforeLabel}</span>
+    </div>
+    <div class="slider-handle">
+      <div class="handle-line"></div>
+      <div class="handle-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m9 18 6-6-6-6"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m15 18-6-6 6-6"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .before-after-slider {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .slider-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: ew-resize;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(140, 43, 43, 0.3);
+  }
+
+  .before-image,
+  .after-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .before-image {
+    width: 50%;
+    z-index: 2;
+  }
+
+  .after-image {
+    z-index: 1;
+  }
+
+  .before-image img,
+  .after-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  .before-image img {
+    width: auto;
+    min-width: calc(100% * (100 / 50));
+  }
+
+  .label {
+    position: absolute;
+    bottom: 1rem;
+    padding: 0.5rem 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--white);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .before-label {
+    left: 1rem;
+  }
+
+  .after-label {
+    right: 1rem;
+  }
+
+  .slider-handle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    z-index: 10;
+    transform: translateX(-50%);
+  }
+
+  .handle-line {
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .handle-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 48px;
+    background: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    color: var(--primary-red);
+  }
+
+  .handle-circle svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .handle-circle svg:first-child {
+    margin-right: -6px;
+  }
+
+  .handle-circle svg:last-child {
+    margin-left: -6px;
+  }
+
+  @media (max-width: 768px) {
+    .handle-circle {
+      width: 40px;
+      height: 40px;
+    }
+
+    .handle-circle svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .label {
+      font-size: 0.75rem;
+      padding: 0.4rem 0.8rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sliders = document.querySelectorAll('.slider-container');
+
+    sliders.forEach(container => {
+      const beforeImage = container.querySelector('.before-image') as HTMLElement;
+      const handle = container.querySelector('.slider-handle') as HTMLElement;
+      const beforeImg = beforeImage?.querySelector('img') as HTMLImageElement;
+
+      if (!beforeImage || !handle || !beforeImg) return;
+
+      let isDragging = false;
+
+      const updateSlider = (x: number) => {
+        const rect = container.getBoundingClientRect();
+        let percentage = ((x - rect.left) / rect.width) * 100;
+        percentage = Math.max(0, Math.min(100, percentage));
+
+        beforeImage.style.width = `${percentage}%`;
+        handle.style.left = `${percentage}%`;
+
+        // Adjust the before image width to maintain proper coverage
+        if (percentage > 0) {
+          beforeImg.style.minWidth = `${(100 / percentage) * 100}%`;
+        }
+      };
+
+      const startDrag = () => {
+        isDragging = true;
+        container.classList.add('dragging');
+      };
+
+      const endDrag = () => {
+        isDragging = false;
+        container.classList.remove('dragging');
+      };
+
+      const drag = (e: MouseEvent | TouchEvent) => {
+        if (!isDragging) return;
+        e.preventDefault();
+
+        const x = 'touches' in e ? e.touches[0].clientX : e.clientX;
+        updateSlider(x);
+      };
+
+      // Mouse events
+      container.addEventListener('mousedown', (e) => {
+        startDrag();
+        updateSlider(e.clientX);
+      });
+      document.addEventListener('mousemove', drag);
+      document.addEventListener('mouseup', endDrag);
+
+      // Touch events
+      container.addEventListener('touchstart', (e) => {
+        startDrag();
+        updateSlider(e.touches[0].clientX);
+      });
+      document.addEventListener('touchmove', drag, { passive: false });
+      document.addEventListener('touchend', endDrag);
+    });
+  });
+</script>

@@ -108,6 +108,19 @@ const { title, description = "Premium car detailing services that restore your v
     filter: invert(1);
   }
 
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
   main {
     margin-top: 70px;
     min-height: calc(100vh - 70px);
@@ -120,22 +133,25 @@ const { title, description = "Premium car detailing services that restore your v
   }
 
   .section {
-    padding: 4rem 0;
+    padding: 5rem 0;
   }
 
   .section-title {
     font-size: 2.5rem;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 1rem;
-    color: var(--white);
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--white) 0%, #CCCCCC 50%, var(--white) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .section-subtitle {
     font-size: 1.1rem;
     text-align: center;
     color: var(--accent-light);
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -257,6 +273,23 @@ const { title, description = "Premium car detailing services that restore your v
     font-size: 0.8rem;
   }
 
+  /* Scroll Animations */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-in-delay-1 { transition-delay: 0.1s; }
+  .fade-in-delay-2 { transition-delay: 0.2s; }
+  .fade-in-delay-3 { transition-delay: 0.3s; }
+  .fade-in-delay-4 { transition-delay: 0.4s; }
+
   @media (max-width: 768px) {
     .section-title {
       font-size: 2rem;
@@ -282,3 +315,25 @@ const { title, description = "Premium car detailing services that restore your v
     }
   }
 </style>
+
+<script>
+  // Scroll animation observer
+  document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+  });
+</script>

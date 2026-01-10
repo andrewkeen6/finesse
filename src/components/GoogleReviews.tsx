@@ -18,16 +18,29 @@ interface ReviewsData {
 
 export default function GoogleReviews() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
   const data = reviewsData as ReviewsData;
 
   useEffect(() => {
-    if (data.reviews.length > 1) {
+    const checkScreenSize = () => {
+      const width = window.innerWidth;
+      setIsMobile(width < 768);
+      setIsTablet(width >= 768 && width < 1024);
+    };
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile && data.reviews.length > 1) {
       const interval = setInterval(() => {
         setCurrentIndex(prev => (prev + 1) % data.reviews.length);
       }, 6000);
       return () => clearInterval(interval);
     }
-  }, [data.reviews.length]);
+  }, [data.reviews.length, isMobile]);
 
   if (data.reviews.length === 0) {
     return (
@@ -44,6 +57,38 @@ export default function GoogleReviews() {
     return '★'.repeat(Math.round(rating)) + '☆'.repeat(5 - Math.round(rating));
   };
 
+  const renderReviewCard = (review: Review, index: number, isSingle: boolean = false) => (
+    <div key={index} style={{
+      ...styles.reviewCard,
+      ...(isSingle ? { maxWidth: '700px', margin: '0 auto 1.5rem' } : {})
+    }}>
+      <div style={styles.reviewHeader}>
+        <div style={styles.authorInfo}>
+          {review.profile_photo_url && (
+            <img
+              src={review.profile_photo_url}
+              alt={review.author_name}
+              style={styles.avatar}
+              referrerPolicy="no-referrer"
+            />
+          )}
+          <div>
+            <div style={styles.authorName}>{review.author_name}</div>
+            <div style={styles.reviewTime}>{review.relative_time_description}</div>
+          </div>
+        </div>
+        <div style={styles.reviewStars}>
+          {renderStars(review.rating)}
+        </div>
+      </div>
+      <p style={styles.reviewText}>"{review.text}"</p>
+    </div>
+  );
+
+  // Get reviews to display (2 on tablet, 3 on desktop)
+  const visibleCount = isTablet ? 2 : 3;
+  const desktopReviews = data.reviews.slice(0, visibleCount);
+
   return (
     <div style={styles.container}>
       <div style={styles.header}>
@@ -56,41 +101,30 @@ export default function GoogleReviews() {
         </div>
       </div>
 
-      <div style={styles.reviewCard}>
-        <div style={styles.reviewHeader}>
-          <div style={styles.authorInfo}>
-            {data.reviews[currentIndex].profile_photo_url && (
-              <img
-                src={data.reviews[currentIndex].profile_photo_url}
-                alt={data.reviews[currentIndex].author_name}
-                style={styles.avatar}
-                referrerPolicy="no-referrer"
-              />
-            )}
-            <div>
-              <div style={styles.authorName}>{data.reviews[currentIndex].author_name}</div>
-              <div style={styles.reviewTime}>{data.reviews[currentIndex].relative_time_description}</div>
+      {isMobile ? (
+        <>
+          {renderReviewCard(data.reviews[currentIndex], currentIndex, true)}
+          {data.reviews.length > 1 && (
+            <div style={styles.indicators}>
+              {data.reviews.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  style={{
+                    ...styles.indicator,
+                    ...(index === currentIndex ? styles.indicatorActive : {})
+                  }}
+                />
+              ))}
             </div>
-          </div>
-          <div style={styles.reviewStars}>
-            {renderStars(data.reviews[currentIndex].rating)}
-          </div>
-        </div>
-        <p style={styles.reviewText}>"{data.reviews[currentIndex].text}"</p>
-      </div>
-
-      {data.reviews.length > 1 && (
-        <div style={styles.indicators}>
-          {data.reviews.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              style={{
-                ...styles.indicator,
-                ...(index === currentIndex ? styles.indicatorActive : {})
-              }}
-            />
-          ))}
+          )}
+        </>
+      ) : (
+        <div style={{
+          ...styles.reviewsGrid,
+          gridTemplateColumns: isTablet ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)'
+        }}>
+          {desktopReviews.map((review, index) => renderReviewCard(review, index))}
         </div>
       )}
 
@@ -149,15 +183,23 @@ const styles: { [key: string]: React.CSSProperties } = {
     color: '#CCCCCC',
     fontSize: '1rem',
   },
+  reviewsGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gap: '1.5rem',
+    maxWidth: '1200px',
+    margin: '0 auto 1.5rem',
+    padding: '0 1rem',
+  },
   reviewCard: {
     background: '#2A2A2A',
-    padding: '2rem',
+    padding: '1.5rem',
     borderRadius: '15px',
-    maxWidth: '700px',
-    margin: '0 auto 1.5rem',
     border: '1px solid rgba(140, 43, 43, 0.3)',
     boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(140, 43, 43, 0.1)',
     textAlign: 'left',
+    display: 'flex',
+    flexDirection: 'column',
   },
   reviewHeader: {
     display: 'flex',
