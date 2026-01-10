@@ -94,11 +94,29 @@ export default function GoogleReviews() {
       <div style={styles.header}>
         <h3 style={styles.title}>What Our Customers Say</h3>
         <p style={styles.headerSubtitle}>Real reviews from satisfied customers who trust us with their vehicles</p>
-        <div style={styles.overallRating}>
-          <span style={styles.ratingNumber}>{data.rating.toFixed(1)}</span>
-          <span style={styles.stars}>{renderStars(data.rating)}</span>
-          <span style={styles.totalReviews}>({data.totalReviews} reviews)</span>
-        </div>
+
+        {/* Google Rating Badge */}
+        <a
+          href="https://maps.app.goo.gl/m5mYEiUAyYerEKba9"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={styles.googleBadge}
+        >
+          <img src="/google_icon.svg" alt="Google" style={styles.googleLogo} />
+          <div style={styles.badgeContent}>
+            <div style={styles.badgeRating}>
+              <span style={styles.badgeNumber}>{data.rating.toFixed(1)}</span>
+              <div style={styles.badgeStars}>
+                {[1,2,3,4,5].map(i => (
+                  <svg key={i} style={styles.starIcon} viewBox="0 0 24 24" fill="#F59E0B">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                  </svg>
+                ))}
+              </div>
+            </div>
+            <span style={styles.badgeReviews}>{data.totalReviews} Google Reviews</span>
+          </div>
+        </a>
       </div>
 
       {isMobile ? (
@@ -150,10 +168,11 @@ const styles: { [key: string]: React.CSSProperties } = {
     marginBottom: '2rem',
   },
   title: {
-    fontSize: '2rem',
+    fontSize: '2.5rem',
     color: '#FFFFFF',
     marginBottom: '1rem',
-    fontWeight: '700',
+    fontWeight: '800',
+    letterSpacing: '-0.02em',
   },
   subtitle: {
     color: '#CCCCCC',
@@ -264,5 +283,53 @@ const styles: { [key: string]: React.CSSProperties } = {
     fontWeight: '600',
     fontSize: '1rem',
     transition: 'color 0.3s ease',
+  },
+  googleBadge: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '1rem',
+    background: '#2A2A2A',
+    padding: '1rem 1.5rem',
+    borderRadius: '12px',
+    textDecoration: 'none',
+    border: '1px solid rgba(140, 43, 43, 0.3)',
+    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
+    transition: 'all 0.3s ease',
+    marginBottom: '0.5rem',
+  },
+  googleLogo: {
+    width: '40px',
+    height: '40px',
+    objectFit: 'contain',
+  },
+  badgeContent: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    gap: '0.25rem',
+  },
+  badgeRating: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.5rem',
+  },
+  badgeNumber: {
+    fontSize: '1.75rem',
+    fontWeight: '800',
+    color: '#FFFFFF',
+    lineHeight: '1',
+  },
+  badgeStars: {
+    display: 'flex',
+    gap: '2px',
+  },
+  starIcon: {
+    width: '18px',
+    height: '18px',
+  },
+  badgeReviews: {
+    fontSize: '0.85rem',
+    color: 'rgba(255, 255, 255, 0.7)',
+    fontWeight: '500',
   },
 };

@@ -1,0 +1,113 @@
+---
+// Brand logos - using text-based logos for simplicity (can be replaced with actual SVG logos)
+const brands = [
+  { name: 'BMW', letter: 'BMW' },
+  { name: 'Mercedes-Benz', letter: 'Mercedes' },
+  { name: 'Porsche', letter: 'Porsche' },
+  { name: 'Audi', letter: 'Audi' },
+  { name: 'Ferrari', letter: 'Ferrari' },
+  { name: 'Lamborghini', letter: 'Lamborghini' },
+  { name: 'Bentley', letter: 'Bentley' },
+  { name: 'Tesla', letter: 'Tesla' },
+  { name: 'Lexus', letter: 'Lexus' },
+];
+---
+
+<section class="brands-section">
+  <div class="container">
+    <p class="brands-label">Trusted by owners of</p>
+    <div class="brands-track">
+      <div class="brands-slider">
+        {brands.map(brand => (
+          <div class="brand-item">
+            <span class="brand-name">{brand.letter}</span>
+          </div>
+        ))}
+        {/* Duplicate for seamless loop */}
+        {brands.map(brand => (
+          <div class="brand-item">
+            <span class="brand-name">{brand.letter}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .brands-section {
+    padding: 2rem 0;
+    overflow: hidden;
+  }
+
+  .brands-label {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+
+  .brands-track {
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  .brands-slider {
+    display: flex;
+    gap: 3rem;
+    animation: scroll 30s linear infinite;
+    width: max-content;
+  }
+
+  .brands-slider:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .brand-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+  }
+
+  .brand-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .brand-item:hover .brand-name {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  @media (max-width: 768px) {
+    .brands-slider {
+      gap: 2rem;
+      animation-duration: 20s;
+    }
+
+    .brand-name {
+      font-size: 1rem;
+      letter-spacing: 1px;
+    }
+  }
+</style>

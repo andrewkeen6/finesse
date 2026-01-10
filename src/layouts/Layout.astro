@@ -24,6 +24,12 @@ const { title, description = "Premium car detailing services that restore your v
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
+  <!-- Cursor Glow Effect -->
+  <div class="cursor-glow" id="cursor-glow"></div>
+
+  <!-- Page Transition Overlay -->
+  <div class="page-transition" id="page-transition"></div>
+
   <Navigation />
 
   <main>
@@ -137,48 +143,77 @@ const { title, description = "Premium car detailing services that restore your v
   }
 
   .section-title {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 2.75rem;
+    font-weight: 800;
     text-align: center;
     margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, var(--white) 0%, #CCCCCC 50%, var(--white) 100%);
+    background: linear-gradient(135deg, var(--white) 0%, #E0E0E0 50%, var(--white) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    letter-spacing: -0.02em;
   }
 
   .section-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     text-align: center;
     color: var(--accent-light);
     margin-bottom: 3.5rem;
-    max-width: 600px;
+    max-width: 650px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.7;
   }
 
   .btn {
     display: inline-block;
     padding: 1rem 2rem;
-    border-radius: 6px;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid transparent;
     cursor: pointer;
     font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+  }
+
+  .btn:hover::before {
+    width: 300px;
+    height: 300px;
   }
 
   .btn-primary {
     background: var(--primary-red);
     color: var(--white);
     border-color: var(--primary-red);
+    box-shadow: 0 4px 15px rgba(140, 43, 43, 0.3);
   }
 
   .btn-primary:hover {
     background: var(--dark-red);
     border-color: var(--dark-red);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(140, 43, 43, 0.4);
+  }
+
+  .btn-primary:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(140, 43, 43, 0.3);
   }
 
   .btn-outline {
@@ -190,6 +225,12 @@ const { title, description = "Premium car detailing services that restore your v
   .btn-outline:hover {
     background: var(--white);
     color: var(--black);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+  }
+
+  .btn-outline:active {
+    transform: translateY(-1px);
   }
 
   /* Footer Styles */
@@ -273,6 +314,65 @@ const { title, description = "Premium car detailing services that restore your v
     font-size: 0.8rem;
   }
 
+  /* Page Transition */
+  .page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1A1A1A;
+    z-index: 10001;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+
+  .page-transition.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  /* Page load animation */
+  main {
+    animation: pageIn 0.5s ease-out;
+  }
+
+  @keyframes pageIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Cursor Glow Effect */
+  .cursor-glow {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(140, 43, 43, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .cursor-glow.active {
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    .cursor-glow {
+      display: none;
+    }
+  }
+
   /* Scroll Animations */
   .fade-in {
     opacity: 0;
@@ -292,7 +392,7 @@ const { title, description = "Premium car detailing services that restore your v
 
   @media (max-width: 768px) {
     .section-title {
-      font-size: 2rem;
+      font-size: 2.25rem;
     }
 
     .footer-content {
@@ -317,6 +417,36 @@ const { title, description = "Premium car detailing services that restore your v
 </style>
 
 <script>
+  // Cursor glow effect
+  const cursorGlow = document.getElementById('cursor-glow');
+
+  if (cursorGlow && window.innerWidth > 768) {
+    let mouseX = 0;
+    let mouseY = 0;
+    let glowX = 0;
+    let glowY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursorGlow.classList.add('active');
+    });
+
+    document.addEventListener('mouseleave', () => {
+      cursorGlow.classList.remove('active');
+    });
+
+    // Smooth follow animation
+    const animateGlow = () => {
+      glowX += (mouseX - glowX) * 0.1;
+      glowY += (mouseY - glowY) * 0.1;
+      cursorGlow.style.left = glowX + 'px';
+      cursorGlow.style.top = glowY + 'px';
+      requestAnimationFrame(animateGlow);
+    };
+    animateGlow();
+  }
+
   // Scroll animation observer
   document.addEventListener('DOMContentLoaded', () => {
     const observerOptions = {
@@ -335,5 +465,54 @@ const { title, description = "Premium car detailing services that restore your v
     document.querySelectorAll('.fade-in').forEach(el => {
       observer.observe(el);
     });
+
+    // Parallax effect
+    const parallaxElements = document.querySelectorAll('[data-parallax]');
+
+    if (parallaxElements.length > 0) {
+      window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+
+        parallaxElements.forEach(el => {
+          const speed = parseFloat(el.getAttribute('data-parallax') || '0.5');
+          const rect = el.getBoundingClientRect();
+          const elementTop = rect.top + scrollY;
+          const offset = (scrollY - elementTop) * speed;
+
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            (el as HTMLElement).style.transform = `translateY(${offset}px)`;
+          }
+        });
+      }, { passive: true });
+    }
+
+    // Page transition effect
+    const pageTransition = document.getElementById('page-transition');
+
+    if (pageTransition) {
+      // Handle internal link clicks for smooth transitions
+      document.querySelectorAll('a').forEach(link => {
+        const href = link.getAttribute('href');
+
+        // Skip external links, anchor links, tel/mailto, and links that open in new tabs
+        if (!href ||
+            href.startsWith('#') ||
+            href.startsWith('tel:') ||
+            href.startsWith('mailto:') ||
+            href.startsWith('http') ||
+            link.getAttribute('target') === '_blank') {
+          return;
+        }
+
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          pageTransition.classList.add('active');
+
+          setTimeout(() => {
+            window.location.href = href;
+          }, 150);
+        });
+      });
+    }
   });
 </script>

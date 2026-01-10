@@ -1,11 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
+import Stats from '../components/Stats.astro';
+import BrandLogos from '../components/BrandLogos.astro';
 import GoogleReviews from '../components/GoogleReviews.tsx';
 ---
 
 <Layout title="Finésse Detailing - Fine Motorcar & Marine Detailing Services" description="Fine motorcar & marine detailing services in Port Washington, NY. Exterior, interior, ceramic coating, and paint protection. Professional results with 5-star reviews.">
   <Hero />
+
+  <!-- Stats Section -->
+  <Stats />
+
+  <!-- Brand Logos -->
+  <BrandLogos />
 
   <!-- Why Choose Us Section -->
   <section class="why-choose section">
@@ -53,20 +61,6 @@ import GoogleReviews from '../components/GoogleReviews.tsx';
       <div class="cta-content fade-in">
         <h2>Ready to Transform Your Vehicle?</h2>
         <p>Experience the difference that professional detailing makes. Book your appointment today.</p>
-        <div class="trust-badges">
-          <div class="trust-badge">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-            <span>Fully Insured</span>
-          </div>
-          <div class="trust-badge">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <span>5-Star Rated</span>
-          </div>
-          <div class="trust-badge">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>20+ Years Experience</span>
-          </div>
-        </div>
         <div class="cta-buttons">
           <a href="tel:+15167673637" class="btn btn-outline large">Call or Text Now</a>
           <a href="/contact" class="btn btn-outline large">Get a Quote</a>
@@ -111,11 +105,23 @@ import GoogleReviews from '../components/GoogleReviews.tsx';
     text-align: center;
     border: 1px solid rgba(140, 43, 43, 0.3);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(140, 43, 43, 0.1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(140, 43, 43, 0.3);
+    border-color: rgba(140, 43, 43, 0.5);
+  }
+
+  .feature-card:hover .feature-icon {
+    transform: scale(1.1);
   }
 
   .feature-icon {
     margin-bottom: 1.5rem;
     color: var(--primary-red);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .feature-icon svg {
@@ -125,14 +131,15 @@ import GoogleReviews from '../components/GoogleReviews.tsx';
 
   .feature-card h3 {
     color: var(--white);
-    font-size: 1.3rem;
+    font-size: 1.35rem;
     margin-bottom: 1rem;
-    font-weight: 600;
+    font-weight: 700;
+    letter-spacing: -0.01em;
   }
 
   .feature-card p {
-    color: #CCCCCC;
-    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.7;
     font-size: 0.95rem;
   }
 
@@ -167,41 +174,22 @@ import GoogleReviews from '../components/GoogleReviews.tsx';
   }
 
   .cta-content h2 {
-    font-size: 2.5rem;
+    font-size: 2.75rem;
     color: var(--white);
     margin-bottom: 1rem;
-    font-weight: 700;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
   }
 
   .cta-content p {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.95);
     margin-bottom: 2rem;
-    max-width: 600px;
+    max-width: 650px;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .trust-badges {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
-  }
-
-  .trust-badge {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.95rem;
-    font-weight: 500;
-  }
-
-  .trust-badge svg {
-    color: var(--white);
-    opacity: 0.9;
+    line-height: 1.6;
   }
 
   .cta-buttons {
@@ -244,16 +232,6 @@ import GoogleReviews from '../components/GoogleReviews.tsx';
 
     .cta-content p {
       font-size: 1rem;
-    }
-
-    .trust-badges {
-      flex-direction: column;
-      gap: 1rem;
-      align-items: center;
-    }
-
-    .trust-badge {
-      font-size: 0.9rem;
     }
 
     .cta-buttons {

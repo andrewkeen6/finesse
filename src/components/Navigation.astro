@@ -151,17 +151,23 @@ const currentPath = Astro.url.pathname;
     background: var(--primary-red);
     color: var(--white);
     padding: 0.7rem 1.5rem;
-    border-radius: 6px;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid var(--primary-red);
+    box-shadow: 0 4px 15px rgba(140, 43, 43, 0.3);
   }
 
   .nav-cta:hover {
     background: transparent;
     color: var(--primary-red);
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(140, 43, 43, 0.2);
+  }
+
+  .nav-cta:active {
+    transform: translateY(0);
   }
 
   .nav-toggle {

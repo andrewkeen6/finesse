@@ -1,0 +1,177 @@
+---
+interface Stat {
+  value: number;
+  suffix: string;
+  label: string;
+}
+
+const stats: Stat[] = [
+  { value: 500, suffix: '+', label: 'Cars Detailed' },
+  { value: 50, suffix: '+', label: 'Boats Detailed' },
+  { value: 20, suffix: '+', label: 'Years Experience' },
+  { value: 5.0, suffix: '', label: 'Star Rating' },
+];
+---
+
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      {stats.map((stat, index) => (
+        <div class="stat-item fade-in" style={`--delay: ${index * 0.1}s`}>
+          <div class="stat-value">
+            <span class="stat-number" data-target={stat.value} data-suffix={stat.suffix}>0</span>
+            <span class="stat-suffix">{stat.suffix}</span>
+          </div>
+          <div class="stat-label">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .stats-section {
+    padding: 3rem 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(140, 43, 43, 0.05) 50%, transparent 100%);
+    border-top: 1px solid rgba(140, 43, 43, 0.2);
+    border-bottom: 1px solid rgba(140, 43, 43, 0.2);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .stat-item {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition-delay: var(--delay, 0s);
+  }
+
+  .stat-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .stat-value {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.1rem;
+  }
+
+  .stat-number {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--white) 0%, var(--primary-red) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+
+  .stat-suffix {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-red);
+  }
+
+  .stat-label {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 768px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem 1rem;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+    }
+
+    .stat-suffix {
+      font-size: 1.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .stat-number {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    const statItems = document.querySelectorAll('.stat-item');
+    let animated = false;
+
+    const animateNumbers = () => {
+      if (animated) return;
+      animated = true;
+
+      statNumbers.forEach(stat => {
+        const target = parseFloat(stat.getAttribute('data-target') || '0');
+        const suffix = stat.getAttribute('data-suffix') || '';
+        const isDecimal = target % 1 !== 0;
+        const duration = 2000;
+        const startTime = performance.now();
+
+        const updateNumber = (currentTime: number) => {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+
+          // Easing function for smooth animation
+          const easeOut = 1 - Math.pow(1 - progress, 3);
+          const current = target * easeOut;
+
+          if (isDecimal) {
+            stat.textContent = current.toFixed(1);
+          } else {
+            stat.textContent = Math.floor(current).toString();
+          }
+
+          if (progress < 1) {
+            requestAnimationFrame(updateNumber);
+          } else {
+            stat.textContent = isDecimal ? target.toFixed(1) : target.toString();
+          }
+        };
+
+        requestAnimationFrame(updateNumber);
+      });
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Add visible class to stat items
+          statItems.forEach(item => item.classList.add('visible'));
+          // Start number animation
+          setTimeout(animateNumbers, 300);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const statsSection = document.querySelector('.stats-section');
+    if (statsSection) {
+      observer.observe(statsSection);
+    }
+  });
+</script>
