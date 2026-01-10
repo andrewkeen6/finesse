@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-01-09T05:32:45.846Z",
-  "totalImages": 86,
-  "totalVideos": 17,
+  "generatedAt": "2026-01-10T05:16:23.554Z",
+  "totalImages": 89,
+  "totalVideos": 19,
   "media": [
     {
       "id": "2025-12-30_66795073197__A1442FCB-66EF-40E3-99AE-4F324EDD82A0",
@@ -147,6 +147,49 @@
       "full": "/gallery/full/2025-12-18_Porsche_IMG_8981.mov",
       "category": "vehicle",
       "date": "2025-12-18"
+    },
+    {
+      "id": "2025-11-17-IMG_7311.HEIC",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2025-11-17-IMG_7311.HEIC.jpg",
+      "full": "/gallery/full/2025-11-17-IMG_7311.HEIC",
+      "category": "gallery",
+      "date": "2025-11-17",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2025-11-17-IMG_7331.HEIC",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2025-11-17-IMG_7331.HEIC.jpg",
+      "full": "/gallery/full/2025-11-17-IMG_7331.HEIC",
+      "category": "gallery",
+      "date": "2025-11-17",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2025-11-17-IMG_7347.HEIC",
+      "type": "image",
+      "thumbnail": "/src/assets/gallery/images/2025-11-17-IMG_7347.HEIC.jpg",
+      "full": "/gallery/full/2025-11-17-IMG_7347.HEIC",
+      "category": "gallery",
+      "date": "2025-11-17",
+      "originalFormat": "heic"
+    },
+    {
+      "id": "2025-11-17-IMG_7323",
+      "type": "video",
+      "thumbnail": "/src/assets/gallery/video-thumbs/2025-11-17-IMG_7323.jpg",
+      "full": "/gallery/full/2025-11-17-IMG_7323.MOV",
+      "category": "gallery",
+      "date": "2025-11-17"
+    },
+    {
+      "id": "2025-11-17-IMG_7345",
+      "type": "video",
+      "thumbnail": "/src/assets/gallery/video-thumbs/2025-11-17-IMG_7345.jpg",
+      "full": "/gallery/full/2025-11-17-IMG_7345.MOV",
+      "category": "gallery",
+      "date": "2025-11-17"
     },
     {
       "id": "2025-10-22_IMG_3445",
