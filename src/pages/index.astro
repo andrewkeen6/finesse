@@ -4,6 +4,7 @@ import Hero from '../components/Hero.astro';
 import Stats from '../components/Stats.astro';
 import BrandLogos from '../components/BrandLogos.astro';
 import GoogleReviews from '../components/GoogleReviews.tsx';
+import { contact } from '../data/siteConfig';
 ---
 
 <Layout title="Finésse Detailing - Fine Motorcar & Marine Detailing Services" description="Fine motorcar & marine detailing services in Port Washington, NY. Exterior, interior, ceramic coating, and paint protection. Professional results with 5-star reviews.">
@@ -62,7 +63,7 @@ import GoogleReviews from '../components/GoogleReviews.tsx';
         <h2>Ready to Transform Your Vehicle?</h2>
         <p>Experience the difference that professional detailing makes. Book your appointment today.</p>
         <div class="cta-buttons">
-          <a href="tel:+15167673637" class="btn btn-outline large">Call or Text Now</a>
+          <a href={contact.phone.href} class="btn btn-outline large">Call or Text Now</a>
           <a href="/contact" class="btn btn-outline large">Get a Quote</a>
         </div>
       </div>

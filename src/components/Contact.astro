@@ -1,4 +1,5 @@
 ---
+import { contact } from '../data/siteConfig';
 ---
 
 <section class="contact section">
@@ -13,7 +14,7 @@
               <div class="detail-icon">📞</div>
               <div class="detail-content">
                 <h4>Phone</h4>
-                <p><a href="tel:+15167673637">(516) 767-3637</a></p>
+                <p><a href={contact.phone.href}>{contact.phone.display}</a></p>
               </div>
             </div>
 
@@ -21,7 +22,7 @@
               <div class="detail-icon">📧</div>
               <div class="detail-content">
                 <h4>Email</h4>
-                <p><a href="mailto:info@finessedetailing.com">info@finessedetailing.com</a></p>
+                <p><a href={contact.email.href}>{contact.email.display}</a></p>
               </div>
             </div>
 
@@ -29,7 +30,7 @@
               <div class="detail-icon">📍</div>
               <div class="detail-content">
                 <h4>Address</h4>
-                <p><a href="https://www.google.com/maps/dir/?api=1&destination=439B+Main+Street,+Port+Washington,+NY+11050" target="_blank">439B Main Street<br>Port Washington, NY 11050</a></p>
+                <p><a href={contact.address.mapsUrl} target="_blank">{contact.address.street}<br>{contact.address.city}, {contact.address.state} {contact.address.zip}</a></p>
               </div>
             </div>
           </div>
@@ -37,14 +38,14 @@
         </div>
 
         <div class="quick-actions">
-          <a href="tel:+15167673637" class="btn btn-primary large">Call or Text</a>
+          <a href={contact.phone.href} class="btn btn-primary large">Call or Text</a>
         </div>
       </div>
 
       <div class="contact-form-section">
         <div class="form-card">
           <h3>Send Us a Message</h3>
-          <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST" data-phone={contact.phone.display}>
             <input type="hidden" name="access_key" value="f4b6f986-d15e-4637-8537-fe89e6476a9d">
             <input type="hidden" name="subject" value="New Contact Form Submission - Finesse Detailing">
             <input type="hidden" name="from_name" value="Finesse Detailing Website">
@@ -106,7 +107,7 @@
         <div class="map-placeholder" id="google-map">
           <!-- Google Maps embed will be loaded here -->
           <iframe
-            src="https://maps.google.com/maps?q=439B%20Main%20Street,%20Port%20Washington,%20NY%2011050&output=embed"
+            src={contact.address.embedUrl}
             width="100%"
             height="400"
             style="border:0;"
@@ -401,7 +402,8 @@
         }
       } catch (error) {
         console.error('Form submission error:', error);
-        alert('There was an error sending your message. Please try again or call us directly at (516) 767-3637.');
+        const phone = form.dataset.phone || '(516) 767-3637';
+        alert(`There was an error sending your message. Please try again or call us directly at ${phone}.`);
       } finally {
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;

@@ -1,5 +1,6 @@
 ---
 import Navigation from '../components/Navigation.astro';
+import { contact } from '../data/siteConfig';
 
 export interface Props {
   title: string;
@@ -54,9 +55,9 @@ const { title, description = "Premium car detailing services that restore your v
     <div class="footer-container">
       <div class="footer-content">
         <div class="footer-contact">
-          <p><a href="tel:+15167673637">📞  (516) 767-3637</a></p>
-          <p><a href="mailto:info@finessedetailing.com">📧  info@finessedetailing.com</a></p>
-          <p><a href="https://www.google.com/maps/dir/?api=1&destination=439B+Main+Street,+Port+Washington,+NY+11050" target="_blank">📍  439B Main Street, Port Washington, NY 11050</a></p>
+          <p><a href={contact.phone.href}>📞  {contact.phone.display}</a></p>
+          <p><a href={contact.email.href}>📧  {contact.email.display}</a></p>
+          <p><a href={contact.address.mapsUrl} target="_blank">📍  {contact.address.full}</a></p>
           <div class="social-links">
             <a href="https://www.facebook.com/finesse.detailing" aria-label="Facebook" target="_blank">
               <img src="/facebook-logo.png" alt="Facebook" class="social-icon" /> Facebook

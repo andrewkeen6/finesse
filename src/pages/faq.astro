@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { contact } from '../data/siteConfig';
 ---
 
 <Layout title="FAQ - Finésse Detailing" description="Frequently asked questions about our motorcar & marine detailing services, pricing, scheduling, and processes. Get answers to common questions about ceramic coating and more.">
@@ -29,7 +30,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <div class="faq-item">
           <h3>How do I schedule a service?</h3>
-          <p>Simply call or text us at (516) 767-3637. We'll discuss your needs and find a convenient time for your detailing service.</p>
+          <p>Simply call or text us at {contact.phone.display}. We'll discuss your needs and find a convenient time for your detailing service.</p>
         </div>
         <div class="faq-item">
           <h3>Do you detail boats and marine vessels?</h3>
