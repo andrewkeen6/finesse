@@ -41,11 +41,15 @@
         </div>
       </div>
 
-      <!-- Contact form temporarily hidden - uncomment when functional
       <div class="contact-form-section">
         <div class="form-card">
           <h3>Send Us a Message</h3>
-          <form class="contact-form" id="contact-form">
+          <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="f4b6f986-d15e-4637-8537-fe89e6476a9d">
+            <input type="hidden" name="subject" value="New Contact Form Submission - Finesse Detailing">
+            <input type="hidden" name="from_name" value="Finesse Detailing Website">
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
             <div class="form-row">
               <div class="form-group">
                 <label for="name">Full Name *</label>
@@ -59,14 +63,18 @@
 
             <div class="form-group">
               <label for="service">Service Interested In</label>
-              <select id="service" name="service">
-                <option value="">Select a service...</option>
-                <option value="complete">Complete Detail</option>
-                <option value="exterior">Exterior Detail</option>
-                <option value="interior">Interior Detail</option>
-                <option value="ceramic">Ceramic Coating</option>
-                <option value="other">Other / Consultation</option>
-              </select>
+              <div class="select-wrapper">
+                <select id="service" name="service">
+                  <option value="">Select a service...</option>
+                  <option value="complete_detail">Complete Detail</option>
+                  <option value="exterior_detail">Exterior Detail</option>
+                  <option value="interior_detail">Interior Detail</option>
+                  <option value="ceramic_coating">Ceramic Coating</option>
+                  <option value="window_tinting">Window Tinting</option>
+                  <option value="brake_caliper_color_kit">Brake Caliper Color Kit</option>
+                  <option value="custom_package">Custom Package</option>
+                </select>
+              </div>
             </div>
 
             <div class="form-group">
@@ -79,11 +87,13 @@
               <textarea id="message" name="message" rows="5" placeholder="Tell us about your vehicle's condition, specific concerns, or any questions you have..."></textarea>
             </div>
 
+            <div class="h-captcha" data-captcha="true" data-theme="dark"></div>
+
             <button type="submit" class="btn btn-primary large">Send Message</button>
           </form>
+          <script src="https://web3forms.com/client/script.js" async defer></script>
         </div>
       </div>
-      -->
     </div>
 
     <div class="map-section">
@@ -118,12 +128,9 @@
 
   .contact-content {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1.5fr;
     gap: 4rem;
     margin-bottom: 4rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .info-card,
@@ -242,6 +249,44 @@
     min-height: 120px;
   }
 
+  /* Custom Select Styling */
+  .select-wrapper {
+    position: relative;
+  }
+
+  .select-wrapper::after {
+    content: '';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid var(--primary-red);
+    pointer-events: none;
+  }
+
+  .select-wrapper select {
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    padding-right: 2.5rem;
+  }
+
+  .select-wrapper select option {
+    background: var(--black);
+    color: var(--white);
+    padding: 0.75rem;
+  }
+
+  .select-wrapper select:hover {
+    border-color: var(--primary-red);
+  }
+
   /* Map Styles */
   .map-section {
     background: var(--card-dark);
@@ -320,73 +365,47 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // Initialize EmailJS
-    if (typeof emailjs !== 'undefined') {
-      emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your actual EmailJS public key
-    }
+    const form = document.getElementById('contact-form') as HTMLFormElement;
 
-    const form = document.getElementById('contact-form');
-
-    form?.addEventListener('submit', (e) => {
+    form?.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
+      // Check if hCaptcha is completed
+      const hCaptchaResponse = form.querySelector('textarea[name="h-captcha-response"]') as HTMLTextAreaElement;
+      if (!hCaptchaResponse || !hCaptchaResponse.value) {
+        alert('Please complete the captcha verification.');
+        return;
+      }
 
-      const submitBtn = form.querySelector('button[type="submit"]');
+      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
       const originalText = submitBtn.textContent;
 
       submitBtn.textContent = 'Sending...';
       submitBtn.disabled = true;
 
-      // Check if EmailJS is available
-      if (typeof emailjs === 'undefined') {
-        // Fallback to simple alert if EmailJS is not loaded
-        setTimeout(() => {
-          alert('Thank you! Your message has been received. We\'ll get back to you within 24 hours.');
-          form.reset();
-          submitBtn.textContent = originalText;
-          submitBtn.disabled = false;
-        }, 1500);
-        return;
-      }
+      try {
+        const formData = new FormData(form);
 
-      // Format the contact data for email
-      const emailData = {
-        to_email: 'andrew.keen6@gmail.com',
-        customer_name: data.name,
-        customer_phone: data.phone,
-        service_interest: data.service || 'General Inquiry',
-        vehicle_info: data.vehicle || 'Not specified',
-        message: data.message || 'No additional message',
-        contact_date: new Date().toLocaleDateString(),
-        contact_time: new Date().toLocaleTimeString()
-      };
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
 
-      // Send email using EmailJS
-      emailjs.send('YOUR_SERVICE_ID', 'YOUR_CONTACT_TEMPLATE_ID', emailData)
-        .then(() => {
+        const result = await response.json();
+
+        if (result.success) {
           alert('Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.');
           form.reset();
-        })
-        .catch((error) => {
-          console.error('EmailJS Error:', error);
-          alert('There was an error sending your message. Please try again or call us directly at (516) 767-3637.');
-        })
-        .finally(() => {
-          submitBtn.textContent = originalText;
-          submitBtn.disabled = false;
-        });
+        } else {
+          throw new Error(result.message || 'Something went wrong');
+        }
+      } catch (error) {
+        console.error('Form submission error:', error);
+        alert('There was an error sending your message. Please try again or call us directly at (516) 767-3637.');
+      } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
     });
   });
-
-  function openDirections() {
-    const address = encodeURIComponent('439B Main Street, Port Washington, NY 11050');
-    window.open(`https://www.google.com/maps/dir/?api=1&destination=${address}`, '_blank');
-  }
-
-  function viewLargerMap() {
-    const address = encodeURIComponent('439B Main Street, Port Washington, NY 11050');
-    window.open(`https://www.google.com/maps/search/${address}`, '_blank');
-  }
 </script>
