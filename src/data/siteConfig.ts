@@ -1,6 +1,10 @@
 // Centralized site configuration
 // Update these values in one place to change them across the entire site
 
+export const analytics = {
+  googleAnalyticsId: 'G-KCHSVBKFFV',
+};
+
 export const contact = {
   phone: {
     display: '(516) 767-3637',

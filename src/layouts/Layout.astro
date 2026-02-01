@@ -1,6 +1,6 @@
 ---
 import Navigation from '../components/Navigation.astro';
-import { contact } from '../data/siteConfig';
+import { contact, analytics } from '../data/siteConfig';
 
 export interface Props {
   title: string;
@@ -13,6 +13,15 @@ const { title, description = "Premium car detailing services that restore your v
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Analytics -->
+  <script async src={`https://www.googletagmanager.com/gtag/js?id=${analytics.googleAnalyticsId}`}></script>
+  <script define:vars={{ gaId: analytics.googleAnalyticsId }}>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', gaId);
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="description" content={description} />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
