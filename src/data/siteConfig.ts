@@ -7,13 +7,14 @@ export const analytics = {
 
 export const contact = {
   phone: {
-    display: '(516) 767-3637',
-    href: 'tel:+15167673637',
-    raw: '+15167673637',
+    display: '(718) 541-9544',
+    href: 'tel:+17185419544',
+    smsHref: 'sms:+17185419544',
+    raw: '+17185419544',
   },
   email: {
-    display: 'info@finessedetailing.com',
-    href: 'mailto:info@finessedetailing.com',
+    display: 'finessedetailing@gmail.com',
+    href: 'mailto:finessedetailing@gmail.com',
   },
   address: {
     street: '439B Main Street',
