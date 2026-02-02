@@ -1,8 +1,26 @@
 // Centralized site configuration
 // Update these values in one place to change them across the entire site
 
+export const siteInfo = {
+  name: 'Finésse Detailing',
+  url: 'https://finessedetailing.com',
+  description: 'Premium motorcar & marine detailing services in Port Washington, NY.',
+  logo: '/logo_dark.png',
+};
+
 export const analytics = {
   googleAnalyticsId: 'G-KCHSVBKFFV',
+};
+
+export const businessInfo = {
+  name: 'Finésse Detailing',
+  type: 'AutoDetailingService',
+  priceRange: '$$',
+  areaServed: ['Port Washington', 'Manhasset', 'Great Neck', 'Roslyn', 'Long Island'],
+  sameAs: [
+    'https://www.facebook.com/finesse.detailing',
+    'https://instagram.com/finessedetail',
+  ],
 };
 
 export const contact = {

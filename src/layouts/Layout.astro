@@ -1,13 +1,50 @@
 ---
 import Navigation from '../components/Navigation.astro';
-import { contact, analytics } from '../data/siteConfig';
+import { contact, analytics, siteInfo, businessInfo } from '../data/siteConfig';
 
 export interface Props {
   title: string;
   description?: string;
+  canonicalUrl?: string;
 }
 
 const { title, description = "Premium car detailing services that restore your vehicle's shine and protect its value." } = Astro.props;
+const canonicalUrl = Astro.props.canonicalUrl || new URL(Astro.url.pathname, siteInfo.url).href;
+
+// JSON-LD Structured Data for Local Business
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'AutoBodyShop',
+  '@id': siteInfo.url,
+  name: businessInfo.name,
+  image: `${siteInfo.url}${siteInfo.logo}`,
+  url: siteInfo.url,
+  telephone: contact.phone.raw,
+  email: contact.email.display,
+  priceRange: businessInfo.priceRange,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: contact.address.street,
+    addressLocality: contact.address.city,
+    addressRegion: contact.address.state,
+    postalCode: contact.address.zip,
+    addressCountry: 'US',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 40.8296,
+    longitude: -73.6982,
+  },
+  areaServed: businessInfo.areaServed.map(area => ({
+    '@type': 'City',
+    name: area,
+  })),
+  sameAs: businessInfo.sameAs,
+  additionalType: [
+    'https://schema.org/AutoDetailingService',
+    'https://schema.org/BoatRepair',
+  ],
+};
 ---
 
 <!DOCTYPE html>
@@ -15,33 +52,43 @@ const { title, description = "Premium car detailing services that restore your v
 <head>
   <!-- Google Analytics -->
   <script async src={`https://www.googletagmanager.com/gtag/js?id=${analytics.googleAnalyticsId}`}></script>
-  <script define:vars={{ gaId: analytics.googleAnalyticsId }}>
+  <script define:vars={{ gaId: analytics.googleAnalyticsId, pageTitle: title, pageUrl: canonicalUrl }}>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', gaId);
+    gtag('config', gaId, {
+      page_title: pageTitle,
+      page_location: pageUrl,
+      send_page_view: true,
+    });
   </script>
 
   <meta charset="UTF-8" />
   <meta name="description" content={description} />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="canonical" href={canonicalUrl} />
   <meta name="generator" content={Astro.generator} />
   <title>{title}</title>
 
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalUrl} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content="/BusinessCard_Front_Black.png" />
+  <meta property="og:image" content={`${siteInfo.url}${siteInfo.logo}`} />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content={siteInfo.name} />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content="/BusinessCard_Front_Black.png" />
+  <meta name="twitter:image" content={`${siteInfo.url}${siteInfo.logo}`} />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -538,5 +585,134 @@ const { title, description = "Premium car detailing services that restore your v
         });
       });
     }
+  });
+</script>
+
+<!-- Google Analytics Event Tracking -->
+<script>
+  // Helper function to safely call gtag
+  function trackEvent(eventName: string, params: Record<string, unknown>) {
+    if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+      (window as any).gtag('event', eventName, params);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Track phone link clicks
+    document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+      link.addEventListener('click', () => {
+        trackEvent('click', {
+          event_category: 'contact',
+          event_label: 'phone_call',
+          link_url: link.getAttribute('href'),
+        });
+      });
+    });
+
+    // Track SMS link clicks
+    document.querySelectorAll('a[href^="sms:"]').forEach(link => {
+      link.addEventListener('click', () => {
+        trackEvent('click', {
+          event_category: 'contact',
+          event_label: 'sms',
+          link_url: link.getAttribute('href'),
+        });
+      });
+    });
+
+    // Track email link clicks
+    document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+      link.addEventListener('click', () => {
+        trackEvent('click', {
+          event_category: 'contact',
+          event_label: 'email',
+          link_url: link.getAttribute('href'),
+        });
+      });
+    });
+
+    // Track outbound links (external)
+    document.querySelectorAll('a[target="_blank"], a[href^="http"]').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && !href.includes(window.location.hostname)) {
+        link.addEventListener('click', () => {
+          trackEvent('click', {
+            event_category: 'outbound',
+            event_label: href,
+            link_url: href,
+          });
+        });
+      }
+    });
+
+    // Track CTA button clicks
+    document.querySelectorAll('.btn-primary, .btn-outline').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const buttonText = btn.textContent?.trim() || 'unknown';
+        const href = btn.getAttribute('href') || '';
+
+        // Skip if already tracked as phone/email/sms
+        if (href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('sms:')) {
+          return;
+        }
+
+        trackEvent('click', {
+          event_category: 'cta',
+          event_label: buttonText,
+          link_url: href,
+        });
+      });
+    });
+
+    // Track form submissions
+    document.querySelectorAll('form').forEach(form => {
+      form.addEventListener('submit', () => {
+        const formId = form.id || form.getAttribute('name') || 'unknown_form';
+        trackEvent('form_submit', {
+          event_category: 'form',
+          event_label: formId,
+          form_id: formId,
+        });
+      });
+    });
+
+    // Track scroll depth
+    let scrollDepths = [25, 50, 75, 90];
+    let trackedDepths: number[] = [];
+
+    function getScrollPercent() {
+      const h = document.documentElement;
+      const b = document.body;
+      const st = 'scrollTop';
+      const sh = 'scrollHeight';
+      return Math.round((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100);
+    }
+
+    window.addEventListener('scroll', () => {
+      const scrollPercent = getScrollPercent();
+
+      scrollDepths.forEach(depth => {
+        if (scrollPercent >= depth && !trackedDepths.includes(depth)) {
+          trackedDepths.push(depth);
+          trackEvent('scroll', {
+            event_category: 'engagement',
+            event_label: `${depth}%`,
+            value: depth,
+          });
+        }
+      });
+    }, { passive: true });
+
+    // Track time on page
+    let timeIntervals = [30, 60, 120, 300]; // seconds
+    timeIntervals.forEach(seconds => {
+      setTimeout(() => {
+        trackEvent('time_on_page', {
+          event_category: 'engagement',
+          event_label: `${seconds}s`,
+          value: seconds,
+        });
+      }, seconds * 1000);
+    });
   });
 </script>
