@@ -2,7 +2,7 @@
 // Update these values in one place to change them across the entire site
 
 export const siteInfo = {
-  name: 'Finésse Detailing',
+  name: 'Finèsse Detailing',
   url: 'https://finessedetailing.com',
   description: 'Premium motorcar & marine detailing services in Port Washington, NY.',
   logo: '/logo_dark.png',
@@ -13,7 +13,7 @@ export const analytics = {
 };
 
 export const businessInfo = {
-  name: 'Finésse Detailing',
+  name: 'Finèsse Detailing',
   type: 'AutoDetailingService',
   priceRange: '$$',
   areaServed: ['Port Washington', 'Manhasset', 'Great Neck', 'Roslyn', 'Long Island'],

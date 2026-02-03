@@ -1,4 +1,4 @@
-# EmailJS Setup Guide for Finésse Detailing
+# EmailJS Setup Guide for Finèsse Detailing
 
 This guide will help you set up EmailJS to enable email functionality for the booking and contact forms.
 
